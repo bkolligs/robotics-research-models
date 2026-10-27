@@ -138,3 +138,5 @@ select { padding: 6px; border: 1px solid var(--line); background: var(--card); c
 .table-wrap { overflow-x: auto; }
 .controls > .group { min-width: 0; flex-wrap: wrap; }
 .filters input { min-width: 0; }
+
+#chart-population { margin: 0 12px 12px; }

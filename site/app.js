@@ -89,6 +89,14 @@ function renderStatus() {
 }
 
 function renderChart() {
+  const modelOnly = state.rate === "model";
+  document.getElementById("chart-title").textContent = modelOnly
+    ? "Model mentions among model papers only"
+    : "Model mentions among all robotics papers";
+  const population = modelOnly ? state.summary.any_model_papers : state.summary.papers_scanned;
+  document.getElementById("chart-population").textContent = modelOnly
+    ? `Within the cs.RO corpus, only papers mentioning at least one tracked model are included: ${population.toLocaleString()} papers across all months. Each month uses its own model-paper count as the denominator.`
+    : `All ${population.toLocaleString()} successfully scanned cs.RO papers are included, even those naming no tracked model. Each month uses its own scanned-paper count as the denominator.`;
   const months = state.summary.months;
   const allKeys = seriesKeys();
   const keys = allKeys.filter((key) => !state.hidden.has(key));
@@ -231,7 +239,10 @@ document.querySelectorAll("[data-view]").forEach((button) => {
 document.querySelectorAll("[data-rate]").forEach((button) => {
   button.addEventListener("click", () => {
     state.rate = button.dataset.rate;
-    document.querySelectorAll("[data-rate]").forEach((item) => item.classList.toggle("on", item === button));
+    document.querySelectorAll("[data-rate]").forEach((item) => {
+      item.classList.toggle("on", item === button);
+      item.setAttribute("aria-pressed", String(item === button));
+    });
     render();
   });
 });

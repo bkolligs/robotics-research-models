@@ -46,14 +46,15 @@
       <button type="button" data-view="countries">Countries</button>
       <button type="button" data-view="companies">Institutions</button>
     </div>
-    <div class="group" role="radiogroup" aria-label="Denominator">
-      <button type="button" data-rate="scanned" class="on">Share of scanned papers</button>
-      <button type="button" data-rate="model">Share of model papers</button>
+    <div class="group" role="radiogroup" aria-label="Paper population">
+      <button type="button" data-rate="scanned" class="on" aria-pressed="true">All robotics papers</button>
+      <button type="button" data-rate="model" aria-pressed="false">Model papers only</button>
     </div>
   </section>
 
   <section class="chart-card">
-    <div class="chart-heading"><h2>Monthly model mentions</h2></div>
+    <div class="chart-heading"><h2 id="chart-title">Model mentions among all robotics papers</h2></div>
+    <p id="chart-population" class="note"></p>
     <div id="chart"></div>
     <p id="chart-note" class="note"></p>
   </section>
