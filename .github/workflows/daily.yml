@@ -1,0 +1,41 @@
+name: daily corpus update
+
+on:
+  schedule:
+    # 12:30 UTC. arXiv's new-submission announcement is 00:00 UTC; the
+    # offset keeps this off the hour, which is when most crons pile up.
+    - cron: "30 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-corpus
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Install poppler
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Append new cs.RO papers
+        run: uv run --no-dev --group bulk mentions-daily
+      - name: Commit corpus and summary
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -d data/corpus ]; then git add data/corpus; fi
+          if [ -f output/summary.json ]; then git add output/summary.json; fi
+          if git diff --cached --quiet; then
+            echo "no corpus changes"
+          else
+            git commit -m "chore: update cs.RO mention corpus"
+            git push
+          fi

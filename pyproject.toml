@@ -1,0 +1,38 @@
+[project]
+name = "mentions"
+version = "0.1.0"
+description = "Which robotics models cs.RO papers name."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+charts = ["matplotlib>=3"]
+
+[project.scripts]
+mentions-harvest = "mentions.harvest:main"
+mentions-scan = "mentions.scan:main"
+mentions-daily = "mentions.daily:main"
+mentions-export = "mentions.export_corpus:main"
+mentions-site = "mentions.build_site:main"
+mentions-serve = "mentions.serve:main"
+mentions-chart = "mentions.chart:main"
+mentions-pipeline = "mentions.pipeline:main"
+
+[dependency-groups]
+dev = ["matplotlib>=3"]
+bulk = [
+    "boto3>=1.35",
+    "botocore[crt]>=1.35",
+]
+modal = [
+    "modal>=1.6.2",
+]
+
+[build-system]
+requires = ["uv_build>=0.10.8,<0.11"]
+build-backend = "uv_build"
+
+[tool.uv]
+package = true
+default-groups = ["dev"]

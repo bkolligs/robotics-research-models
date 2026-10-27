@@ -1,0 +1,25 @@
+{
+  "database_sha256": "d4aecce10e187fc1b29b2afb628c53ad6fe98ae722f629654d01f1f888335371",
+  "generated_at": "2026-10-27T07:09:28.295484+00:00",
+  "methodology_sha256": "deb6db28bb763d969670762f2a560b46fb93524dd492adc26a75fa7805c55de3",
+  "database_integrity": "ok",
+  "sql_aggregation_checks": "passed",
+  "discovered": 39275,
+  "scanned": 37324,
+  "model_papers": 8405,
+  "unavailable": 1951,
+  "statuses": {
+    "complete": 37324,
+    "missing_from_snapshot": 1951
+  },
+  "first_scanned": "2023-01-01T03:31:15Z",
+  "last_scanned": "2026-09-30T17:59:14Z",
+  "last_discovered": "2026-10-23T17:59:21Z",
+  "limitations": [
+    "Mentions include bibliography and do not establish use as a backbone.",
+    "No release-date gate is applied.",
+    "Results cover only the curated taxonomy and cs.RO corpus.",
+    "Metadata version is not independent verification of the version inside the bulk PDF.",
+    "Months with no scanned PDFs have undefined rates, not zero rates."
+  ]
+}

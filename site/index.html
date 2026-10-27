@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Robotics research models</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <p class="kicker">cs.RO mentions since January 2023</p>
+    <h1>Which robotics models papers name</h1>
+    <p class="lede">
+      Paper presence, counted the way the
+      <a href="https://dashboard.interconnects.ai/#arxiv-mentions">Interconnects arXiv-mentions</a>
+      study counts LLMs. Each release is its own row. A paper can name more than one.
+    </p>
+    <p id="status" class="status">Loading…</p>
+  </header>
+
+  <section class="analysis-card" aria-labelledby="analysis-title">
+    <h2 id="analysis-title">Full corpus analysis</h2>
+    <p id="coverage-note">Loading coverage…</p>
+    <p>These are <strong>mentions, including references</strong>, not evidence that a model was used as a backbone. Models, families, countries, and organizations can overlap; their shares need not sum to 100%.</p>
+    <p id="date-note">No release-date gate is applied. Later revisions can mention models released after a paper’s first submission.</p>
+    <details>
+      <summary>Inspect monthly coverage and unavailable papers</summary>
+      <div class="table-wrap"><table id="coverage-table"><thead><tr><th>Month</th><th>Discovered</th><th>Scanned</th><th>Unavailable</th><th>Naming a model</th><th>Share of scanned</th></tr></thead><tbody></tbody></table></div>
+    </details>
+    <details>
+      <summary>Download analysis tables and charts</summary>
+      <p>CSV shares are fractions from 0 to 1. Empty rate cells mean there are no eligible papers to use as a denominator.</p>
+      <ul id="analysis-downloads"></ul>
+      <p><a href="analysis/mentions.png">Model trends chart</a> · <a href="analysis/origin.png">Country and organization trends chart</a> · <a href="analysis/summary.json">Full summary</a> · <a href="analysis/analysis_provenance.json">Provenance and validation</a> · <a href="analysis/date_diagnostics.json">Date diagnostics</a></p>
+    </details>
+    <p><a href="https://github.com/bkolligs/robotics-research-models/blob/main/docs/METHODOLOGY.md">Read the methodology</a></p>
+  </section>
+
+  <section class="stats" id="stats"></section>
+
+  <section class="controls">
+    <div class="group" role="radiogroup" aria-label="What to plot">
+      <button type="button" data-view="variants" class="on">Models</button>
+      <button type="button" data-view="countries">Countries</button>
+      <button type="button" data-view="companies">Companies</button>
+    </div>
+    <div class="group" role="radiogroup" aria-label="Denominator">
+      <button type="button" data-rate="scanned" class="on">Share of scanned papers</button>
+      <button type="button" data-rate="model">Share of model papers</button>
+    </div>
+  </section>
+
+  <section class="chart-card">
+    <div id="chart"></div>
+    <p id="chart-note" class="note"></p>
+  </section>
+
+  <section>
+    <h2>Totals in this slice</h2>
+    <div class="table-wrap">
+      <table id="totals">
+        <thead>
+          <tr><th>Name</th><th>Origin</th><th>Papers</th><th>Share of scanned</th><th>Share of model papers</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Papers</h2>
+    <div class="filters">
+      <input id="query" type="search" placeholder="Filter by title or model" />
+      <span id="paper-count" class="note"></span>
+    </div>
+    <ul id="papers"></ul>
+  </section>
+
+  <footer>
+    <a href="https://github.com/bkolligs/robotics-research-models">Source</a>
+    · method notes in the repository README
+  </footer>
+  <script src="app.js"></script>
+  <script src="analysis.js"></script>
+</body>
+</html>
