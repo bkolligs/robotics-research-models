@@ -23,7 +23,7 @@ const state = {
 
 function nameOf(id) {
   if (state.view === "countries") return COUNTRY_NAMES[id] || id;
-  if (state.view === "companies") return id;
+  if (state.view === "companies" || state.view === "families") return id;
   const row = state.summary.variants.find((item) => item.id === id);
   return row ? row.label : id;
 }
@@ -31,8 +31,9 @@ function nameOf(id) {
 function seriesKeys() {
   const summary = state.summary;
   if (state.view === "variants") return summary.variants.map((row) => row.id);
+  if (state.view === "families") return summary.families.map((row) => row.id);
   if (state.view === "countries") return summary.countries.map((row) => row.id);
-  return summary.companies.slice(0, 8).map((row) => row.id);
+  return summary.companies.map((row) => row.id);
 }
 
 function percent(month, key) {
@@ -42,6 +43,33 @@ function percent(month, key) {
   const denom = state.rate === "model" ? block.any : block.papers;
   if (!denom) return null;
   return (100 * count) / denom;
+}
+
+function buildFamilies() {
+  const families = new Map();
+  const variants = new Map(state.summary.variants.map((row) => [row.id, row]));
+  for (const row of variants.values()) {
+    if (!families.has(row.family)) families.set(row.family, {
+      id: row.family, papers: 0, companies: new Set(), countries: new Set(),
+    });
+    const family = families.get(row.family);
+    if (row.company) family.companies.add(row.company);
+    if (row.country) family.countries.add(COUNTRY_NAMES[row.country] || row.country);
+  }
+  for (const block of Object.values(state.summary.monthly)) block.families = {};
+  for (const paper of state.papers) {
+    const uniqueFamilies = new Set(paper.variants.map((id) => variants.get(id)?.family).filter(Boolean));
+    for (const name of uniqueFamilies) {
+      families.get(name).papers += 1;
+      const monthly = state.summary.monthly[paper.month]?.families;
+      if (monthly) monthly[name] = (monthly[name] || 0) + 1;
+    }
+  }
+  state.summary.families = [...families.values()].map((row) => ({
+    id: row.id, papers: row.papers, company: [...row.companies].join(" / "),
+    country: [...row.countries].join(" / "),
+    share_of_model_papers: state.summary.any_model_papers ? row.papers / state.summary.any_model_papers : 0,
+  })).sort((a, b) => b.papers - a.papers);
 }
 
 function renderStatus() {
@@ -62,69 +90,77 @@ function renderStatus() {
 
 function renderChart() {
   const months = state.summary.months;
-  const keys = seriesKeys().filter((key) => !state.hidden.has(key));
-  const width = 1000;
-  const height = 360;
-  const pad = { l: 48, r: 16, t: 16, b: 46 };
-  const innerW = width - pad.l - pad.r;
-  const innerH = height - pad.t - pad.b;
-  const values = [];
-  keys.forEach((key) => months.forEach((month) => {
-    const value = percent(month, key);
-    if (value != null) values.push(value);
-  }));
-  const max = Math.max(5, ...values, 0);
-  const x = (index) => pad.l + (months.length <= 1 ? innerW / 2 : (index / (months.length - 1)) * innerW);
-  const y = (value) => pad.t + innerH - (value / max) * innerH;
-  const ticks = 4;
-  let grid = "";
-  for (let tick = 0; tick <= ticks; tick += 1) {
-    const value = (max * tick) / ticks;
-    const yy = y(value);
-    grid += `<line x1="${pad.l}" x2="${width - pad.r}" y1="${yy}" y2="${yy}" stroke="#e4ddd2"/>`;
-    grid += `<text x="${pad.l - 8}" y="${yy + 4}" text-anchor="end" font-size="11" fill="#5c564c">${value.toFixed(0)}%</text>`;
+  const allKeys = seriesKeys();
+  const keys = allKeys.filter((key) => !state.hidden.has(key));
+  const width = 1050, height = 430;
+  const pad = { l: 60, r: 16, t: 22, b: 52 };
+  const innerW = width - pad.l - pad.r, innerH = height - pad.t - pad.b;
+  const totals = months.map((month) => keys.reduce((sum, key) => sum + (percent(month, key) || 0), 0));
+  const max = Math.ceil(Math.max(10, ...totals) / 10) * 10;
+  const y = (value) => pad.t + innerH * (1 - value / max);
+  const step = innerW / Math.max(1, months.length);
+  const color = (key) => {
+    const index = allKeys.indexOf(key);
+    return index < COLORS.length ? COLORS[index] : `hsl(${(index * 137.508) % 360} 60% 48%)`;
+  };
+  const origin = (key) => {
+    if (!["variants", "families"].includes(state.view)) return "";
+    const row = state.summary[state.view].find((item) => item.id === key);
+    return [row?.company, COUNTRY_NAMES[row?.country] || row?.country].filter(Boolean).join(" · ");
+  };
+  let marks = "";
+  for (let tick = 0; tick <= 5; tick++) {
+    const value = max * tick / 5;
+    marks += `<line x1="${pad.l}" x2="${width-pad.r}" y1="${y(value)}" y2="${y(value)}" stroke="#e4ddd2"/><text x="${pad.l-8}" y="${y(value)+4}" text-anchor="end" font-size="12" fill="#5c564c">${value.toFixed(0)}%</text>`;
   }
   months.forEach((month, index) => {
-    if (index % 3 !== 0 && index !== months.length - 1) return;
-    grid += `<text x="${x(index)}" y="${height - 16}" text-anchor="middle" font-size="11" fill="#5c564c">${month}</text>`;
-  });
-  const lines = keys.map((key, index) => {
-    const color = COLORS[seriesKeys().indexOf(key) % COLORS.length];
-    const points = months.map((month, monthIndex) => {
+    const block = state.summary.monthly[month];
+    const denom = state.rate === "model" ? block.any : block.papers;
+    let bottom = 0;
+    keys.forEach((key) => {
       const value = percent(month, key);
-      return value == null ? null : `${x(monthIndex).toFixed(1)},${y(value).toFixed(1)}`;
-    }).filter(Boolean).join(" ");
-    return `<polyline fill="none" stroke="${color}" stroke-width="2" points="${points}"/>`;
-  }).join("");
+      if (value == null || value === 0) return;
+      const count = (block[state.view] || {})[key] || 0;
+      const detail = `${month} · ${nameOf(key)}${origin(key) ? ` · ${origin(key)}` : ""} · ${value.toFixed(2)}% · ${count.toLocaleString()} of ${denom.toLocaleString()} papers`;
+      marks += `<rect class="stack-segment" tabindex="0" data-detail="${escapeAttr(detail)}" aria-label="${escapeAttr(detail)}" x="${pad.l+index*step+step*0.08}" y="${y(bottom+value)}" width="${step*0.84}" height="${innerH*value/max}" fill="${color(key)}"><title>${escapeHtml(detail)}</title></rect>`;
+      bottom += value;
+    });
+    if (!denom) {
+      marks += `<text x="${pad.l+(index+0.5)*step}" y="${y(0)-6}" text-anchor="middle" font-size="12" fill="#5c564c"><title>${month}: no eligible papers</title>—</text>`;
+    }
+    if (index % 4 === 0 || index === months.length-1) {
+      marks += `<text x="${pad.l+(index+0.5)*step}" y="${height-22}" text-anchor="middle" font-size="12" fill="#5c564c">${month}</text>`;
+    }
+  });
   document.getElementById("chart").innerHTML =
-    `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Mention rate by month">${grid}${lines}</svg>` +
-    `<div class="legend">${seriesKeys().map((key, index) => {
-      const color = COLORS[index % COLORS.length];
-      const off = state.hidden.has(key) ? "off" : "on";
-      return `<button type="button" class="${off}" data-series="${escapeAttr(key)}"><span class="swatch" style="background:${color}"></span>${escapeHtml(nameOf(key))}</button>`;
-    }).join("")}</div>`;
-  document.getElementById("chart-note").textContent = state.rate === "model"
-    ? "Among papers that name at least one tracked model. Shares can overlap."
-    : "Among every scanned paper that month. Shares can overlap.";
-  document.querySelectorAll("[data-series]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const key = button.dataset.series;
-      if (state.hidden.has(key)) state.hidden.delete(key);
-      else state.hidden.add(key);
-      render();
+    `<div class="stack-scroll"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Monthly stacked mention percentages"><text x="${pad.l}" y="14" font-size="11" fill="#5c564c">Sum of mention percentages</text>${marks}</svg></div>` +
+    '<p class="stack-detail" id="stack-detail" aria-live="polite">Hover, tap, or focus a segment for its model or family, institution, country, and paper count.</p>' +
+    `<div class="legend">${allKeys.map((key) => `<button type="button" data-series="${escapeAttr(key)}" aria-pressed="${!state.hidden.has(key)}" class="${state.hidden.has(key) ? "off" : ""}"><span class="swatch" style="background:${color(key)}"></span><span><strong>${escapeHtml(nameOf(key))}</strong>${origin(key) ? `<small>${escapeHtml(origin(key))}</small>` : ""}</span></button>`).join("")}</div>`;
+  document.getElementById("chart-note").textContent =
+    `${state.rate === "model" ? "Each segment is a percentage of papers naming at least one tracked model that month." : "Each segment is a percentage of all scanned papers that month."} Each family counts a paper once, even when it names multiple variants. A paper can mention multiple models or institutions: stacks sum overlapping percentages and can exceed 100%. They are not shares of an exclusive whole. — means no eligible papers. Click a legend entry to hide or show it.`;
+  document.querySelectorAll(".stack-segment").forEach((segment) => {
+    for (const event of ["mouseenter", "focus", "click"]) segment.addEventListener(event, () => {
+      document.getElementById("stack-detail").textContent = segment.dataset.detail;
     });
   });
+  document.querySelectorAll("[data-series]").forEach((button) => button.addEventListener("click", () => {
+    const key = button.dataset.series;
+    if (state.hidden.has(key)) state.hidden.delete(key); else state.hidden.add(key);
+    render();
+  }));
 }
 
 function renderTable() {
   const body = document.querySelector("#totals tbody");
   const rows = state.view === "variants"
     ? state.summary.variants
-    : state.view === "countries"
+    : state.view === "families"
+      ? state.summary.families
+      : state.view === "countries"
       ? state.summary.countries
       : state.summary.companies;
   body.innerHTML = rows.map((row) => {
-    const origin = state.view === "variants"
+    const origin = ["variants", "families"].includes(state.view)
       ? `${row.company} · ${COUNTRY_NAMES[row.country] || row.country}`
       : "";
     const scanned = state.summary.papers_scanned
@@ -145,9 +181,15 @@ function renderPapers() {
   const query = state.query.trim().toLowerCase();
   const visible = new Set(seriesKeys().filter((key) => !state.hidden.has(key)));
   const matches = state.papers.filter((paper) => {
-    if (state.view === "variants" && !paper.variants.some((id) => visible.has(id))) return false;
+    if (["variants", "families"].includes(state.view) && !paper.variants.some((id) => {
+      const key = state.view === "families" ? state.summary.variants.find((row) => row.id === id)?.family : id;
+      return visible.has(key);
+    })) return false;
     if (!query) return true;
-    const names = paper.variants.map((id) => nameOf(id)).join(" ");
+    const names = paper.variants.map((id) => {
+      const row = state.summary.variants.find((item) => item.id === id);
+      return `${row?.label || id} ${row?.family || ""} ${row?.company || ""}`;
+    }).join(" ");
     return `${paper.title} ${names} ${paper.id}`.toLowerCase().includes(query);
   });
   document.getElementById("paper-count").textContent = `${matches.length.toLocaleString()} papers`;
@@ -205,6 +247,7 @@ Promise.all([
 ]).then(([summary, papers]) => {
   state.summary = summary;
   state.papers = papers;
+  buildFamilies();
   render();
 }).catch((error) => {
   document.getElementById("status").textContent = `Could not load site data: ${error}`;

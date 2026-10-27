@@ -41,9 +41,10 @@
 
   <section class="controls">
     <div class="group" role="radiogroup" aria-label="What to plot">
-      <button type="button" data-view="variants" class="on">Models</button>
+      <button type="button" data-view="variants" class="on">Model variants</button>
+      <button type="button" data-view="families">Model families</button>
       <button type="button" data-view="countries">Countries</button>
-      <button type="button" data-view="companies">Companies</button>
+      <button type="button" data-view="companies">Institutions</button>
     </div>
     <div class="group" role="radiogroup" aria-label="Denominator">
       <button type="button" data-rate="scanned" class="on">Share of scanned papers</button>
@@ -52,6 +53,7 @@
   </section>
 
   <section class="chart-card">
+    <div class="chart-heading"><h2>Monthly model mentions</h2></div>
     <div id="chart"></div>
     <p id="chart-note" class="note"></p>
   </section>
@@ -61,7 +63,7 @@
     <div class="table-wrap">
       <table id="totals">
         <thead>
-          <tr><th>Name</th><th>Origin</th><th>Papers</th><th>Share of scanned</th><th>Share of model papers</th></tr>
+          <tr><th>Name</th><th>Producing institution · country</th><th>Papers</th><th>Share of scanned</th><th>Share of model papers</th></tr>
         </thead>
         <tbody></tbody>
       </table>
@@ -71,7 +73,7 @@
   <section>
     <h2>Papers</h2>
     <div class="filters">
-      <input id="query" type="search" placeholder="Filter by title or model" />
+      <input id="query" type="search" placeholder="Filter by title, model, or institution" />
       <span id="paper-count" class="note"></span>
     </div>
     <ul id="papers"></ul>

@@ -57,6 +57,7 @@ def papers_from_scan() -> list[dict]:
                 {
                     "id": vid,
                     "label": META.get(vid, {}).get("label", vid),
+                "family": META.get(vid, {}).get("family", vid),
                     "country": META.get(vid, {}).get("country", ""),
                     "company": META.get(vid, {}).get("company", ""),
                 }
@@ -122,6 +123,7 @@ def summarize(papers: list[dict]) -> dict:
             {
                 "id": vid,
                 "label": META.get(vid, {}).get("label", vid),
+                "family": META.get(vid, {}).get("family", vid),
                 "country": META.get(vid, {}).get("country", ""),
                 "company": META.get(vid, {}).get("company", ""),
                 "papers": count,
