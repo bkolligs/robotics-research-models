@@ -3,7 +3,7 @@ Promise.all([
   fetch('analysis/date_diagnostics.json').then(r => { if (!r.ok) throw Error(r.status); return r.json(); }),
 ]).then(([summary, diagnostics]) => {
   const fmt = n => n.toLocaleString();
-  document.getElementById('coverage-note').textContent = `${fmt(summary.papers_scanned)} of ${fmt(summary.papers_discovered)} discovered papers scanned. ${fmt(summary.papers_missing_from_snapshot)} lack PDFs in the bulk snapshot. Scanned coverage: ${summary.months[0]} through ${summary.months.at(-1)}. Months without scanned papers have unavailable rates, not zero rates.`;
+  document.getElementById('coverage-note').textContent = `${fmt(summary.papers_scanned)} of ${fmt(summary.papers_discovered)} discovered papers scanned. ${fmt(summary.papers_missing_from_snapshot)} lack PDFs in the bulk snapshot. Coverage: ${summary.months[0]} through ${summary.months.at(-1)}.`;
   const flagged = diagnostics.variants.reduce((n, r) => n + r.papers, 0);
   document.getElementById('date-note').textContent = `No release-date gate is applied. ${fmt(flagged)} paper–model pairs predate the taxonomy’s introduction year. Later revisions or ambiguous names may explain these; they have not been excluded.`;
   const body = document.querySelector('#coverage-table tbody');

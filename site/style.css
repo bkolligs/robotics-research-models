@@ -113,11 +113,8 @@ footer { margin-top: 40px; color: var(--muted); font-size: 0.8rem; }
   body { padding: 20px 14px 48px; }
 }
 
-.analysis-card { border: 1px solid var(--line); padding: 16px; margin: 20px 0; background: var(--card); }
-.analysis-card > summary { font-size: 1.25rem; }
-.analysis-card p { line-height: 1.5; }
-.analysis-card details { margin: 12px 0; }
-.analysis-card summary { cursor: pointer; font-weight: 600; }
+.corpus-method details { margin: 12px 0; }
+.corpus-method summary { cursor: pointer; font-weight: 600; }
 #analysis-downloads { columns: 2; }
 
 .chart-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px 16px; }
@@ -171,3 +168,29 @@ select { padding: 6px; border: 1px solid var(--line); background: var(--card); c
 .trend-point { cursor: pointer; stroke: var(--card); stroke-width: 1; }
 .trend-point.llm-point { stroke: var(--series-color); }
 .trend-point:hover, .trend-point:focus { r: 6px; outline: none; stroke: var(--ink); stroke-width: 1.5; }
+
+.method-details, .lifecycle-models {
+  margin: 16px 12px 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.method-details > summary, .lifecycle-models > summary { cursor: pointer; font-weight: 600; }
+.method-details .note { line-height: 1.6; }
+.chart-card > #chart-note { margin: 12px; }
+.paper-selects { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; margin: 12px 0 16px; }
+.paper-selects label { display: grid; gap: 4px; font: .75rem ui-monospace, monospace; color: var(--muted); flex: 1 1 150px; min-width: 0; }
+.paper-selects select { width: 100%; text-overflow: ellipsis; }
+#paper-reset { border: 1px solid var(--line); padding: 7px 12px; }
+#paper-count { flex-shrink: 0; }
+.evaluation-legend [tabindex] { cursor: help; }
+@media (max-width: 700px) { .filters { flex-wrap: wrap; } .filters input { flex-basis: 100%; } }
+
+#evaluation-chart .stack-scroll { max-height: 490px; overflow-y: auto; scrollbar-gutter: stable; }
+#evaluation-chart .stack-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.stat b { font-size: 1.18rem; line-height: 1.3; margin: 6px 0; overflow-wrap: anywhere; }
+.stat small { display: block; color: var(--muted); font-size: .78rem; }
+
+.stat-models { margin-top: 8px; }
+
+#architecture-rate-controls[hidden] { display: none; }

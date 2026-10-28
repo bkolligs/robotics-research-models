@@ -14,6 +14,7 @@ const COLORS = [
 
 const state = {
   summary: null,
+  lifecycle: null,
   papers: [],
   view: "variants",
   rate: "scanned",
@@ -26,6 +27,11 @@ function nameOf(id) {
   if (state.view === "companies" || state.view === "families") return id;
   const row = state.summary.variants.find((item) => item.id === id);
   return row ? row.label : id;
+}
+
+// Keep color assignment independent of selector display order.
+function selectedFirst(items, isSelected, count) {
+  return items.slice().sort((a, b) => Number(isSelected(b)) - Number(isSelected(a)) || count(b) - count(a));
 }
 
 function seriesKeys() {
@@ -79,19 +85,37 @@ function renderStatus() {
     : "Committed corpus.";
   document.getElementById("status").textContent =
     `${summary.papers_scanned.toLocaleString()} papers scanned through ${summary.through}. ${source}`;
-  document.getElementById("stats").innerHTML = [
-    ["Papers scanned", summary.papers_scanned.toLocaleString()],
-    ["Name a tracked model", summary.any_model_papers.toLocaleString()],
-    ["Share", summary.papers_scanned
-      ? `${(100 * summary.any_model_papers / summary.papers_scanned).toFixed(1)}%`
-      : "—"],
-  ].map(([label, value]) => `<div class="stat"><b>${value}</b><span>${label}</span></div>`).join("");
+  const creator = summary.companies.slice().sort((a, b) => b.papers - a.papers)[0];
+  const country = summary.countries.slice().sort((a, b) => b.papers - a.papers)[0];
+  const creatorModels = summary.variants.filter((m) => m.company === creator?.id)
+    .sort((a, b) => b.papers - a.papers).slice(0, 3)
+    .map((m) => m.label).join(" · ");
+  const cumulative = new Map();
+  for (const row of state.lifecycle?.monthly || []) {
+    cumulative.set(row.model_id, (cumulative.get(row.model_id) || 0) + (row.papers || 0));
+  }
+  const strongest = state.lifecycle?.models.slice().sort((a, b) =>
+    (cumulative.get(b.model_id) || 0) - (cumulative.get(a.model_id) || 0) || a.label.localeCompare(b.label))[0];
+  const cards = [
+    ["Most-mentioned creator", creator?.id || "—",
+      creator ? `${creator.papers.toLocaleString()} papers · all scanned years` : "No mentions available",
+      "Each paper counts once per releasing organization, including bibliography mentions. Model counts overlap.", creatorModels],
+    ["Most-mentioned country", country ? COUNTRY_NAMES[country.id] || country.id : "—",
+      country ? `${country.papers.toLocaleString()} papers · all scanned years` : "No mentions available",
+      "Headquarters country of the model creator. Each paper counts once per country."],
+    ["Strongest baseline", strongest?.label || "—",
+      strongest ? `${cumulative.get(strongest.model_id).toLocaleString()} cumulative evaluations · through ${state.lifecycle.through}` : "Evaluation history unavailable",
+      "Sum of monthly post-release evaluation-paper counts among releases with verified dates; measures baseline use, not wins."],
+  ];
+  document.getElementById("stats").innerHTML = cards.map(([label, value, detail, explanation, extra]) =>
+    `<div class="stat" title="${escapeAttr(explanation)}"><span>${escapeHtml(label)}</span><b>${escapeHtml(value)}</b><small>${escapeHtml(detail)}</small>${extra ? `<small class="stat-models">${escapeHtml(extra)}</small>` : ""}</div>`
+  ).join("");
 }
 
 function renderChart() {
   const modelOnly = state.rate === "model";
   document.getElementById("chart-title").textContent = modelOnly
-    ? "Model mentions among model papers only"
+    ? "Model mentions among papers naming a tracked model"
     : "Model mentions among all robotics papers";
   const population = modelOnly ? state.summary.any_model_papers : state.summary.papers_scanned;
   document.getElementById("chart-population").textContent = modelOnly
@@ -143,9 +167,9 @@ function renderChart() {
   document.getElementById("chart").innerHTML =
     `<div class="stack-scroll"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Monthly stacked mention percentages"><text x="${pad.l}" y="14" font-size="11" fill="#5c564c">Sum of mention percentages</text>${marks}</svg></div>` +
     '<p class="stack-detail" id="stack-detail" aria-live="polite">Hover, tap, or focus a segment for its model or family, institution, country, and paper count.</p>' +
-    `<div class="legend">${allKeys.map((key) => `<button type="button" data-series="${escapeAttr(key)}" aria-pressed="${!state.hidden.has(key)}" class="${state.hidden.has(key) ? "off" : ""}"><span class="swatch" style="background:${color(key)}"></span><span><strong>${escapeHtml(nameOf(key))}</strong>${origin(key) ? `<small>${escapeHtml(origin(key))}</small>` : ""}</span></button>`).join("")}</div>`;
+    `<div class="legend">${selectedFirst(allKeys, (key) => !state.hidden.has(key), (key) => state.summary[state.view].find((row) => row.id === key)?.papers || 0).map((key) => `<button type="button" data-series="${escapeAttr(key)}" aria-pressed="${!state.hidden.has(key)}" class="${state.hidden.has(key) ? "off" : ""}"><span class="swatch" style="background:${color(key)}"></span><span><strong>${escapeHtml(nameOf(key))}</strong>${origin(key) ? `<small>${escapeHtml(origin(key))}</small>` : ""}</span></button>`).join("")}</div>`;
   document.getElementById("chart-note").textContent =
-    `${state.rate === "model" ? "Each segment is a percentage of papers naming at least one tracked model that month." : "Each segment is a percentage of all scanned papers that month."} Each family counts a paper once, even when it names multiple variants. A paper can mention multiple models or institutions: stacks sum overlapping percentages and can exceed 100%. They are not shares of an exclusive whole. — means no eligible papers. Click a legend entry to hide or show it.`;
+    "We track mentions: one paper can mention several models, so stacked percentages can exceed 100%.";
   document.querySelectorAll(".stack-segment").forEach((segment) => {
     for (const event of ["mouseenter", "focus", "click"]) segment.addEventListener(event, () => {
       document.getElementById("stack-detail").textContent = segment.dataset.detail;
@@ -205,6 +229,15 @@ function renderPapers() {
       const key = state.view === "families" ? state.summary.variants.find((row) => row.id === id)?.family : id;
       return visible.has(key);
     })) return false;
+    const year = document.getElementById("paper-year").value;
+    if (year && !paper.month.startsWith(year)) return false;
+    const model = document.getElementById("paper-model").value;
+    const company = document.getElementById("paper-company").value;
+    const country = document.getElementById("paper-country").value;
+    if (!paper.variants.some((id) => {
+      const row = state.summary.variants.find((item) => item.id === id);
+      return (!model || id === model) && (!company || row?.company === company) && (!country || row?.country === country);
+    })) return false;
     if (!query) return true;
     const names = paper.variants.map((id) => {
       const row = state.summary.variants.find((item) => item.id === id);
@@ -212,14 +245,14 @@ function renderPapers() {
     }).join(" ");
     return `${paper.title} ${names} ${paper.id}`.toLowerCase().includes(query);
   });
-  document.getElementById("paper-count").textContent = `${matches.length.toLocaleString()} papers`;
+  document.getElementById("paper-count").textContent = `${matches.length.toLocaleString()} papers${matches.length > 40 ? " · showing first 40" : ""}`;
   document.getElementById("papers").innerHTML = matches.slice(0, 40).map((paper) => {
-    const tags = paper.variants.map((id) => nameOf(id)).join(", ");
+    const tags = paper.variants.map((id) => state.summary.variants.find((row) => row.id === id)?.label || id).join(", ");
     return `<li>
       <a href="https://arxiv.org/abs/${paper.id}">${escapeHtml(paper.title)}</a>
       <div class="meta">${paper.month} · ${paper.id} · ${escapeHtml(tags)}</div>
     </li>`;
-  }).join("");
+  }).join("") || '<li class="note">No papers match these filters.</li>';
 }
 
 function render() {
@@ -270,6 +303,20 @@ Promise.all([
 ]).then(([summary, papers]) => {
   state.summary = summary;
   state.papers = papers;
+  const options = (id, entries) => {
+    const select = document.getElementById(id);
+    for (const [value, label] of entries) select.add(new Option(label, value));
+    select.addEventListener("change", renderPapers);
+  };
+  options("paper-year", [...new Set(papers.map((p) => p.month.slice(0, 4)))].sort().reverse().map((v) => [v, v]));
+  options("paper-model", summary.variants.slice().sort((a, b) => a.label.localeCompare(b.label)).map((r) => [r.id, r.label]));
+  options("paper-company", [...new Set(summary.variants.map((r) => r.company).filter(Boolean))].sort().map((v) => [v, v]));
+  options("paper-country", [...new Set(summary.variants.map((r) => r.country).filter(Boolean))].map((v) => [v, COUNTRY_NAMES[v] || v]).sort((a, b) => a[1].localeCompare(b[1])));
+  document.getElementById("paper-reset").addEventListener("click", () => {
+    for (const id of ["paper-year", "paper-model", "paper-company", "paper-country", "query"]) document.getElementById(id).value = "";
+    state.query = "";
+    renderPapers();
+  });
   buildFamilies();
   render();
 }).catch((error) => {

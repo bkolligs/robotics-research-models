@@ -60,13 +60,14 @@ function renderEvaluations() {
   });
   const total = rows.reduce((sum, r) => sum + r.evaluations, 0);
   document.getElementById("evaluation-population").textContent =
-    `${summary.complete ? "Complete corpus assessment" : "Partial assessment"}: ${summary.papers_classified.toLocaleString()} papers assessed across ${summary.paper_model_pairs.toLocaleString()} model mentions. This selection contains ${total.toLocaleString()} confirmed paper–model evaluations; a paper can evaluate several models. Jev evidence threshold: ${(100*summary.threshold).toFixed(0)}%; source-reviewed decisions take precedence.`;
+    `${summary.complete ? "" : "Partial assessment · "}${total.toLocaleString()} paper–model evaluations in this selection.`;
+  document.getElementById("evaluation-method-counts").textContent = `${summary.papers_classified.toLocaleString()} papers assessed across ${summary.paper_model_pairs.toLocaleString()} paper–model pairs.`;
   document.getElementById("evaluation-audit").textContent = summary.source_audit
     ? `${summary.source_audit.cases} sampled cases were checked against original paper text, including positive, negative, and borderline judgments. Unresolved execution provenance is excluded. ${summary.execution_verification.release_recheck_pending || 0} Gemini release checks remain pending and are excluded unless source reviewed.`
     : "Source-text spot check is pending.";
   document.getElementById("evaluation-chart").innerHTML = rows.length ?
-    `<div class="stack-scroll"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Experimental baseline frequency and reported comparative outcomes">${marks}</svg></div>` : '<p class="note">No confident baseline evaluations in this selection.</p>';
-  document.getElementById("evaluation-legend").innerHTML = Object.values(EVALUATION_OUTCOMES).map(([label, color]) => `<span><i class="swatch" style="background:${color}"></i>${escapeHtml(label)}</span>`).join("");
+    `<div class="stack-scroll" tabindex="0" role="region" aria-label="Baseline evaluations; scroll for more models"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Experimental baseline frequency and reported comparative outcomes">${marks}</svg></div>` : '<p class="note">No confident baseline evaluations in this selection.</p>';
+  document.getElementById("evaluation-legend").innerHTML = Object.values(EVALUATION_OUTCOMES).map(([label, color]) => `<span tabindex="0" title="${escapeAttr(label === "Outcome unclear" ? "Comparator use confirmed; the available evidence does not establish a winner. See outcome definitions below." : label)}"><i class="swatch" style="background:${color}"></i>${escapeHtml(label)}</span>`).join("");
   document.querySelectorAll("[data-evaluation-model]").forEach((mark) => {
     const show = () => { evaluationState.selected = mark.dataset.evaluationModel; renderEvaluationPapers(); };
     mark.addEventListener("click", show);

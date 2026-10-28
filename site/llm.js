@@ -79,7 +79,7 @@ function renderLlmChart() {
     `<div class="stack-scroll"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Monthly LLM mention and usage rates"><text x="${pad.l}" y="16" font-size="11" fill="#5c564c">Share of all successfully scanned cs.RO papers</text>${marks}</svg></div>` +
     '<p class="stack-detail" id="llm-detail" aria-live="polite">Hover, tap, or focus a point for its month, model, rate, and paper count.</p>' +
     '<div class="llm-style-key"><span><i class="llm-line mention"></i>Full-text mention</span><span><i class="llm-line usage"></i>Jev-judged usage</span></div>' +
-    `<div class="legend trend-legend">${models.map((model) => {
+    `<div class="legend trend-legend">${selectedFirst(models, (model) => !llmState.hidden.has(model.model_id), (model) => summary.totals.find((row) => row.model_id === model.model_id).mention_papers).map((model) => {
       const total = summary.totals.find((row) => row.model_id === model.model_id);
       return `<button type="button" data-llm-series="${escapeAttr(model.model_id)}" aria-pressed="${!llmState.hidden.has(model.model_id)}" class="${llmState.hidden.has(model.model_id) ? "off" : ""}"><span class="swatch" style="background:${color(model.model_id)}"></span><span><strong>${escapeHtml(model.label)}</strong><small>${total.mention_papers.toLocaleString()} mentioned · ${total.usage_papers.toLocaleString()} used</small></span></button>`;
     }).join("")}</div>`;

@@ -1,5 +1,5 @@
 const LIFE_COLORS = ["#2258c3", "#df493f", "#178066", "#8b58a1", "#b36b1e", "#16899b", "#b6487d", "#718d21", "#6d6f91", "#7b5540", "#30669d", "#bb8062"];
-const lifecycleState = { summary: null, axis: "age", metric: "share", smooth: "3", selected: new Set(["pi0", "pi05", "rt2", "openvla", "openvla_oft", "diffusion_policy"]) };
+const lifecycleState = { summary: null, axis: "age", metric: "count", smooth: "3", selected: new Set(["pi0", "pi05", "rt2", "openvla", "openvla_oft", "diffusion_policy"]) };
 
 function lifecycleValue(row) {
   if (lifecycleState.metric === "count") return lifecycleState.smooth === "3" ? row.window_monthly_papers : row.papers;
@@ -66,16 +66,17 @@ function renderLifecycle() {
   const axisLabel = lifecycleState.axis === "age" ? "Calendar months after release reference (release month = 0)" : "Paper first-submission month";
   document.getElementById("lifecycle-chart").innerHTML = selected.length ?
     `<div class="stack-scroll"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Baseline usage lifecycle by release age or calendar month"><text x="${pad.l}" y="17" font-size="12" fill="#5c564c">${escapeHtml(metricLabel)}</text>${marks}<text x="${width/2}" y="${height-7}" text-anchor="middle" font-size="12" fill="#5c564c">${escapeHtml(axisLabel)}</text></svg></div>` : '<p class="note">Select at least one model below to compare usage.</p>';
-  document.getElementById("lifecycle-population").textContent =
+  document.getElementById("lifecycle-method-counts").textContent =
     `${summary.models.length} releases with sourced dates; ${summary.eligible_post_release_pairs.toLocaleString()} confirmed post-release evaluations through ${summary.through}. Each month’s denominator counts distinct papers evaluating any tracked model (${summary.source_evaluation_papers.toLocaleString()} such papers overall). ${summary.excluded_pre_release_pairs} pre-release comparisons and ${summary.excluded_introduction_pairs} introducing-paper comparisons are excluded from the model curves.`;
   document.getElementById("lifecycle-key").innerHTML = selected.map((m) => `<span><i class="swatch" style="background:${color(m.model_id)}"></i>${escapeHtml(m.label)}</span>`).join("");
-  document.getElementById("lifecycle-legend").innerHTML = summary.models.map((m) =>
+  document.getElementById("lifecycle-legend").innerHTML = selectedFirst(summary.models, (m) => lifecycleState.selected.has(m.model_id), (m) => m.evaluations).map((m) =>
     `<button type="button" data-lifecycle-model="${escapeAttr(m.model_id)}" aria-pressed="${lifecycleState.selected.has(m.model_id)}" class="${lifecycleState.selected.has(m.model_id)?"":"off"}"><span class="swatch" style="background:${color(m.model_id)}"></span><span><strong>${escapeHtml(m.label)}</strong><small>Released ${m.released} · ${m.evaluations} later evaluations</small></span></button>`
   ).join("");
   document.getElementById("lifecycle-table-body").innerHTML = selected.map((m) => {
     const latest=m.latest_window, peak=m.supported_peak;
     return `<tr><td>${escapeHtml(m.label)}<small>${m.evaluations} total qualifying papers</small></td><td><a href="${escapeAttr(m.source)}" target="_blank" rel="noopener">${m.released}</a></td><td>${m.last_use_month||"None observed"}${m.last_use_age_months === null ? "" : ` <small>(${m.last_use_age_months} months after release)</small>`}</td><td>${latest.window_papers ?? "—"} / ${latest.window_evaluation_papers ?? "—"} (${latest.window_share === null ? "—" : (100*latest.window_share).toFixed(1)+"%"})</td><td>${peak ? `${(100*peak.window_share).toFixed(1)}% · ${peak.month}` : "Insufficient volume"}</td></tr>`;
   }).join("");
+  document.getElementById("lifecycle-population").textContent = `${summary.models.length} releases · ${summary.eligible_post_release_pairs.toLocaleString()} post-release evaluations · through ${summary.through}.`;
   const older=selected.filter((m) => m.missing_early_history).map((m) => m.label);
   document.getElementById("lifecycle-observation").textContent =
     `Every curve ends at the observed corpus boundary (${summary.through}). Its endpoint is not a retirement date.` +
@@ -97,12 +98,14 @@ fetch("analysis/baseline-lifecycle/summary.json").then((response) => {
   return response.json();
 }).then((summary) => {
   lifecycleState.summary=summary;
+  state.lifecycle = summary;
+  if (state.summary) renderStatus();
   document.getElementById("lifecycle-section").hidden=false;
   for (const [id,key] of [["lifecycle-axis","axis"],["lifecycle-metric","metric"],["lifecycle-smooth","smooth"]]) {
     document.getElementById(id).addEventListener("change", (event) => { lifecycleState[key]=event.target.value; renderLifecycle(); });
   }
   document.getElementById("lifecycle-releases").innerHTML = summary.models.map((m) =>
-    `<tr><td>${escapeHtml(m.label)}</td><td>${m.released}</td><td><a href="${escapeAttr(m.source)}" target="_blank" rel="noopener">${escapeHtml(m.kind)}</a></td><td>${m.weights_released ? `<a href="${escapeAttr(m.weights_source)}" target="_blank" rel="noopener">Weights: ${m.weights_released}</a>` : "Checkpoint date not curated"}</td></tr>`
+    `<tr><td>${escapeHtml(m.label)}</td><td>${m.released}</td><td><a href="${escapeAttr(m.source)}" target="_blank" rel="noopener">${escapeHtml(m.kind)}</a></td></tr>`
   ).join("");
   document.getElementById("lifecycle-undated").textContent =
     `Release dates are not yet verified for ${summary.unverified_releases.length} other evaluated model rows (${summary.unverified_releases.map((m) => `${m.label}: ${m.evaluation_pairs}`).join("; ")}). They are omitted from release-aligned curves and retained in the shared evaluation-paper denominator.`;

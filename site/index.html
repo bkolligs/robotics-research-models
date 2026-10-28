@@ -4,6 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Robotics Research Roundup</title>
+  <meta name="description" content="Which robotics models cs.RO papers mention, and who makes them." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Robotics Research Roundup" />
+  <meta property="og:description" content="Which robotics models cs.RO papers mention, and who makes them." />
+  <meta property="og:url" content="https://bkolligs.github.io/robotics-research-models/" />
+  <!-- Social crawlers require an absolute image URL; page assets stay relative. -->
+  <meta property="og:image" content="https://bkolligs.github.io/robotics-research-models/model-mentions-preview.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1922" />
+  <meta property="og:image:height" content="820" />
+  <meta property="og:image:alt" content="Monthly model mentions in cs.RO papers, January 2023 through September 2026. Stacked percentages can exceed 100% because papers can mention several models." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Robotics Research Roundup" />
+  <meta name="twitter:description" content="Which robotics models cs.RO papers mention, and who makes them." />
+  <meta name="twitter:image" content="https://bkolligs.github.io/robotics-research-models/model-mentions-preview.png" />
+  <meta name="twitter:image:alt" content="Monthly model mentions in cs.RO papers, January 2023 through September 2026. Stacked percentages can exceed 100% because papers can mention several models." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -16,11 +32,34 @@
     <p id="status" class="status">Loading…</p>
   </header>
 
-  <details class="analysis-card" aria-labelledby="analysis-title">
-    <summary id="analysis-title">Full corpus analysis</summary>
+  <section class="stats" id="stats"></section>
+
+  <section class="controls">
+    <div class="group" role="radiogroup" aria-label="What to plot">
+      <button type="button" data-view="variants" class="on">Model variants</button>
+      <button type="button" data-view="families">Model families</button>
+      <button type="button" data-view="countries">Countries</button>
+      <button type="button" data-view="companies">Institutions</button>
+    </div>
+    <div class="group" role="radiogroup" aria-label="Paper population">
+      <button type="button" data-rate="scanned" class="on" aria-pressed="true">All robotics papers</button>
+      <button type="button" data-rate="model" aria-pressed="false" title="Scanned papers mentioning at least one tracked model, including bibliography mentions.">Papers naming a model</button>
+    </div>
+  </section>
+
+  <section class="chart-card">
+    <div class="chart-heading"><h2 id="chart-title">Model mentions among all robotics papers</h2></div>
+    <p id="chart-population" class="note"></p>
+    <div id="chart"></div>
+    <p id="chart-note" class="note"></p>
+    <details class="method-details corpus-method" aria-labelledby="analysis-title">
+    <summary id="analysis-title">Mention method and corpus coverage</summary>
     <p id="coverage-note">Loading coverage…</p>
-    <p>These are <strong>mentions, including references</strong>, not evidence that a model was used as a backbone. Models, families, countries, and organizations can overlap; their shares need not sum to 100%.</p>
+    <p>A <strong>mention</strong> is a tracked model name found in the PDF text, including the bibliography. Each paper counts once per model. One paper can name several models, so stacked percentages can exceed 100%. A mention does not establish model use.</p>
+    <details class="method-details"><summary>Counting method and dates</summary>
+    <p class="note">We scan cs.RO PDFs with pdftotext and match curated model aliases, keeping releases separate. Monthly shares divide paper counts by all scanned papers or papers naming a tracked model, as selected. Families, institutions, and countries each count a paper once per group. Country means the headquarters country of the organization that released the model. For example, a paper mentioning π0.5 counts once toward the United States because Physical Intelligence is based there, regardless of the paper authors’ affiliations. Failed extractions are excluded; — means no eligible papers.</p>
     <p id="date-note">No release-date gate is applied. Later revisions can mention models released after a paper’s first submission.</p>
+    </details>
     <details>
       <summary>Inspect monthly coverage and unavailable papers</summary>
       <div class="table-wrap"><table id="coverage-table"><thead><tr><th>Month</th><th>Discovered</th><th>Scanned</th><th>Unavailable</th><th>Naming a model</th><th>Share of scanned</th></tr></thead><tbody></tbody></table></div>
@@ -33,27 +72,6 @@
     </details>
     <p><a href="https://github.com/bkolligs/robotics-research-models/blob/main/docs/METHODOLOGY.md">Read the methodology</a></p>
   </details>
-
-  <section class="stats" id="stats"></section>
-
-  <section class="controls">
-    <div class="group" role="radiogroup" aria-label="What to plot">
-      <button type="button" data-view="variants" class="on">Model variants</button>
-      <button type="button" data-view="families">Model families</button>
-      <button type="button" data-view="countries">Countries</button>
-      <button type="button" data-view="companies">Institutions</button>
-    </div>
-    <div class="group" role="radiogroup" aria-label="Paper population">
-      <button type="button" data-rate="scanned" class="on" aria-pressed="true">All robotics papers</button>
-      <button type="button" data-rate="model" aria-pressed="false">Model papers only</button>
-    </div>
-  </section>
-
-  <section class="chart-card">
-    <div class="chart-heading"><h2 id="chart-title">Model mentions among all robotics papers</h2></div>
-    <p id="chart-population" class="note"></p>
-    <div id="chart"></div>
-    <p id="chart-note" class="note"></p>
     <details class="mentions-totals" id="mentions-totals">
       <summary id="totals-title">Model mention totals and producers</summary>
       <p id="totals-context" class="note">These totals belong to the model-mentions chart above and follow its selected grouping.</p>
@@ -79,12 +97,18 @@
     </div>
     <p id="evaluation-population" class="note">Evaluating baseline use and reported results…</p>
     <div id="evaluation-legend" class="evaluation-legend"></div>
+    <p class="note">Scroll the chart for more baselines.</p>
     <div id="evaluation-chart"></div>
     <p id="evaluation-detail" class="stack-detail" aria-live="polite">Select a bar to inspect its papers. Hover or focus a segment for counts.</p>
-    <p class="note">Jev assesses whether authors actually run a tracked model as a comparator. Outcomes reflect the paper’s reported results; mixed results and uncertain outcomes are retained. “Evaluation only” means there is no proposed method to beat the baseline.</p>
-    <p id="evaluation-audit" class="note"></p>
-    <p class="note"><a href="analysis/evaluations/audit.json">Inspect the source-text audit and recorded corrections</a></p>
-    <p class="note"><a href="analysis/evaluations/evaluations.csv">Download paper-level decisions</a> · <a href="analysis/evaluations/summary.json">Summary and provenance</a> · <a href="https://github.com/bkolligs/robotics-research-models/blob/main/docs/EVALUATIONS.md">Methodology</a></p>
+    <p class="note">We assessed whether authors ran each model as a comparator and whether it beat their proposed method, using the paper’s reported results.</p>
+    <details class="method-details"><summary>Evaluation method and outcome definitions</summary>
+      <p class="note">Jev classified each mentioned release from the title, abstract, and up to 60,000 characters of PDF excerpts around model names and experiments. Inclusion requires at least 70% probability for both baseline use and the authors’ own runs. Copied scores, citations, and component-only use are excluded. Recorded source reviews take precedence.</p>
+      <p class="note">Outcomes compare the proposed method with the baseline: a win, loss, or tie. <strong>Mixed results</strong> means evidence shows wins and losses across tasks or metrics, or a performance–efficiency tradeoff; there is no overall winner. <strong>Outcome unclear</strong> means comparator use is confirmed, but the winner is uncertain, results are missing, a table is ambiguous, or outcome confidence is below 70%. <strong>Evaluation only</strong> means there is no proposed method to compare.</p>
+      <p id="evaluation-method-counts" class="note"></p>
+      <p id="evaluation-audit" class="note"></p>
+      <p class="note">Each paper counts once per evaluated model. Outcome percentages use that model’s evaluation-paper count. Dates use first submission; excerpts come from the latest scanned revision.</p>
+      <p class="note"><a href="analysis/evaluations/audit.json">Source audit</a> · <a href="analysis/evaluations/evaluations.csv">Paper-level decisions</a> · <a href="analysis/evaluations/summary.json">Summary and provenance</a> · <a href="https://github.com/bkolligs/robotics-research-models/blob/main/docs/EVALUATIONS.md">Full methodology</a></p>
+    </details>
     <div id="evaluation-papers"></div>
   </section>
 
@@ -98,7 +122,7 @@
         </div>
         <div class="lifecycle-control">
         <label for="lifecycle-metric">Measure</label>
-        <select id="lifecycle-metric"><option value="share">Share of evaluation papers</option><option value="count">Evaluations per month</option><option value="peak">Relative to each model’s peak</option></select>
+        <select id="lifecycle-metric"><option value="count">Evaluations per month</option><option value="share">Share of evaluation papers</option><option value="peak">Relative to each model’s peak</option></select>
         </div>
         <div class="lifecycle-control">
         <label for="lifecycle-smooth">Window</label>
@@ -109,31 +133,42 @@
     <p id="lifecycle-population" class="note"></p>
     <div id="lifecycle-key" class="lifecycle-key" aria-label="Selected model colors"></div>
     <div id="lifecycle-chart"></div>
-    <p id="lifecycle-detail" class="stack-detail" aria-live="polite">Hover, tap, or focus a point for its calendar date, age, and actual paper counts. Click model names below to compare generations.</p>
+    <p id="lifecycle-detail" class="stack-detail" aria-live="polite">Select a point for dates and paper counts.</p>
     <details class="lifecycle-models"><summary>Choose models to compare</summary><div id="lifecycle-legend" class="legend"></div></details>
+    <details class="method-details"><summary>Selected model statistics</summary>
     <div class="table-wrap"><table><thead><tr><th>Selected model</th><th>Release reference</th><th>Last observed evaluation</th><th>Latest 3-month usage</th><th>Peak 3-month share*</th></tr></thead><tbody id="lifecycle-table-body"></tbody></table></div>
+    </details>
+    <details class="method-details"><summary>Lifecycle method and release sources</summary>
+    <p id="lifecycle-method-counts" class="note"></p>
+    <p class="note">The “Strongest baseline” score sums monthly confirmed post-release evaluation-paper counts over the observed corpus: score = Σ monthly papers. This is the area under the unsmoothed evaluations-per-month curve, with one-month bins. Each paper counts once per model. The introducing paper and pre-release comparisons are excluded; only models with verified release dates qualify. Missing months add no observations. The score measures accumulated baseline use, not wins or performance, and depends on corpus coverage and time since release.</p>
     <p class="note">*Peaks require a full three-month window and at least 20 papers evaluating a tracked model. Shares can overlap. Publication dates lag experiments; a falling share does not by itself establish that a model has been superseded.</p>
     <p id="lifecycle-observation" class="note"></p>
-    <details class="lifecycle-sources"><summary>Release dates, checkpoint availability, and coverage</summary>
+    <div class="lifecycle-sources">
       <p class="note">Age starts at the sourced announcement or original paper, which can precede usable checkpoints. For π0, announcement was October 31, 2024; code and weights followed on February 4, 2025. The release month and first smoothing windows may cover only part of a month or fewer than three months. Earlier paper revisions can differ from the full text we scanned.</p>
-      <div class="table-wrap"><table><thead><tr><th>Model</th><th>Date used</th><th>Primary source</th><th>Availability note</th></tr></thead><tbody id="lifecycle-releases"></tbody></table></div>
+      <div class="table-wrap"><table><thead><tr><th>Model</th><th>Date used</th><th>Primary source</th></tr></thead><tbody id="lifecycle-releases"></tbody></table></div>
       <p id="lifecycle-undated" class="note"></p>
-    </details>
+    </div>
     <p class="note"><a href="analysis/baseline-lifecycle/monthly.csv">Download lifecycle data</a> · <a href="analysis/baseline-lifecycle/summary.json">Release sources and provenance</a> · <a href="https://github.com/bkolligs/robotics-research-models/blob/main/docs/BASELINE_LIFECYCLE.md">Methodology</a></p>
+    </details>
   </section>
 
   <section id="architecture-section" class="chart-card architecture-card" hidden aria-labelledby="architecture-title">
     <div class="chart-heading">
-      <h2 id="architecture-title">Architecture trends in model papers</h2>
-      <div class="group" role="radiogroup" aria-label="Architecture trend population">
-        <button type="button" data-architecture-rate="population" class="on" aria-pressed="true">All surveyed model papers</button>
+      <h2 id="architecture-title">Architecture trends in papers naming a model</h2>
+      <label>Show <select id="architecture-measure"><option value="count">Paper count</option><option value="share">Percentage</option></select></label>
+      <div id="architecture-rate-controls" class="group" role="radiogroup" aria-label="Architecture trend population">
+        <button type="button" data-architecture-rate="population" class="on" aria-pressed="true">All surveyed papers</button>
         <button type="button" data-architecture-rate="relevant" aria-pressed="false">Trend-positive papers only</button>
       </div>
     </div>
     <p id="architecture-population" class="note"></p>
     <div id="architecture-chart"></div>
     <p id="architecture-note" class="note"></p>
+    <details class="method-details"><summary>Architecture survey method</summary>
+    <p id="architecture-method" class="note"></p>
+    <p class="note">Jev classifies substantive topics from titles and abstracts of papers mentioning a tracked robotics model. Each trend is assessed independently. Monthly shares use all surveyed papers or papers positive for at least one trend, as selected. These judgments do not establish which model a paper used.</p>
     <p class="note"><a href="analysis/architecture-survey/summary.json">Survey summary and provenance</a> · <a href="analysis/architecture-survey/monthly.csv">Monthly trend data</a> · <a href="https://github.com/bkolligs/robotics-research-models/blob/main/docs/ARCHITECTURE_SURVEY.md">Survey methodology</a></p>
+    </details>
   </section>
 
   <section id="llm-section" class="chart-card llm-card" hidden aria-labelledby="llm-title">
@@ -142,15 +177,25 @@
     </div>
     <p id="llm-population" class="note"></p>
     <div id="llm-chart"></div>
+    <details class="method-details"><summary>LLM mention and usage method</summary>
+    <p class="note">Jev receives the title, abstract, and up to eight sampled passages around each model name. Usage requires at least 50% probability that the authors ran, integrated, or directly evaluated it. Copied results, background citations, future work, and writing assistance are excluded. Each paper counts once per release; both rates divide by all successfully scanned papers that month.</p>
     <p id="llm-note" class="note"></p>
     <p class="note"><a href="analysis/llm-survey/summary.json">LLM survey summary and provenance</a> · <a href="analysis/llm-survey/monthly.csv">Monthly LLM data</a> · <a href="https://github.com/bkolligs/robotics-research-models/blob/main/docs/LLM_SURVEY.md">Survey methodology</a></p>
+    </details>
   </section>
 
   <section>
     <h2>Papers</h2>
     <div class="filters">
-      <input id="query" type="search" placeholder="Filter by title, model, or institution" />
+      <input id="query" type="search" aria-label="Search papers" placeholder="Search title, model, or institution" />
       <span id="paper-count" class="note"></span>
+    </div>
+    <div class="paper-selects" aria-label="Paper filters">
+      <label>Year <select id="paper-year"><option value="">All years</option></select></label>
+      <label>Model <select id="paper-model"><option value="">All models</option></select></label>
+      <label>Institution <select id="paper-company"><option value="">All institutions</option></select></label>
+      <label>Country <select id="paper-country"><option value="">All countries</option></select></label>
+      <button type="button" id="paper-reset">Reset filters</button>
     </div>
     <ul id="papers"></ul>
   </section>
