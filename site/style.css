@@ -114,7 +114,7 @@ footer { margin-top: 40px; color: var(--muted); font-size: 0.8rem; }
 }
 
 .analysis-card { border: 1px solid var(--line); padding: 16px; margin: 20px 0; background: var(--card); }
-.analysis-card h2 { margin-top: 0; }
+.analysis-card > summary { font-size: 1.25rem; }
 .analysis-card p { line-height: 1.5; }
 .analysis-card details { margin: 12px 0; }
 .analysis-card summary { cursor: pointer; font-weight: 600; }
@@ -136,7 +136,38 @@ select { padding: 6px; border: 1px solid var(--line); background: var(--card); c
 .legend .swatch { height: 12px; flex: 0 0 12px; margin-top: 3px; }
 @media (max-width: 700px) { .group { flex-wrap: wrap; } }
 .table-wrap { overflow-x: auto; }
+.mentions-totals { margin: 16px 12px 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+.mentions-totals > summary { cursor: pointer; font-weight: 600; }
+.mentions-totals > .note { line-height: 1.5; }
 .controls > .group { min-width: 0; flex-wrap: wrap; }
 .filters input { min-width: 0; }
 
 #chart-population { margin: 0 12px 12px; }
+.architecture-card { margin-top: 24px; }
+.evaluation-card { margin-top: 24px; }
+.lifecycle-card { margin-top: 24px; }
+.lifecycle-card > .note, .lifecycle-models, .lifecycle-sources { margin: 12px; }
+.lifecycle-card summary { cursor: pointer; font-weight: 600; }
+.lifecycle-controls { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; }
+.lifecycle-controls label { margin-left: 7px; }
+.lifecycle-control { display: inline-flex; gap: 7px; align-items: center; }
+.lifecycle-key { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 12px; font-size: .82rem; }
+.lifecycle-key span { display: inline-flex; gap: 6px; align-items: center; }
+.lifecycle-key .swatch { height: 3px; width: 16px; }
+.lifecycle-card td small { display: block; color: var(--muted); }
+.evaluation-card > .note, #evaluation-papers { margin: 0 12px 12px; }
+.evaluation-controls, .evaluation-legend { display: flex; flex-wrap: wrap; gap: 12px; }
+.evaluation-legend { margin: 0 12px 16px; font-size: .78rem; }
+.evaluation-legend span { display: inline-flex; gap: 6px; align-items: center; }
+.evaluation-legend .swatch { height: 12px; }
+.evaluation-paper-scroll { max-height: 460px; overflow: auto; }
+#architecture-population, #architecture-note, .architecture-card > .note { margin: 0 12px 12px; }
+.llm-card { margin-top: 24px; }
+#llm-population, #llm-note, .llm-card > .note { margin: 0 12px 12px; }
+.llm-style-key { display: flex; flex-wrap: wrap; gap: 18px; margin: 4px 12px 10px; color: var(--muted); font-size: 0.78rem; }
+.llm-style-key span { display: inline-flex; align-items: center; gap: 7px; }
+.llm-line { display: inline-block; width: 30px; border-top: 3px solid var(--ink); }
+.llm-line.mention { border-top-style: dashed; border-top-width: 2px; }
+.trend-point { cursor: pointer; stroke: var(--card); stroke-width: 1; }
+.trend-point.llm-point { stroke: var(--series-color); }
+.trend-point:hover, .trend-point:focus { r: 6px; outline: none; stroke: var(--ink); stroke-width: 1.5; }

@@ -11,16 +11,13 @@
   <header>
     <p class="kicker">cs.RO mentions since January 2023</p>
     <h1>Robotics Research Roundup</h1>
-    <p class="lede">
-      Paper presence, counted the way the
-      <a href="https://dashboard.interconnects.ai/#arxiv-mentions">Interconnects arXiv-mentions</a>
-      study counts LLMs. Each release is its own row. A paper can name more than one.
-    </p>
+    <p class="lede">How popular are open robot models, and who makes them?</p>
+    <p class="note">Inspired by the <a href="https://dashboard.interconnects.ai/#arxiv-mentions">Interconnects arXiv-mentions</a> study.</p>
     <p id="status" class="status">Loading…</p>
   </header>
 
-  <section class="analysis-card" aria-labelledby="analysis-title">
-    <h2 id="analysis-title">Full corpus analysis</h2>
+  <details class="analysis-card" aria-labelledby="analysis-title">
+    <summary id="analysis-title">Full corpus analysis</summary>
     <p id="coverage-note">Loading coverage…</p>
     <p>These are <strong>mentions, including references</strong>, not evidence that a model was used as a backbone. Models, families, countries, and organizations can overlap; their shares need not sum to 100%.</p>
     <p id="date-note">No release-date gate is applied. Later revisions can mention models released after a paper’s first submission.</p>
@@ -35,7 +32,7 @@
       <p><a href="analysis/mentions.png">Model trends chart</a> · <a href="analysis/origin.png">Country and organization trends chart</a> · <a href="analysis/summary.json">Full summary</a> · <a href="analysis/analysis_provenance.json">Provenance and validation</a> · <a href="analysis/date_diagnostics.json">Date diagnostics</a></p>
     </details>
     <p><a href="https://github.com/bkolligs/robotics-research-models/blob/main/docs/METHODOLOGY.md">Read the methodology</a></p>
-  </section>
+  </details>
 
   <section class="stats" id="stats"></section>
 
@@ -57,18 +54,96 @@
     <p id="chart-population" class="note"></p>
     <div id="chart"></div>
     <p id="chart-note" class="note"></p>
+    <details class="mentions-totals" id="mentions-totals">
+      <summary id="totals-title">Model mention totals and producers</summary>
+      <p id="totals-context" class="note">These totals belong to the model-mentions chart above and follow its selected grouping.</p>
+      <p class="note">The producer is the organization that released the model; country refers to that organization’s headquarters. These are model-producer affiliations, rather than the affiliations of the authors mentioning the model. Muted rows correspond to series hidden in the chart.</p>
+      <div class="table-wrap">
+        <table id="totals">
+          <thead>
+            <tr><th id="totals-name-heading">Model release</th><th id="totals-origin-heading">Model producer · headquarters country</th><th>Papers mentioning</th><th>Share of scanned</th><th>Share of model papers</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </details>
   </section>
 
-  <section>
-    <h2>Totals in this slice</h2>
-    <div class="table-wrap">
-      <table id="totals">
-        <thead>
-          <tr><th>Name</th><th>Producing institution · country</th><th>Papers</th><th>Share of scanned</th><th>Share of model papers</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+  <section id="evaluation-section" class="chart-card evaluation-card" aria-labelledby="evaluation-title">
+    <div class="chart-heading">
+      <h2 id="evaluation-title">Baselines used in evaluations</h2>
+      <div class="evaluation-controls">
+        <label>Period <select id="evaluation-year"><option value="all">All years</option></select></label>
+        <label>Show <select id="evaluation-scale"><option value="count">Paper counts</option><option value="share">Share of evaluations</option></select></label>
+      </div>
     </div>
+    <p id="evaluation-population" class="note">Evaluating baseline use and reported results…</p>
+    <div id="evaluation-legend" class="evaluation-legend"></div>
+    <div id="evaluation-chart"></div>
+    <p id="evaluation-detail" class="stack-detail" aria-live="polite">Select a bar to inspect its papers. Hover or focus a segment for counts.</p>
+    <p class="note">Jev assesses whether authors actually run a tracked model as a comparator. Outcomes reflect the paper’s reported results; mixed results and uncertain outcomes are retained. “Evaluation only” means there is no proposed method to beat the baseline.</p>
+    <p id="evaluation-audit" class="note"></p>
+    <p class="note"><a href="analysis/evaluations/audit.json">Inspect the source-text audit and recorded corrections</a></p>
+    <p class="note"><a href="analysis/evaluations/evaluations.csv">Download paper-level decisions</a> · <a href="analysis/evaluations/summary.json">Summary and provenance</a> · <a href="https://github.com/bkolligs/robotics-research-models/blob/main/docs/EVALUATIONS.md">Methodology</a></p>
+    <div id="evaluation-papers"></div>
+  </section>
+
+  <section id="lifecycle-section" class="chart-card lifecycle-card" hidden aria-labelledby="lifecycle-title">
+    <div class="chart-heading">
+      <h2 id="lifecycle-title">How long do models remain evaluation baselines?</h2>
+      <div class="lifecycle-controls">
+        <div class="lifecycle-control">
+        <label for="lifecycle-axis">Timeline</label>
+        <select id="lifecycle-axis"><option value="age">Months after release</option><option value="calendar">Calendar time</option></select>
+        </div>
+        <div class="lifecycle-control">
+        <label for="lifecycle-metric">Measure</label>
+        <select id="lifecycle-metric"><option value="share">Share of evaluation papers</option><option value="count">Evaluations per month</option><option value="peak">Relative to each model’s peak</option></select>
+        </div>
+        <div class="lifecycle-control">
+        <label for="lifecycle-smooth">Window</label>
+        <select id="lifecycle-smooth"><option value="3">Trailing 3 months</option><option value="1">Individual months</option></select>
+        </div>
+      </div>
+    </div>
+    <p id="lifecycle-population" class="note"></p>
+    <div id="lifecycle-key" class="lifecycle-key" aria-label="Selected model colors"></div>
+    <div id="lifecycle-chart"></div>
+    <p id="lifecycle-detail" class="stack-detail" aria-live="polite">Hover, tap, or focus a point for its calendar date, age, and actual paper counts. Click model names below to compare generations.</p>
+    <details class="lifecycle-models"><summary>Choose models to compare</summary><div id="lifecycle-legend" class="legend"></div></details>
+    <div class="table-wrap"><table><thead><tr><th>Selected model</th><th>Release reference</th><th>Last observed evaluation</th><th>Latest 3-month usage</th><th>Peak 3-month share*</th></tr></thead><tbody id="lifecycle-table-body"></tbody></table></div>
+    <p class="note">*Peaks require a full three-month window and at least 20 papers evaluating a tracked model. Shares can overlap. Publication dates lag experiments; a falling share does not by itself establish that a model has been superseded.</p>
+    <p id="lifecycle-observation" class="note"></p>
+    <details class="lifecycle-sources"><summary>Release dates, checkpoint availability, and coverage</summary>
+      <p class="note">Age starts at the sourced announcement or original paper, which can precede usable checkpoints. For π0, announcement was October 31, 2024; code and weights followed on February 4, 2025. The release month and first smoothing windows may cover only part of a month or fewer than three months. Earlier paper revisions can differ from the full text we scanned.</p>
+      <div class="table-wrap"><table><thead><tr><th>Model</th><th>Date used</th><th>Primary source</th><th>Availability note</th></tr></thead><tbody id="lifecycle-releases"></tbody></table></div>
+      <p id="lifecycle-undated" class="note"></p>
+    </details>
+    <p class="note"><a href="analysis/baseline-lifecycle/monthly.csv">Download lifecycle data</a> · <a href="analysis/baseline-lifecycle/summary.json">Release sources and provenance</a> · <a href="https://github.com/bkolligs/robotics-research-models/blob/main/docs/BASELINE_LIFECYCLE.md">Methodology</a></p>
+  </section>
+
+  <section id="architecture-section" class="chart-card architecture-card" hidden aria-labelledby="architecture-title">
+    <div class="chart-heading">
+      <h2 id="architecture-title">Architecture trends in model papers</h2>
+      <div class="group" role="radiogroup" aria-label="Architecture trend population">
+        <button type="button" data-architecture-rate="population" class="on" aria-pressed="true">All surveyed model papers</button>
+        <button type="button" data-architecture-rate="relevant" aria-pressed="false">Trend-positive papers only</button>
+      </div>
+    </div>
+    <p id="architecture-population" class="note"></p>
+    <div id="architecture-chart"></div>
+    <p id="architecture-note" class="note"></p>
+    <p class="note"><a href="analysis/architecture-survey/summary.json">Survey summary and provenance</a> · <a href="analysis/architecture-survey/monthly.csv">Monthly trend data</a> · <a href="https://github.com/bkolligs/robotics-research-models/blob/main/docs/ARCHITECTURE_SURVEY.md">Survey methodology</a></p>
+  </section>
+
+  <section id="llm-section" class="chart-card llm-card" hidden aria-labelledby="llm-title">
+    <div class="chart-heading">
+      <h2 id="llm-title">Frontier LLM mentions and usage</h2>
+    </div>
+    <p id="llm-population" class="note"></p>
+    <div id="llm-chart"></div>
+    <p id="llm-note" class="note"></p>
+    <p class="note"><a href="analysis/llm-survey/summary.json">LLM survey summary and provenance</a> · <a href="analysis/llm-survey/monthly.csv">Monthly LLM data</a> · <a href="https://github.com/bkolligs/robotics-research-models/blob/main/docs/LLM_SURVEY.md">Survey methodology</a></p>
   </section>
 
   <section>
@@ -84,7 +159,11 @@
     <a href="https://github.com/bkolligs/robotics-research-models">Source</a>
     · method notes in the repository README
   </footer>
-  <script src="app.js"></script>
+  <script src="app.js?v=producer-totals"></script>
   <script src="analysis.js"></script>
+  <script src="architecture.js"></script>
+  <script src="llm.js"></script>
+  <script src="evaluations.js"></script>
+  <script src="lifecycle.js"></script>
 </body>
 </html>

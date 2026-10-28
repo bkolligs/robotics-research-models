@@ -18,6 +18,8 @@ mentions-site = "mentions.build_site:main"
 mentions-serve = "mentions.serve:main"
 mentions-chart = "mentions.chart:main"
 mentions-pipeline = "mentions.pipeline:main"
+mentions-survey = "mentions.survey:main"
+mentions-llm-survey = "mentions.llm_survey:main"
 
 [dependency-groups]
 dev = ["matplotlib>=3"]

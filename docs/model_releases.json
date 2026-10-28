@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "date_basis": "Documented public model announcement or original paper v1. This is a release reference, not necessarily the date public checkpoints became available.",
+  "verified_on": "2026-10-27",
+  "models": [
+    {"model_id":"pi0","released":"2024-10-31","kind":"announcement","source":"https://www.pi.website/blog/pi0","intro_paper_ids":["2410.24164"],"weights_released":"2025-02-04","weights_source":"https://www.pi.website/blog/openpi"},
+    {"model_id":"pi05","released":"2025-04-22","kind":"announcement","source":"https://www.pi.website/blog/pi05","intro_paper_ids":["2504.16054"]},
+    {"model_id":"pi0_fast","released":"2025-02-04","kind":"model and weights release","source":"https://www.pi.website/blog/openpi","intro_paper_ids":["2501.09747"]},
+    {"model_id":"diffusion_policy","released":"2023-03-07","kind":"paper v1","source":"https://arxiv.org/abs/2303.04137","intro_paper_ids":["2303.04137"]},
+    {"model_id":"dp3","released":"2024-03-06","kind":"paper v1","source":"https://arxiv.org/abs/2403.03954","intro_paper_ids":["2403.03954"]},
+    {"model_id":"act","released":"2023-04-23","kind":"paper v1","source":"https://arxiv.org/abs/2304.13705","intro_paper_ids":["2304.13705"]},
+    {"model_id":"openvla","released":"2024-06-13","kind":"paper v1","source":"https://arxiv.org/abs/2406.09246","intro_paper_ids":["2406.09246"]},
+    {"model_id":"openvla_oft","released":"2025-02-27","kind":"paper v1","source":"https://arxiv.org/abs/2502.19645","intro_paper_ids":["2502.19645"]},
+    {"model_id":"octo","released":"2024-05-20","kind":"paper v1","source":"https://arxiv.org/abs/2405.12213","intro_paper_ids":["2405.12213"]},
+    {"model_id":"smolvla","released":"2025-06-02","kind":"paper v1","source":"https://arxiv.org/abs/2506.01844","intro_paper_ids":["2506.01844"]},
+    {"model_id":"gr00t_n1","released":"2025-03-18","kind":"paper v1","source":"https://arxiv.org/abs/2503.14734","intro_paper_ids":["2503.14734"]},
+    {"model_id":"gr00t_n1_5","released":"2025-05-18","kind":"announcement","source":"https://nvidianews.nvidia.com/news/nvidia-powers-humanoid-robot-industry-with-cloud-to-robot-computing-platforms-for-physical-ai","intro_paper_ids":[]},
+    {"model_id":"gr00t_n1_7","released":"2026-04-17","kind":"documented early-access release","source":"https://forums.developer.nvidia.com/t/early-access-isaac-gr00t-n1-7-open-reasoning-vla-model-for-humanoid-robotics/366916","intro_paper_ids":[]},
+    {"model_id":"rdt_1b","released":"2024-10-10","kind":"paper v1","source":"https://arxiv.org/abs/2410.07864","intro_paper_ids":["2410.07864"]},
+    {"model_id":"cogact","released":"2024-11-29","kind":"paper v1","source":"https://arxiv.org/abs/2411.19650","intro_paper_ids":["2411.19650"]},
+    {"model_id":"r3m","released":"2022-03-23","kind":"paper v1","source":"https://arxiv.org/abs/2203.12601","intro_paper_ids":["2203.12601"]},
+    {"model_id":"vc1","released":"2023-03-31","kind":"paper v1","source":"https://arxiv.org/abs/2303.18240","intro_paper_ids":["2303.18240"]},
+    {"model_id":"rt1","released":"2022-12-13","kind":"paper v1","source":"https://arxiv.org/abs/2212.06817","intro_paper_ids":["2212.06817"]},
+    {"model_id":"rt2","released":"2023-07-28","kind":"announcement and paper v1","source":"https://deepmind.google/blog/rt-2-new-model-translates-vision-and-language-into-action/","intro_paper_ids":["2307.15818"]},
+    {"model_id":"peract","released":"2022-09-12","kind":"paper v1","source":"https://arxiv.org/abs/2209.05451","intro_paper_ids":["2209.05451"]},
+    {"model_id":"cliport","released":"2021-09-24","kind":"paper v1","source":"https://arxiv.org/abs/2109.12098","intro_paper_ids":["2109.12098"]},
+    {"model_id":"spatialvla","released":"2025-01-27","kind":"paper v1","source":"https://arxiv.org/abs/2501.15830","intro_paper_ids":["2501.15830"]},
+    {"model_id":"xvla","released":"2025-10-11","kind":"paper v1","source":"https://arxiv.org/abs/2510.10274","intro_paper_ids":["2510.10274"]}
+  ]
+}

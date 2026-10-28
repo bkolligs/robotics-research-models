@@ -1,0 +1,1219 @@
+{
+  "schema": 1,
+  "reviewer": "Codex agent source-text review; not a human review or independent replication",
+  "source_review_completed": true,
+  "classification_policy_sha256": "8e45eea40dbfe178e583c66f0b1561415e7d1b5113c982f8b3a1874b5dcdece4",
+  "sampling": "16 positive, 16 negative, 8 uncertain paper/model pairs; stable hash order within strata; plus seven extraction edge cases",
+  "seed": "20261028",
+  "papers": 47,
+  "cases": 47,
+  "source_judgments": {
+    "unresolved": 6,
+    "evaluated": 9,
+    "not_evaluated": 32
+  },
+  "changed_by_source_review": 15,
+  "limitation": "A small stratified spot check is not an estimate of corpus-wide accuracy. Unresolved provenance remains excluded.",
+  "reviews": [
+    {
+      "paper_id": "2605.09948",
+      "title": "LoopVLA: Learning Sufficiency in Recurrent Refinement for Vision-Language-Action Models",
+      "month": "2026-05",
+      "model_id": "gr00t_n1_5",
+      "model_label": "GR00T N1.5",
+      "baseline_probability": 0.8,
+      "jev_outcome": "unclear",
+      "stratum": "positive",
+      "source_judgment": "unresolved",
+      "reviewed_outcome": "uncertain_baseline",
+      "source_lines": [
+        [
+          515,
+          519
+        ]
+      ],
+      "source_text_sha256": "a944bbc2f075c900c3621528321bb464cf167fa448252b1e0df93685843f0a08",
+      "note": "Some baselines are reported from or reproduced following a harness; GR00T N1.5 is not assigned an unambiguous run provenance.",
+      "initial_outcome": "unclear",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2605.09948"
+    },
+    {
+      "paper_id": "2609.18651",
+      "title": "FIERCE: From Generalist Robot Policies to Fast Specialists via Progress-Failure Feedback",
+      "month": "2026-09",
+      "model_id": "pi05",
+      "model_label": "π0.5",
+      "baseline_probability": 0.94,
+      "jev_outcome": "beaten",
+      "stratum": "positive",
+      "source_judgment": "evaluated",
+      "reviewed_outcome": "beaten",
+      "source_lines": [
+        [
+          294,
+          314
+        ]
+      ],
+      "source_text_sha256": "d382f2605d7b4030b433011fc717f91f70d1da9500e620d10ea5ba1b4bb971ad",
+      "note": "Table II reports original and task-adapted pi0.5 in the authors' real peg and cup experiments; full FIERCE reports higher success on both.",
+      "initial_outcome": "beaten",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2609.18651"
+    },
+    {
+      "paper_id": "2605.01448",
+      "title": "Decompose and Recompose: Reasoning New Skills from Existing Abilities for Cross-Task Robotic Manipulation",
+      "month": "2026-05",
+      "model_id": "openvla",
+      "model_label": "OpenVLA",
+      "baseline_probability": 0.96,
+      "jev_outcome": "beaten",
+      "stratum": "positive",
+      "source_judgment": "unresolved",
+      "reviewed_outcome": "uncertain_baseline",
+      "source_lines": [
+        [
+          350,
+          368
+        ],
+        [
+          374,
+          419
+        ]
+      ],
+      "source_text_sha256": "ab03fda93a9ea916c82a9bd278f625626f75f51e90c08dc29e1f2a416a820f8e",
+      "note": "OpenVLA appears in AGNOSTOS comparison rows; the reviewed text does not distinguish copied benchmark scores from an author-run OpenVLA experiment.",
+      "initial_outcome": "beaten",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2605.01448"
+    },
+    {
+      "paper_id": "2606.01095",
+      "title": "Beyond Task Success: Behavioral and Representational Diagnostics for WAM and VLA",
+      "month": "2026-05",
+      "model_id": "xvla",
+      "model_label": "X-VLA",
+      "baseline_probability": 0.96,
+      "jev_outcome": "unclear",
+      "stratum": "positive",
+      "source_judgment": "evaluated",
+      "reviewed_outcome": "no_proposed_method",
+      "source_lines": [
+        [
+          352,
+          364
+        ],
+        [
+          441,
+          448
+        ]
+      ],
+      "source_text_sha256": "b3a38ea7fc0fd4bd18ae2dfa3c52237235e30fb68d2c657192eddedf8b78f2e1",
+      "note": "The diagnostics study explicitly evaluates seven policies on its GPU and reports X-VLA computational measurements; it proposes no competing robot policy.",
+      "initial_outcome": "unclear",
+      "verified_machine_outcome": "unclear",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2606.01095"
+    },
+    {
+      "paper_id": "2502.15613",
+      "title": "Pick-and-place Manipulation Across Grippers Without Retraining: A Learning-optimization Diffusion Policy Approach",
+      "month": "2025-02",
+      "model_id": "dp3",
+      "model_label": "3D Diffusion Policy",
+      "baseline_probability": 0.97,
+      "jev_outcome": "beaten",
+      "stratum": "positive",
+      "source_judgment": "evaluated",
+      "reviewed_outcome": "beaten",
+      "source_lines": [
+        [
+          422,
+          450
+        ],
+        [
+          480,
+          502
+        ]
+      ],
+      "source_text_sha256": "6258f6d315d1af0044166f9c7279e68b045bfe7c5683be40333ceaf0f84961e6",
+      "note": "The baseline setting explicitly implements Diffusion Policy 3D and validates each method five times per gripper; the proposed method has higher aggregate success.",
+      "initial_outcome": "beaten",
+      "verified_machine_outcome": "beaten",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2502.15613"
+    },
+    {
+      "paper_id": "2605.11832",
+      "title": "Learning Action Manifold with Multi-view Latent Priors for Robotic Manipulation",
+      "month": "2026-05",
+      "model_id": "xvla",
+      "model_label": "X-VLA",
+      "baseline_probability": 0.89,
+      "jev_outcome": "unclear",
+      "stratum": "positive",
+      "source_judgment": "unresolved",
+      "reviewed_outcome": "uncertain_baseline",
+      "source_lines": [
+        [
+          447,
+          476
+        ],
+        [
+          558,
+          568
+        ]
+      ],
+      "source_text_sha256": "86c2b034b38081b622ca5081d08a5a5b2071b085477902b7b50cc877442c5380",
+      "note": "X-VLA has comparison scores, but the reviewed protocol does not establish which X-VLA rows the authors reran.",
+      "initial_outcome": "unclear",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2605.11832"
+    },
+    {
+      "paper_id": "2603.28427",
+      "title": "Tele-Catch: Adaptive Teleoperation for Dexterous Dynamic 3D Object Catching",
+      "month": "2026-03",
+      "model_id": "diffusion_policy",
+      "model_label": "Diffusion Policy",
+      "baseline_probability": 0.91,
+      "jev_outcome": "beaten",
+      "stratum": "positive",
+      "source_judgment": "evaluated",
+      "reviewed_outcome": "beaten",
+      "source_lines": [
+        [
+          538,
+          547
+        ],
+        [
+          576,
+          590
+        ]
+      ],
+      "source_text_sha256": "b2a0fc46037f7290393113f579680619c253e1420831236f876c7b11eab56c9e",
+      "note": "The authors test shared-autonomy variants with DP and DP3; the named DP baseline scores 60% success versus 73.3% for the proposed variant.",
+      "initial_outcome": "beaten",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2603.28427"
+    },
+    {
+      "paper_id": "2504.18904",
+      "title": "RoboVerse: Towards a Unified Platform, Dataset and Benchmark for Scalable and Generalizable Robot Learning",
+      "month": "2025-04",
+      "model_id": "octo",
+      "model_label": "Octo",
+      "baseline_probability": 0.96,
+      "jev_outcome": "unclear",
+      "stratum": "positive",
+      "source_judgment": "evaluated",
+      "reviewed_outcome": "no_proposed_method",
+      "source_lines": [
+        [
+          564,
+          590
+        ],
+        [
+          669,
+          679
+        ]
+      ],
+      "source_text_sha256": "e24f773a5811c0cce076f5a45701e27594cdacefb60262830e4f4b1e31f0bc39",
+      "note": "The benchmark explicitly fine-tunes Octo and evaluates it on synthetic and real grasping tasks. No new competing policy is proposed.",
+      "initial_outcome": "unclear",
+      "verified_machine_outcome": "unclear",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2504.18904"
+    },
+    {
+      "paper_id": "2604.09651",
+      "title": "FlowHijack: A Dynamics-Aware Backdoor Attack on Flow-Matching Vision-Language-Action Models",
+      "month": "2026-03",
+      "model_id": "pi0",
+      "model_label": "π0",
+      "baseline_probability": 0.97,
+      "jev_outcome": "unclear",
+      "stratum": "positive",
+      "source_judgment": "evaluated",
+      "reviewed_outcome": "unclear",
+      "source_lines": [
+        [
+          342,
+          369
+        ],
+        [
+          960,
+          969
+        ]
+      ],
+      "source_text_sha256": "21ea119489f6b5ed7d51c7c7127986290c8cc2f2b6b2c11d36d7964c663e4c9d",
+      "note": "A clean pi0 baseline is measured against attacked policies; the authors also train and deploy it in real experiments. Attack success is not general policy superiority.",
+      "initial_outcome": "unclear",
+      "verified_machine_outcome": "unclear",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2604.09651"
+    },
+    {
+      "paper_id": "2412.14058",
+      "title": "What Matters in Building Vision-Language-Action Models for Generalist Robots",
+      "month": "2024-12",
+      "model_id": "rt2_x",
+      "model_label": "RT-2-X",
+      "baseline_probability": 0.78,
+      "jev_outcome": "unclear",
+      "stratum": "positive",
+      "source_judgment": "unresolved",
+      "reviewed_outcome": "uncertain_baseline",
+      "source_lines": [
+        [
+          1448,
+          1463
+        ]
+      ],
+      "source_text_sha256": "61624fea47f892f20dc8f4c36dc7f50255765dbe9bd93290c399368a6beb70e5",
+      "note": "The SimplerEnv table contains RT-2-X results; model-specific evidence that these authors executed RT-2-X is not established by the reviewed passages.",
+      "initial_outcome": "unclear",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2412.14058"
+    },
+    {
+      "paper_id": "2607.04988",
+      "title": "InternVLA-A1.5: Unifying Understanding, Latent Foresight, and Action for Compositional Generalization",
+      "month": "2026-07",
+      "model_id": "pi05",
+      "model_label": "π0.5",
+      "baseline_probability": 0.91,
+      "jev_outcome": "mixed",
+      "stratum": "positive",
+      "source_judgment": "evaluated",
+      "reviewed_outcome": "mixed",
+      "source_lines": [
+        [
+          667,
+          678
+        ],
+        [
+          859,
+          873
+        ]
+      ],
+      "source_text_sha256": "ce5ac82f98b6020266eefa58392794001432c2ed3206d703d60d40136f78ce42",
+      "note": "All real-world methods are fine-tuned on the same demonstrations and evaluated under an identical randomized protocol, explicitly including pi0.5. Published scores in other tables do not negate these runs.",
+      "initial_outcome": "mixed",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2607.04988"
+    },
+    {
+      "paper_id": "2607.29172",
+      "title": "CLIFT: Turning Gemini Robotics On-Device into Humanoid Specialists via Non-Invasive Closed-Loop Iterative Fine-Tuning",
+      "month": "2026-07",
+      "model_id": "gemini_robotics",
+      "model_label": "Gemini Robotics",
+      "baseline_probability": 0.89,
+      "jev_outcome": "beaten",
+      "stratum": "positive",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          150,
+          156
+        ],
+        [
+          421,
+          426
+        ]
+      ],
+      "source_text_sha256": "270065916584d48dcefd8011288740b10806f3f5024e77566c3f055595c40c4d",
+      "note": "The evaluated model is Gemini Robotics On-Device, a distinct release. These runs cannot be credited to the original Gemini Robotics row.",
+      "initial_outcome": "beaten",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2607.29172"
+    },
+    {
+      "paper_id": "2609.12075",
+      "title": "Efficient Vision-Language-Action Management and Serving for Robot Factories",
+      "month": "2026-09",
+      "model_id": "smolvla",
+      "model_label": "SmolVLA",
+      "baseline_probability": 0.94,
+      "jev_outcome": "unclear",
+      "stratum": "positive",
+      "source_judgment": "evaluated",
+      "reviewed_outcome": "unclear",
+      "source_lines": [
+        [
+          661,
+          670
+        ]
+      ],
+      "source_text_sha256": "e31aaed531059d44537c5059ef22fcb53bc6ab2e9f3c9412afea843e6efd1ef3",
+      "note": "SmolVLA is explicitly measured as one of four serving workloads on the authors' hardware. The competing methods are serving systems, so this establishes direct evaluation but not a robot-policy win.",
+      "initial_outcome": "unclear",
+      "verified_machine_outcome": "unclear",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2609.12075"
+    },
+    {
+      "paper_id": "2609.22684",
+      "title": "StateMem: Single-State Residual Memory with Adaptive Inference for Vision-Language-Action Policies",
+      "month": "2026-09",
+      "model_id": "smolvla",
+      "model_label": "SmolVLA",
+      "baseline_probability": 0.76,
+      "jev_outcome": "beaten",
+      "stratum": "positive",
+      "source_judgment": "unresolved",
+      "reviewed_outcome": "uncertain_baseline",
+      "source_lines": [
+        [
+          452,
+          488
+        ],
+        [
+          502,
+          522
+        ]
+      ],
+      "source_text_sha256": "f7fa366f13127c0c419b568118ba47cffc7ef82cb6dd123187e6cb62468efdd4",
+      "note": "SmolVLA appears in the LIBERO comparison, but the authors' own training and real-robot descriptions identify StateMem and other models rather than a SmolVLA rerun.",
+      "initial_outcome": "beaten",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2609.22684"
+    },
+    {
+      "paper_id": "2407.19819",
+      "title": "Detecting Unsafe Behavior in Neural Network Imitation Policies for Caregiving Robotics",
+      "month": "2024-07",
+      "model_id": "diffusion_policy",
+      "model_label": "Diffusion Policy",
+      "baseline_probability": 0.82,
+      "jev_outcome": "unclear",
+      "stratum": "positive",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          330,
+          345
+        ],
+        [
+          375,
+          389
+        ]
+      ],
+      "source_text_sha256": "ceb8a73e1fcacb0dd0599b4283b938ba6338abcb8731d34f776b966751a79014",
+      "note": "Diffusion Policy is trained to supply trajectories for anomaly detection; the compared models are detectors. The released policy is not separately evaluated as a comparator or diagnostic target.",
+      "initial_outcome": "unclear",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2407.19819"
+    },
+    {
+      "paper_id": "2606.05979",
+      "title": "World-Language-Action Model for Unified World Modeling, Language Reasoning, and Action Synthesis",
+      "month": "2026-06",
+      "model_id": "pi05",
+      "model_label": "π0.5",
+      "baseline_probability": 0.94,
+      "jev_outcome": "unclear",
+      "stratum": "positive",
+      "source_judgment": "evaluated",
+      "reviewed_outcome": "unclear",
+      "source_lines": [
+        [
+          388,
+          412
+        ]
+      ],
+      "source_text_sha256": "4c194cc8aecc326fc2eef5c2464a4a126e49791c3dd739be083312aeff7761a7",
+      "note": "The real-robot protocol explicitly trains all named models for 50k steps and runs pi0.5 success and latency experiments. Comparable success and task-specific gains do not establish a universal win.",
+      "initial_outcome": "unclear",
+      "verified_machine_outcome": "unclear",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2606.05979"
+    },
+    {
+      "paper_id": "2506.16652",
+      "title": "CodeDiffuser: Attention-Enhanced Diffusion Policy via VLM-Generated Code for Instruction Ambiguity",
+      "month": "2025-06",
+      "model_id": "dp3",
+      "model_label": "3D Diffusion Policy",
+      "baseline_probability": 0.09,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          550,
+          560
+        ],
+        [
+          838,
+          841
+        ]
+      ],
+      "source_text_sha256": "21a986003dff355c91bca51658426af8caba0e12c5f55e23c9f0b759f47db04f",
+      "note": "DP3 motivates robust point-cloud inputs; the implemented comparators are Lang-DP variants, not the released DP3 model.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2506.16652"
+    },
+    {
+      "paper_id": "2605.05714",
+      "title": "TriRelVLA: Triadic Relational Structure for Generalizable Embodied Manipulation",
+      "month": "2026-05",
+      "model_id": "rt2_x",
+      "model_label": "RT-2-X",
+      "baseline_probability": 0.04,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          849,
+          852
+        ]
+      ],
+      "source_text_sha256": "e5e8f85fc401a219100a0fb0c025ff149372ce7743e2aa67c358071f498dd0e1",
+      "note": "The RT-X dataset/model work is a citation; it is not an executed RT-2-X comparator.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2605.05714"
+    },
+    {
+      "paper_id": "2609.35575",
+      "title": "F4R: Failure-Driven Recognition, Reconstruction, Refinement, and Redeployment for Continual Robot Self-Improvement",
+      "month": "2026-09",
+      "model_id": "pi0",
+      "model_label": "π0",
+      "baseline_probability": 0.07,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          580,
+          587
+        ]
+      ],
+      "source_text_sha256": "fd9c6c0e2a53c8685abda89768bcea879a2792164f6edbc63b1e88ada6a5e4fc",
+      "note": "The original pi0 work is cited; this does not establish an experimental run of that release.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2609.35575"
+    },
+    {
+      "paper_id": "2503.01238",
+      "title": "A Taxonomy for Evaluating Generalist Robot Manipulation Policies",
+      "month": "2025-03",
+      "model_id": "rt2",
+      "model_label": "RT-2",
+      "baseline_probability": 0.06,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          279,
+          288
+        ],
+        [
+          582,
+          584
+        ]
+      ],
+      "source_text_sha256": "9564afb355bd4572d38bf1e70a51b1faf7b5678b8b3825bffd9da52301e37eaf",
+      "note": "RT-2 illustrates a prior generalization taxonomy and is referenced; the paper does not run RT-2.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2503.01238"
+    },
+    {
+      "paper_id": "2604.01259",
+      "title": "Bench2Drive-VL: Benchmarks for Closed-Loop Autonomous Driving with Vision-Language Models",
+      "month": "2026-04",
+      "model_id": "palm_e",
+      "model_label": "PaLM-E",
+      "baseline_probability": 0.1,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          924,
+          930
+        ]
+      ],
+      "source_text_sha256": "dbe8177fbbef391abb48346c05def9fe543d58cb9b4939dcd821cbd65fcad93a",
+      "note": "PaLM-E is a background reference in an autonomous-driving benchmark, with no executed PaLM-E model evaluation.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2604.01259"
+    },
+    {
+      "paper_id": "2609.34968",
+      "title": "RoboFL: Federated Expert Assembly for World Action Models",
+      "month": "2026-09",
+      "model_id": "spatialvla",
+      "model_label": "SpatialVLA",
+      "baseline_probability": 0.03,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          1096,
+          1101
+        ]
+      ],
+      "source_text_sha256": "12f9866d0f907cbd1bec509dad7270935de3e63f4a2189f074f01a2ff36fba10",
+      "note": "SpatialVLA is a cited prior model, not an executed comparator in the reviewed experiment.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2609.34968"
+    },
+    {
+      "paper_id": "2510.00814",
+      "title": "RTFF: Random-to-Target Fabric Flattening Policy using Dual-Arm Manipulator",
+      "month": "2025-10",
+      "model_id": "act",
+      "model_label": "ACT",
+      "baseline_probability": 0.07,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          99,
+          108
+        ],
+        [
+          313,
+          319
+        ]
+      ],
+      "source_text_sha256": "ea4cb8b937718fa9d9e08b7371091497ab7c7bbb6bd4e76bd65ecb4860e5a6e7",
+      "note": "The method builds a modified mesh policy on ACT; that architecture inheritance is not a separate baseline evaluation of ACT.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2510.00814"
+    },
+    {
+      "paper_id": "2507.12440",
+      "title": "EgoVLA: Learning Vision-Language-Action Models from Egocentric Human Videos",
+      "month": "2025-07",
+      "model_id": "lapa",
+      "model_label": "LAPA",
+      "baseline_probability": 0.03,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          781,
+          786
+        ]
+      ],
+      "source_text_sha256": "773a18f6091b1bf737473692485cdbb5801ed8aeb0ec74599092954bccc99e7c",
+      "note": "Latent action pretraining is referenced as prior work, without a separately executed LAPA comparator.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2507.12440"
+    },
+    {
+      "paper_id": "2602.22088",
+      "title": "Force Policy: Learning Hybrid Force-Position Control Policy under Interaction Frame for Contact-Rich Manipulation",
+      "month": "2026-02",
+      "model_id": "gr00t_n1",
+      "model_label": "GR00T N1",
+      "baseline_probability": 0.07,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          710,
+          717
+        ]
+      ],
+      "source_text_sha256": "0c718850d89999c309cd2c27bdfb29d8669c2d87d8a05449c82aa84a89d5126e",
+      "note": "GR00T N1 is a background citation in a force-position policy study, not an executed comparison.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2602.22088"
+    },
+    {
+      "paper_id": "2307.05973",
+      "title": "VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models",
+      "month": "2023-07",
+      "model_id": "rt1",
+      "model_label": "RT-1",
+      "baseline_probability": 0.07,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          624,
+          630
+        ]
+      ],
+      "source_text_sha256": "540f469632d12e5b6338c6dc6504c8baf27bc9ae016762a527e6a3295708f74c",
+      "note": "VoxPoser references RT-1; the cited release is not directly evaluated in this paper.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2307.05973"
+    },
+    {
+      "paper_id": "2608.05042",
+      "title": "BridgeVLA++: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation",
+      "month": "2026-08",
+      "model_id": "tracevla",
+      "model_label": "TraceVLA",
+      "baseline_probability": 0.03,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          1088,
+          1095
+        ]
+      ],
+      "source_text_sha256": "d2c52d50e1a56730c5be9e878c10d6a11f4858505a3c438904b0f44969fe80b0",
+      "note": "TraceVLA is referenced in the memory-related literature without a model run.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2608.05042"
+    },
+    {
+      "paper_id": "2604.17896",
+      "title": "Can Explicit Physical Feasibility Benefit VLA Learning? An Empirical Study",
+      "month": "2026-04",
+      "model_id": "pi0",
+      "model_label": "π0",
+      "baseline_probability": 0.05,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          572,
+          581
+        ]
+      ],
+      "source_text_sha256": "f1ffb78d935ac298c6ae02bc75e6a5fb4d60d998844dd5493ad4d70fd493b757",
+      "note": "The pi0 reference supplies background; it is not an evaluated instance of the original release.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2604.17896"
+    },
+    {
+      "paper_id": "2507.06174",
+      "title": "Design and Experimental Validation of Sensorless 4-Channel Bilateral Teleoperation for Low-Cost Manipulators",
+      "month": "2025-07",
+      "model_id": "gr00t_n1",
+      "model_label": "GR00T N1",
+      "baseline_probability": 0.05,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          1490,
+          1497
+        ]
+      ],
+      "source_text_sha256": "fdb12ee7a3d8ed464070f1dfe088f64b156af74c45bb335895aabb015a0feabc",
+      "note": "GR00T N1 is a citation in a teleoperation-control study, not an executed model baseline.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2507.06174"
+    },
+    {
+      "paper_id": "2608.10860",
+      "title": "Flex-$π$: A Multi-Stream World-Action Model with Compute Flexibility",
+      "month": "2026-08",
+      "model_id": "octo",
+      "model_label": "Octo",
+      "baseline_probability": 0.03,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          2337,
+          2348
+        ]
+      ],
+      "source_text_sha256": "f50420ef09639bfce6da6aa0f25d3d0145dd35bb94eac767a42f5f7e43e75b4e",
+      "note": "Octo appears as a reference model in the benchmark table; no Octo-specific author-run protocol is established.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2608.10860"
+    },
+    {
+      "paper_id": "2501.06994",
+      "title": "Motion Tracks: A Unified Representation for Human-Robot Transfer in Few-Shot Imitation Learning",
+      "month": "2025-01",
+      "model_id": "dp3",
+      "model_label": "3D Diffusion Policy",
+      "baseline_probability": 0.03,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          445,
+          451
+        ]
+      ],
+      "source_text_sha256": "e93f81a67f3153bb54035d448738dc2ea09de83478bb6a5ff90a9cdbe5c6e1f5",
+      "note": "The DP3 reference is present, but a released DP3 model is not separately run as a comparator.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2501.06994"
+    },
+    {
+      "paper_id": "2606.01847",
+      "title": "The Lie We Tell: Correcting the Euclidean Fallacy in Vision Language Action Policies via Score Matching on Tangent Space",
+      "month": "2026-06",
+      "model_id": "gr00t_n1",
+      "model_label": "GR00T N1",
+      "baseline_probability": 0.02,
+      "jev_outcome": "not_baseline",
+      "stratum": "negative",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          657,
+          664
+        ]
+      ],
+      "source_text_sha256": "db775f7dd22ad01c92422fdb89865b400b6e0895bb4d6c128829bf971097db6d",
+      "note": "GR00T N1 is cited as prior foundation-model work, not executed as an experimental target.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2606.01847"
+    },
+    {
+      "paper_id": "2602.12032",
+      "title": "When would Vision-Proprioception Policies Fail in Robotic Manipulation?",
+      "month": "2026-02",
+      "model_id": "rdt_1b",
+      "model_label": "RDT-1B",
+      "baseline_probability": 0.4,
+      "jev_outcome": "uncertain_baseline",
+      "stratum": "uncertain",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          351,
+          360
+        ]
+      ],
+      "source_text_sha256": "7c1ff5f06e2daa6978fa7e29630dc41781a4b49de1ba3516a6d52bc6cc558f60",
+      "note": "The Mask baseline adapts RDT-1B's masking idea; it does not evaluate the RDT-1B model.",
+      "initial_outcome": "uncertain_baseline",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2602.12032"
+    },
+    {
+      "paper_id": "2505.15685",
+      "title": "From Grounding to Manipulation: Case Studies of Foundation Model Integration in Embodied Robotic Systems",
+      "month": "2025-05",
+      "model_id": "gemini_robotics",
+      "model_label": "Gemini Robotics",
+      "baseline_probability": 0.55,
+      "jev_outcome": "uncertain_baseline",
+      "stratum": "uncertain",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          246,
+          258
+        ],
+        [
+          632,
+          639
+        ]
+      ],
+      "source_text_sha256": "604fc55c0ecf6c33ba00035929427e22af7a6cbbf7060a48b88b847facb1f895",
+      "note": "Gemini Robotics is described as a representative system; the grounding experiment evaluates other named models.",
+      "initial_outcome": "uncertain_baseline",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2505.15685"
+    },
+    {
+      "paper_id": "2608.29896",
+      "title": "EMERGE-Policy: A Robot Mind Emerges Beyond a Single Policy",
+      "month": "2026-08",
+      "model_id": "lingbot_vla",
+      "model_label": "LingBot-VLA",
+      "baseline_probability": 0.6,
+      "jev_outcome": "uncertain_baseline",
+      "stratum": "uncertain",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          1020,
+          1037
+        ]
+      ],
+      "source_text_sha256": "b8a57c81b0855a7bf0966cd1632675b7841453c89de6528c93182c1860b454d7",
+      "note": "The RoboDojo caption states that baseline results are reproduced from its public leaderboard; this is score reporting rather than an author-run LingBot experiment.",
+      "initial_outcome": "uncertain_baseline",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2608.29896"
+    },
+    {
+      "paper_id": "2508.17449",
+      "title": "Robotic Manipulation via Imitation Learning: Taxonomy, Evolution, Benchmark, and Challenges",
+      "month": "2025-08",
+      "model_id": "dp3",
+      "model_label": "3D Diffusion Policy",
+      "baseline_probability": 0.43,
+      "jev_outcome": "uncertain_baseline",
+      "stratum": "uncertain",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          894,
+          917
+        ]
+      ],
+      "source_text_sha256": "7ea71d8866c06aed450228c47c0b748abce4d49813856c4ef3af84e67aa5f380",
+      "note": "The survey compiles benchmark results from official papers; a DP3 score in the table does not establish a new run.",
+      "initial_outcome": "uncertain_baseline",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2508.17449"
+    },
+    {
+      "paper_id": "2509.03383",
+      "title": "ANNIE: Be Careful of Your Robots",
+      "month": "2025-09",
+      "model_id": "rt2",
+      "model_label": "RT-2",
+      "baseline_probability": 0.32,
+      "jev_outcome": "uncertain_baseline",
+      "stratum": "uncertain",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          908,
+          916
+        ]
+      ],
+      "source_text_sha256": "5dc9ef7e20cc968769aa93ebc1bd8f518d1d50dd0d37478bdcd059ad106d88b2",
+      "note": "RT-2 is a related-work citation; the reviewed experiment does not execute that model.",
+      "initial_outcome": "uncertain_baseline",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2509.03383"
+    },
+    {
+      "paper_id": "2609.37721",
+      "title": "CogWAM: Aligning Semantic Cognition with World Action Modeling via Event-Driven Interfaces",
+      "month": "2026-09",
+      "model_id": "openvla",
+      "model_label": "OpenVLA",
+      "baseline_probability": 0.31,
+      "jev_outcome": "uncertain_baseline",
+      "stratum": "uncertain",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          1374,
+          1383
+        ]
+      ],
+      "source_text_sha256": "f176e6fd21a11e8990a02a2b452777f939442908a5c2ba5737a5cf6856ba03e2",
+      "note": "The actual experimental comparator is OpenVLA-OFT. It must not also count as evaluation of the base OpenVLA release.",
+      "initial_outcome": "uncertain_baseline",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2609.37721"
+    },
+    {
+      "paper_id": "2609.05533",
+      "title": "SimpleMemVLA: A Simple but Effective Native-Video Memory for Vision-Language-Action Models",
+      "month": "2026-09",
+      "model_id": "xvla",
+      "model_label": "X-VLA",
+      "baseline_probability": 0.53,
+      "jev_outcome": "uncertain_baseline",
+      "stratum": "uncertain",
+      "source_judgment": "unresolved",
+      "reviewed_outcome": "uncertain_baseline",
+      "source_lines": [
+        [
+          478,
+          489
+        ]
+      ],
+      "source_text_sha256": "a936cce5c359ace1d62379c0ac4812e32b8028277fa4606f6281440e0ca3310f",
+      "note": "X-VLA is present in a comparison table, but the original excerpts and reviewed setup do not establish that this model was run by these authors.",
+      "initial_outcome": "uncertain_baseline",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2609.05533"
+    },
+    {
+      "paper_id": "2603.06749",
+      "title": "Robotic Foundation Models for Industrial Control: A Comprehensive Survey and Readiness Assessment Framework",
+      "month": "2026-03",
+      "model_id": "dp3",
+      "model_label": "3D Diffusion Policy",
+      "baseline_probability": 0.47,
+      "jev_outcome": "uncertain_baseline",
+      "stratum": "uncertain",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          3714,
+          3718
+        ]
+      ],
+      "source_text_sha256": "ecbdcc1796c7b9be5d2d2c3a822f298ebb8f9167e0bb84738b103d492ddd607f",
+      "note": "This industrial-foundation-model survey references DP3; it does not supply evidence of a new DP3 experiment.",
+      "initial_outcome": "uncertain_baseline",
+      "verified_machine_outcome": "uncertain_baseline",
+      "changed_by_source_review": true,
+      "source_url": "https://arxiv.org/abs/2603.06749"
+    },
+    {
+      "paper_id": "2309.16699",
+      "title": "Circular-Line Trajectory Tracking Controller for Mobile Robot using Multi-Pixy2 Sensors",
+      "month": "2023-08",
+      "model_id": "pi0",
+      "model_label": "π0",
+      "baseline_probability": 0.05,
+      "jev_outcome": "not_baseline",
+      "stratum": "extraction_edge_case",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          134,
+          155
+        ]
+      ],
+      "source_text_sha256": "7c7c53bfd8f603380d981ac33c4dd2a4d7912e74f66f72bb61c7a4ab6bd29d74",
+      "note": "The apparent model alias is mathematical pi notation in rotation matrices, not a released robot model.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2309.16699"
+    },
+    {
+      "paper_id": "2312.04224",
+      "title": "Parameter fine-tuning method for MMG model using real-scale ship data",
+      "month": "2023-12",
+      "model_id": "pi07",
+      "model_label": "π0.7",
+      "baseline_probability": 0.05,
+      "jev_outcome": "not_baseline",
+      "stratum": "extraction_edge_case",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          233,
+          246
+        ]
+      ],
+      "source_text_sha256": "de989b0320a712b754a8746de89488cef3191a31eb3c60d7daf421331a56303c",
+      "note": "The apparent pi0.7 mention is a typeset hydrodynamic equation, not the robot-policy release.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2312.04224"
+    },
+    {
+      "paper_id": "2406.18699",
+      "title": "From Pixels to Torques with Linear Feedback",
+      "month": "2024-06",
+      "model_id": "diffusion_policy",
+      "model_label": "Diffusion Policy",
+      "baseline_probability": 0.09,
+      "jev_outcome": "not_baseline",
+      "stratum": "extraction_edge_case",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          812,
+          820
+        ]
+      ],
+      "source_text_sha256": "5606287c3e6c6f34ece5a96a1bac01957e742979bb21672cdfb76525b4c6a699",
+      "note": "Diffusion Policy appears in a reference; the study does not execute that model as a baseline.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2406.18699"
+    },
+    {
+      "paper_id": "2409.08507",
+      "title": "Three-dimensional Nonlinear Path-following Guidance with Bounded Input Constraints",
+      "month": "2024-09",
+      "model_id": "pi0",
+      "model_label": "π0",
+      "baseline_probability": 0.05,
+      "jev_outcome": "not_baseline",
+      "stratum": "extraction_edge_case",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          428,
+          449
+        ]
+      ],
+      "source_text_sha256": "981c5cc35b4ce0e990370911a91254920c2cd94b7f61760c110d882460bae844",
+      "note": "The apparent model mention is state/control notation in a classical guidance paper.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2409.08507"
+    },
+    {
+      "paper_id": "2506.19597",
+      "title": "Robotics Under Construction: Challenges on Job Sites",
+      "month": "2025-06",
+      "model_id": "act",
+      "model_label": "ACT",
+      "baseline_probability": 0.06,
+      "jev_outcome": "not_baseline",
+      "stratum": "extraction_edge_case",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          229,
+          240
+        ],
+        [
+          434,
+          436
+        ]
+      ],
+      "source_text_sha256": "e9423697a99c5cee98f0317db9872334feaad99cd4e1b102e1137058de928286",
+      "note": "The study evaluates LiDAR perception methods and references action chunking; it does not evaluate ACT.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2506.19597"
+    },
+    {
+      "paper_id": "2603.07663",
+      "title": "DAISS: Phase-Aware Imitation Learning for Dual-Arm Robotic Ultrasound-Guided Interventions",
+      "month": "2026-03",
+      "model_id": "act",
+      "model_label": "ACT",
+      "baseline_probability": 0.14,
+      "jev_outcome": "not_baseline",
+      "stratum": "extraction_edge_case",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          107,
+          115
+        ],
+        [
+          339,
+          355
+        ]
+      ],
+      "source_text_sha256": "1178d33f777dd06ede6062e0dcee4f1613d6ae0108873365ddb19689d71bf02e",
+      "note": "ACT motivates imitation-learning architecture; the tested policy is the authors' phase-aware DAISS method, not a standalone ACT comparator.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2603.07663"
+    },
+    {
+      "paper_id": "2609.36151",
+      "title": "KPI: A Promptable Kernel for Physical Interaction on Humanoids",
+      "month": "2026-09",
+      "model_id": "gr00t_n1",
+      "model_label": "GR00T N1",
+      "baseline_probability": 0.14,
+      "jev_outcome": "not_baseline",
+      "stratum": "extraction_edge_case",
+      "source_judgment": "not_evaluated",
+      "reviewed_outcome": "not_baseline",
+      "source_lines": [
+        [
+          389,
+          420
+        ],
+        [
+          548,
+          551
+        ]
+      ],
+      "source_text_sha256": "ef3ae8c76f26cfd7f449730170a71aa5cf17d1017e77a16363eeb3bb1b5493da",
+      "note": "GR00T N1 is a wrapped bibliography entry. The actual controller comparators are SONIC and compliance-control variants.",
+      "initial_outcome": "not_baseline",
+      "verified_machine_outcome": "not_baseline",
+      "changed_by_source_review": false,
+      "source_url": "https://arxiv.org/abs/2609.36151"
+    }
+  ]
+}

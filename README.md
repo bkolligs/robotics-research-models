@@ -15,9 +15,14 @@ Python package `mentions`, managed with [uv](https://docs.astral.sh/uv/).
 
 - `src/mentions/taxonomy.py` — variants, with country and releasing organization
 - `src/mentions/harvest.py` — arXiv metadata for `cs.RO` since January 2023
+- `src/mentions/llm_survey.py` — separate frontier-LLM mention and Jev usage survey
+- `src/mentions/evaluations.py` — experimental baseline use and reported comparison outcomes; see [methodology](docs/EVALUATIONS.md)
+- `src/mentions/lifecycle.py` — release-aligned baseline usage and calendar-time popularity; see [methodology](docs/BASELINE_LIFECYCLE.md)
 - `src/mentions/scan.py` — full-text mention scan and monthly shares
 - `src/mentions/export_corpus.py` — writes `data/corpus/YYYY.jsonl` and a local
   `data/papers.sqlite`
+- `src/mentions/survey.py` — optional Jev survey of architectural trends in
+  paper titles and abstracts; see [ARCHITECTURE_SURVEY.md](docs/ARCHITECTURE_SURVEY.md)
 
 ## Full pipeline
 

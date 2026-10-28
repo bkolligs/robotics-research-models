@@ -160,6 +160,18 @@ function renderChart() {
 
 function renderTable() {
   const body = document.querySelector("#totals tbody");
+  const modelView = ["variants", "families"].includes(state.view);
+  const labels = {
+    variants: ["Model mention totals and producers", "Model release"],
+    families: ["Model family mention totals and producers", "Model family"],
+    countries: ["Mention totals by model producer country", "Model producer headquarters country"],
+    companies: ["Mention totals by model producer", "Model producer"],
+  };
+  document.getElementById("totals-title").textContent = labels[state.view][0];
+  document.getElementById("totals-name-heading").textContent = labels[state.view][1];
+  document.getElementById("totals-origin-heading").hidden = !modelView;
+  document.getElementById("totals-context").textContent =
+    `These totals belong to the original model-mentions chart above (${labels[state.view][1].toLowerCase()} grouping). Counts cover the full scanned corpus and include citations; a mention does not establish model use.`;
   const rows = state.view === "variants"
     ? state.summary.variants
     : state.view === "families"
@@ -177,7 +189,7 @@ function renderTable() {
     const model = (100 * (row.share_of_model_papers || 0)).toFixed(1);
     return `<tr class="${state.hidden.has(row.id) ? "off" : ""}">
       <td>${escapeHtml(nameOf(row.id))}</td>
-      <td>${escapeHtml(origin)}</td>
+      <td${modelView ? "" : " hidden"}>${escapeHtml(origin)}</td>
       <td class="num">${row.papers.toLocaleString()}</td>
       <td class="num">${scanned}%</td>
       <td class="num">${model}%</td>
