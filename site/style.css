@@ -194,3 +194,5 @@ select { padding: 6px; border: 1px solid var(--line); background: var(--card); c
 .stat-models { margin-top: 8px; }
 
 #architecture-rate-controls[hidden] { display: none; }
+
+.citation { overflow-x: auto; padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; line-height: 1.6; }
