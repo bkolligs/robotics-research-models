@@ -196,3 +196,5 @@ select { padding: 6px; border: 1px solid var(--line); background: var(--card); c
 #architecture-rate-controls[hidden] { display: none; }
 
 .citation { overflow-x: auto; padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; line-height: 1.6; }
+#copy-citation { border: 1px solid var(--line); padding: 7px 12px; }
+#citation-status { margin-left: 8px; }

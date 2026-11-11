@@ -186,7 +186,9 @@
 
   <section aria-labelledby="citation-title">
     <h2 id="citation-title">Cite this website</h2>
-    <pre class="citation"><code>@misc{kolligs2026robotics,
+    <button type="button" id="copy-citation">Copy BibTeX</button>
+    <span id="citation-status" class="note" role="status"></span>
+    <pre class="citation"><code id="citation-text">@misc{kolligs2026robotics,
   author       = {Kolligs, Ben},
   title        = {Robotics Research Roundup},
   year         = {2026},
@@ -215,6 +217,7 @@
     · method notes in the repository README
   </footer>
   <script src="app.js?v=producer-totals"></script>
+  <script src="citation.js"></script>
   <script src="analysis.js"></script>
   <script src="architecture.js"></script>
   <script src="llm.js"></script>
