@@ -1,10 +1,8 @@
 name: daily corpus update
 
 on:
-  schedule:
-    # 12:30 UTC. arXiv's new-submission announcement is 00:00 UTC; the
-    # offset keeps this off the hour, which is when most crons pile up.
-    - cron: "30 12 * * *"
+  # Monthly Modal refresh owns scheduled updates. Keep this short-window
+  # command available for manual maintenance; its 14-day guard is unchanged.
   workflow_dispatch:
 
 permissions:

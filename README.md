@@ -70,6 +70,9 @@ has added since it started.
 
 ## Modal workspace
 
+For the monthly GitHub Actions refresh and its one-time AWS OIDC setup, see
+[Monthly updates](docs/MONTHLY_UPDATES.md).
+
 Complete the local metadata harvest with `uv run mentions-harvest`. The Modal
 launcher uploads that metadata and stores the study's cs.RO PDFs, extracted
 text, corpus, and summary in the persistent Volume selected by `MENTIONS_MODAL_VOLUME` (default: `papers`).

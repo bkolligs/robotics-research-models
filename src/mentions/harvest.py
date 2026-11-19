@@ -123,7 +123,15 @@ def _flush(records_path, seen: dict[str, dict], cursor_path, cursor: str) -> Non
     cursor_tmp.replace(cursor_path)
 
 
-def harvest(max_pages: int | None = None) -> None:
+def harvest(max_pages: int | None = None, month: str | None = None) -> None:
+    windows = harvest_windows()
+    if month is not None:
+        import re
+        if not re.fullmatch(r"\d{4}-(0[1-9]|1[0-2])", month):
+            raise ValueError("month must be YYYY-MM")
+        windows = [w for w in windows if w[0].startswith(month.replace('-', ''))]
+        if not windows:
+            raise ValueError("month must fall within the study's harvest window")
     data = data_dir()
     records_path = data / "records.jsonl"
     seen: dict[str, dict] = {}
@@ -138,7 +146,7 @@ def harvest(max_pages: int | None = None) -> None:
     cursor = cursor_path.read_text().strip() if cursor_path.exists() else ""
     page = 200
     pages = 0
-    for start_date, end_date in harvest_windows():
+    for start_date, end_date in windows:
         window_id = f"{start_date}-{end_date}"
         if cursor and window_id < cursor.split("@")[0]:
             print(f"skip window {window_id}", flush=True)
@@ -231,8 +239,14 @@ def harvest_since(start_date: str, end_date: str) -> list[dict]:
 
 
 def main() -> None:
-    pages = int(sys.argv[1]) if len(sys.argv) > 1 else None
-    harvest(pages)
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('pages', nargs='?', type=int)
+    parser.add_argument('--month', help='Harvest one YYYY-MM into a fresh data directory')
+    args = parser.parse_args()
+    if args.month and (data_dir() / 'records.jsonl').exists():
+        parser.error('--month requires a fresh data directory')
+    harvest(args.pages, month=args.month)
 
 
 if __name__ == "__main__":
