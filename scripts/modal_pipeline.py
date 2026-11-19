@@ -12,7 +12,8 @@ import os
 import modal
 
 ROOT = Path(__file__).resolve().parents[1]
-app = modal.App(os.environ.get("MENTIONS_MODAL_APP", "paper-pipeline"))
+app = modal.App(os.environ.get("MENTIONS_MODAL_APP", "robotics-research-monthly"))
+aws_role = modal.Secret.from_name("robotics-research-aws", required_keys=["AWS_ROLE_ARN"])
 volume = modal.Volume.from_name(os.environ.get("MENTIONS_MODAL_VOLUME", "papers"), create_if_missing=True)
 image = (
     modal.Image.debian_slim(python_version="3.12")
@@ -24,8 +25,14 @@ image = (
 
 
 @app.function(image=image, volumes={"/papers": volume}, cpu=1, memory=2048,
-              timeout=3600, max_containers=10, region="us-east")
+              timeout=3600, max_containers=10, region="us-east", secrets=[aws_role])
 def worker(stage: str, chunks: list[dict], run_id: str = "", overwrite: bool = False):
+    from mentions.modal_aws import configure_modal_oidc, probe_access
+    configure_modal_oidc()
+    if stage == "auth":
+        return probe_access()
+    if stage not in {"index", "process"}:
+        raise ValueError("Unknown worker stage")
     from mentions.pdf_store import ManifestChunk
     from mentions.selective_store import index_chunk
     from mentions.parallel_pipeline import process_archive
@@ -41,6 +48,27 @@ def worker(stage: str, chunks: list[dict], run_id: str = "", overwrite: bool = F
         return results
     finally:
         volume.commit()
+
+
+@app.function(image=image, volumes={"/papers": volume}, cpu=1, memory=2048,
+              timeout=600, max_containers=1, region="us-east", secrets=[aws_role])
+def archives(max_chunks: int = 0, check_auth: bool = False):
+    import json
+    from dataclasses import asdict
+    from mentions.modal_aws import configure_modal_oidc, probe_access
+    from mentions.pdf_store import download_manifest, yymm_of
+    configure_modal_oidc()
+    if check_auth:
+        return probe_access()
+    volume.reload()
+    months = {yymm_of(json.loads(line)['id']) for line in Path('/papers/records.jsonl').read_text().splitlines() if line.strip()}
+    if not months:
+        raise ValueError('Refusing an empty paper harvest')
+    chunks = [c for c in download_manifest(Path('/papers/pdf_manifest.xml')) if c.yymm in months]
+    if max_chunks:
+        chunks = chunks[:max_chunks]
+    volume.commit()
+    return [asdict(c) for c in chunks]
 
 
 @app.function(image=image, volumes={"/papers": volume}, cpu=2, memory=4096,
@@ -63,46 +91,33 @@ def control(stage: str, chunks: list[dict] | None = None, run_id: str = "", part
 
 @app.local_entrypoint()
 def main(records: str = "data/records.jsonl", overwrite: bool = False,
-         max_chunks: int = 0, batch_size: int = 5, workers: int = 10, consolidate_run: str = ""):
+         max_chunks: int = 0, batch_size: int = 5, workers: int = 10, consolidate_run: str = "", check_auth: bool = False):
+    if check_auth:
+        print({"archives": archives.remote(check_auth=True)}, flush=True)
+        print({"worker": worker.remote("auth", [])}, flush=True)
+        return
     if consolidate_run:
         import re
         if not re.fullmatch(r"[0-9a-f]{64}", consolidate_run):
             raise ValueError("consolidate_run must be a manifest SHA-256")
         print(control.remote("merge", run_id=consolidate_run), flush=True)
         return
-    import boto3
-    import json
     from concurrent.futures import ThreadPoolExecutor
-    from dataclasses import asdict
-    from mentions.pdf_store import download_manifest, yymm_of
 
     if max_chunks < 0 or not 1 <= batch_size <= 20 or not 1 <= workers <= 10:
         raise ValueError("Require max_chunks >= 0, batch_size 1..20, workers 1..10")
-    session = boto3.Session()
-    session.client('sts').get_caller_identity()
     path = Path(records)
-    months = {yymm_of(json.loads(line)['id']) for line in path.read_text().splitlines() if line.strip()}
-    chunks = [c for c in download_manifest(path.parent / 'pdf_manifest.xml') if c.yymm in months]
-    if max_chunks:
-        chunks = chunks[:max_chunks]
     with volume.batch_upload(force=True) as batch:
         batch.put_file(path, '/records.jsonl')
-    raw = [asdict(c) for c in chunks]
+    raw = archives.remote(max_chunks)
 
     def parallel(stage, run_id=''):
         for start in range(0, len(raw), batch_size * workers):
-            credentials = session.get_credentials().get_frozen_credentials()
-            values = {'AWS_ACCESS_KEY_ID': credentials.access_key,
-                      'AWS_SECRET_ACCESS_KEY': credentials.secret_key,
-                      'AWS_DEFAULT_REGION': 'us-east-1'}
-            if credentials.token:
-                values['AWS_SESSION_TOKEN'] = credentials.token
-            function = worker.with_options(secrets=[modal.Secret.from_dict(values)])
             wave = raw[start:start + batch_size * workers]
             batches = [wave[i:i + batch_size] for i in range(0, len(wave), batch_size)]
             print(f'{stage}: archives {start + 1}-{start + len(wave)}/{len(raw)}, workers={len(batches)}', flush=True)
             with ThreadPoolExecutor(max_workers=workers) as pool:
-                futures = [pool.submit(function.remote, stage=stage, chunks=b, run_id=run_id,
+                futures = [pool.submit(worker.remote, stage=stage, chunks=b, run_id=run_id,
                                        overwrite=overwrite) for b in batches]
                 # Any failed future prevents the manifest/process/merge barrier advancing.
                 for future in futures:

@@ -16,7 +16,6 @@ on:
 
 permissions:
   contents: write
-  id-token: write
   actions: write
 
 concurrency:
@@ -36,11 +35,9 @@ jobs:
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
-          AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
         run: |
           test -n "$MODAL_TOKEN_ID" || { echo "Missing MODAL_TOKEN_ID secret"; exit 1; }
           test -n "$MODAL_TOKEN_SECRET" || { echo "Missing MODAL_TOKEN_SECRET secret"; exit 1; }
-          test -n "$AWS_ROLE_ARN" || { echo "Set AWS_ROLE_ARN repository variable (see docs/MONTHLY_UPDATES.md)"; exit 1; }
       - uses: astral-sh/setup-uv@v5
         with:
           python-version: "3.12"
@@ -71,14 +68,6 @@ jobs:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
         run: uv run --no-sync modal run scripts/modal_harvest.py --month "$TARGET_MONTH"
-      - name: Obtain temporary AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
-          aws-region: us-east-1
-          role-duration-seconds: 21600
-          inline-session-policy: >-
-            {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"s3:GetObject","Resource":"arn:aws:s3:::arxiv/pdf/*"}]}
       - name: Update full-text corpus on Modal
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}

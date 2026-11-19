@@ -41,8 +41,8 @@ watermark. A cold cache requires one complete subject harvest.
 
 For local use, `uv run mentions-harvest` maintains `data/oai.sqlite` and exports
 study records to `data/records.jsonl`. `--month YYYY-MM` filters the export only.
-The monthly Actions job downloads the completed export from Modal and obtains
-AWS credentials afterward, preserving their lifetime for PDF processing.
+The monthly Actions job downloads the completed export from Modal; all AWS
+requests, including the bulk manifest download, run inside Modal.
 
 ## Authentication
 
@@ -52,19 +52,16 @@ GitHub repository Actions secrets:
 - `MODAL_TOKEN_ID` and `MODAL_TOKEN_SECRET`: credentials for the `benkolligs`
   workspace containing the `robotics-research-papers` Volume.
 
-GitHub repository Actions variable:
+Modal Secret `robotics-research-aws` in the `benkolligs` workspace's `main`
+environment stores only `AWS_ROLE_ARN`, the nonsecret ARN of the role below.
+GitHub needs no AWS variables, AWS access keys, or AWS OIDC permission.
 
-- `AWS_ROLE_ARN`: ARN of the AWS role described below. An ARN is not a secret.
-
-AWS uses GitHub OIDC rather than saved AWS access keys. The existing launcher
-forwards the temporary AWS credentials to Modal workers using ephemeral Modal
-Secrets. The workflow requests a six-hour session, so the role's maximum session
-duration must be at least 21,600 seconds. S3 requester-pays charges accrue to
-this AWS account.
-
-The workflow also requests an inline STS session policy limited to
-`s3:GetObject` on `arn:aws:s3:::arxiv/pdf/*`. This restricts its temporary
-credentials even if the role has broader identity policies attached.
+The `archives` and `worker` functions exchange their injected
+`MODAL_IDENTITY_TOKEN` for AWS credentials using the SDK's web-identity provider.
+The token file stays in container-local temporary storage, never a Volume.
+The SDK automatically renews AWS sessions; forwarded AWS keys are rejected.
+Only these two functions receive the role configuration. S3 requester-pays
+charges accrue to the role's AWS account.
 
 For an isolated month test, dispatch with `-f test_month=2026-10`. The run
 creates a separate test Volume in the same `benkolligs` workspace and uploads
@@ -79,14 +76,14 @@ retain that Volume because the production catalog references its PDF/text files.
 
 ## One-time AWS setup
 
-An administrator with IAM permissions must perform these steps. Refresh a local
-login first with `aws login --profile project_poweruser` if using that profile.
+An administrator with IAM permissions must perform these steps. Refresh the
+administrator login with `aws login --profile project_admin` when needed.
 
-1. In IAM → Identity providers, add an OpenID Connect provider if it does not
-   already exist. Provider URL: `https://token.actions.githubusercontent.com`.
-   Audience: `sts.amazonaws.com`.
-2. Create a role named `robotics-research-github-actions` with the following
-   trust policy, replacing `ACCOUNT_ID` with the AWS account ID:
+1. In IAM → Identity providers, add provider URL `https://oidc.modal.com`
+   with audience `oidc.modal.com` if it does not already exist.
+2. Create role `robotics-research-modal` in account `280337078600` with this
+   trust policy. It allows only the two AWS-reading functions of this app in
+   `benkolligs` (`ac-zn2ejj8lZ29IIEz7DdespP`), environment `main`:
 
 ```json
 {
@@ -94,25 +91,24 @@ login first with `aws login --profile project_poweruser` if using that profile.
   "Statement": [{
     "Effect": "Allow",
     "Principal": {
-      "Federated": "arn:aws:iam::ACCOUNT_ID:oidc-provider/token.actions.githubusercontent.com"
+      "Federated": "arn:aws:iam::280337078600:oidc-provider/oidc.modal.com"
     },
     "Action": "sts:AssumeRoleWithWebIdentity",
     "Condition": {
-      "StringEquals": {
-        "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-        "token.actions.githubusercontent.com:sub": "repo:bkolligs@29968424/robotics-research-models@1434797657:ref:refs/heads/main"
+      "StringEquals": {"oidc.modal.com:aud": "oidc.modal.com"},
+      "StringLike": {
+        "oidc.modal.com:sub": [
+          "modal:workspace_id:ac-zn2ejj8lZ29IIEz7DdespP:environment_name:main:app_name:robotics-research-monthly:function_name:archives:container_id:*",
+          "modal:workspace_id:ac-zn2ejj8lZ29IIEz7DdespP:environment_name:main:app_name:robotics-research-monthly:function_name:worker:container_id:*"
+        ]
       }
     }
   }]
 }
 ```
 
-This repository uses GitHub's immutable subject format (verified through the
-repository OIDC settings API), so keep the owner and repository IDs in `sub`.
-The AWS account currently used for this project is `280337078600`.
-
-3. Attach this inline permissions policy. The pipeline fetches known manifest
-   and archive keys; it needs no bucket listing or write access:
+3. Attach only this inline permissions policy. Known manifest and archive
+   keys need no bucket listing or write access:
 
 ```json
 {
@@ -125,24 +121,28 @@ The AWS account currently used for this project is `280337078600`.
 }
 ```
 
-4. Set the role's maximum session duration to six hours.
-5. Save its ARN as the repository variable:
+4. Store the role configuration in Modal and check both functions:
 
 ```bash
-gh variable set AWS_ROLE_ARN --repo bkolligs/robotics-research-models \
-  --body arn:aws:iam::ACCOUNT_ID:role/robotics-research-github-actions
+uv run --no-sync modal secret create --profile benkolligs --env main \
+  robotics-research-aws AWS_ROLE_ARN=arn:aws:iam::280337078600:role/robotics-research-modal
+MENTIONS_MODAL_VOLUME=robotics-research-papers uv run --no-sync modal run \
+  --profile benkolligs --env main scripts/modal_pipeline.py --check-auth
 ```
 
-6. Once the workflow is merged to `main`, start and inspect a manual run:
+The check reads only 32 bytes of the arXiv manifest per function and reports
+the assumed role, without modifying the corpus. The default one-hour AWS
+session is renewed by the SDK as needed. Keep `MENTIONS_MODAL_APP` at
+`robotics-research-monthly` to match the role trust.
 
-```bash
-gh workflow run monthly.yml --ref main
-gh run list --workflow monthly.yml --limit 1
-```
+5. After verifying Modal access, retire the old `robotics-research-github-actions`
+   role and remove the GitHub `AWS_ROLE_ARN` variable. Leave shared identity
+   providers in place for other applications.
+6. Publish the workflow change and start an isolated run with
+   `gh workflow run monthly.yml --ref main -f test_month=2026-10`.
 
-References: [GitHub OIDC with AWS](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws),
-[AWS credentials action](https://github.com/aws-actions/configure-aws-credentials),
-[Modal GitHub Actions authentication](https://modal.com/docs/guide/useful-snippets).
+References: [Modal OIDC](https://modal.com/docs/guide/oidc-integration),
+[Boto3 web-identity credentials](https://docs.aws.amazon.com/boto3/latest/guide/credentials.html).
 
 ## Survey checkpoints
 

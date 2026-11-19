@@ -72,26 +72,25 @@ For the monthly GitHub Actions refresh and its one-time AWS OIDC setup, see
 `uv run mentions-harvest` maintains an incremental OAI-PMH cache in
 `data/oai.sqlite` and exports study metadata. The monthly workflow keeps this
 cache on a separate Modal Volume via `scripts/modal_harvest.py`. The PDF pipeline
-Modal
 launcher uploads that metadata and stores the study's cs.RO PDFs, extracted
 text, corpus, and summary in the persistent Volume selected by `MENTIONS_MODAL_VOLUME` (default: `papers`).
 It transfers only this study's PDFs using S3 byte ranges.
 
 ```bash
 uv sync --group bulk --group modal
-AWS_PROFILE=your-aws-profile uv run --no-sync modal run --profile your-modal-profile --detach scripts/modal_pipeline.py \
+uv run --no-sync modal run --profile benkolligs --detach scripts/modal_pipeline.py \
   --records data/records.jsonl --workers 10
 ```
 
-The launcher verifies AWS STS before forwarding fresh temporary credentials as
-an ephemeral Modal Secret for each wave of workers. Keys are never written to
-the repository or passed as function arguments. Keep the local driver running;
-`--detach` preserves only in-flight calls if the driver exits. When the AWS
-login expires, log in and relaunch. `--profile your-modal-profile` selects your
-workspace independently of the active Modal profile.
+The AWS-reading functions use Modal OIDC with renewable AWS sessions and the
+`robotics-research-aws` role configuration Secret. Complete the one-time setup
+linked above first. No local AWS login or forwarded AWS keys are needed.
+Keep the local driver running; `--detach` preserves only in-flight calls if
+the driver exits. `--profile benkolligs` selects the intended workspace.
 
 Set `MENTIONS_MODAL_VOLUME` to your existing volume name to resume stored data.
-Set `MENTIONS_MODAL_APP` to select an app name. Keep these local settings out of Git.
+The default app name `robotics-research-monthly` must match the AWS role trust;
+changing `MENTIONS_MODAL_APP` requires a corresponding trust-policy update.
 
 The Modal pipeline has three stages:
 
@@ -152,8 +151,9 @@ file-level update, not binary delta transfer: a changed PDF is fetched in full.
 Range requests pin the source ETag and validate HTTP status, Content-Range,
 length, and tar header checksums. Whole-archive MD5 verification is unavailable
 without downloading the whole archive; PDF hashes verify cached bytes on reruns.
-Keep the indexes with the PDFs to preserve inexpensive resumes. AWS credential
-expiry stops the driver; refresh login and rerun the same command to resume.
+Keep the indexes with the PDFs to preserve inexpensive resumes. For local AWS
+profiles, credential expiry requires refreshing the login and rerunning the
+command. Modal workers renew their own AWS sessions through OIDC.
 
 To restart only consolidation after workers finish (no AWS credentials or PDF
 redownloads), use the manifest hash printed by the pipeline:
