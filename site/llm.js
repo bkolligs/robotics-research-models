@@ -24,7 +24,7 @@ function renderLlmChart() {
   const rows = new Map(summary.monthly.map((row) => [`${row.month}\0${row.model_id}`, row]));
   const visible = models.filter((model) => !llmState.hidden.has(model.model_id));
   const width = 1050, height = 430;
-  const pad = { l: 68, r: 20, t: 30, b: 52 };
+  const pad = { l: 68, r: 40, t: 30, b: 52 };
   const innerW = width - pad.l - pad.r, innerH = height - pad.t - pad.b;
   const values = [];
   for (const month of months) for (const model of visible) {
@@ -45,8 +45,9 @@ function renderLlmChart() {
     const value = max * tick / 5;
     marks += `<line x1="${pad.l}" x2="${width-pad.r}" y1="${y(value)}" y2="${y(value)}" stroke="#e4ddd2"/><text x="${pad.l-8}" y="${y(value)+4}" text-anchor="end" font-size="12" fill="#5c564c">${llmTick(value)}</text>`;
   }
+  const dateTicks = new Set(chartTickIndices(months.length, innerW, 2));
   months.forEach((month, index) => {
-    if (index % 2 === 0 || index === months.length - 1) {
+    if (dateTicks.has(index)) {
       marks += `<text x="${x(index)}" y="${height-22}" text-anchor="middle" font-size="12" fill="#5c564c">${month}</text>`;
     }
   });

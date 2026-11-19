@@ -1,3 +1,18 @@
+// Keep the newest date visible, reserving enough space for YYYY-MM labels.
+// Distances are SVG units, so labels and spacing scale together on small screens.
+function chartTickIndices(count, span, preferredStep = 1) {
+  if (count < 1) return [];
+  const last = count - 1;
+  const spacing = 80;
+  const step = Math.max(preferredStep, Math.ceil(spacing * last / Math.max(1, span)));
+  const ticks = [];
+  for (let index = 0; index < last; index += step) {
+    if ((last - index) * span / Math.max(1, last) >= spacing) ticks.push(index);
+  }
+  ticks.push(last);
+  return ticks;
+}
+
 const COUNTRY_NAMES = {
   usa: "United States",
   china: "China",
@@ -125,12 +140,13 @@ function renderChart() {
   const allKeys = seriesKeys();
   const keys = allKeys.filter((key) => !state.hidden.has(key));
   const width = 1050, height = 430;
-  const pad = { l: 60, r: 16, t: 22, b: 52 };
+  const pad = { l: 60, r: 40, t: 22, b: 52 };
   const innerW = width - pad.l - pad.r, innerH = height - pad.t - pad.b;
   const totals = months.map((month) => keys.reduce((sum, key) => sum + (percent(month, key) || 0), 0));
   const max = Math.ceil(Math.max(10, ...totals) / 10) * 10;
   const y = (value) => pad.t + innerH * (1 - value / max);
   const step = innerW / Math.max(1, months.length);
+  const dateTicks = new Set(chartTickIndices(months.length, step * (months.length - 1), 4));
   const color = (key) => {
     const index = allKeys.indexOf(key);
     return index < COLORS.length ? COLORS[index] : `hsl(${(index * 137.508) % 360} 60% 48%)`;
@@ -160,7 +176,7 @@ function renderChart() {
     if (!denom) {
       marks += `<text x="${pad.l+(index+0.5)*step}" y="${y(0)-6}" text-anchor="middle" font-size="12" fill="#5c564c"><title>${month}: no eligible papers</title>—</text>`;
     }
-    if (index % 4 === 0 || index === months.length-1) {
+    if (dateTicks.has(index)) {
       marks += `<text x="${pad.l+(index+0.5)*step}" y="${height-22}" text-anchor="middle" font-size="12" fill="#5c564c">${month}</text>`;
     }
   });

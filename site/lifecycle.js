@@ -26,7 +26,7 @@ function renderLifecycle() {
   const rawMax = Math.max(1, ...all.map(value).filter((v) => v !== null));
   const magnitude = 10**Math.floor(Math.log10(rawMax));
   const maxY = lifecycleState.metric === "peak" ? 100 : Math.ceil(rawMax/magnitude*2)/2*magnitude;
-  const width = 1050, height = 450, pad = { l: 68, r: 25, t: 32, b: 65 };
+  const width = 1050, height = 450, pad = { l: 68, r: 40, t: 32, b: 65 };
   const x = (v) => pad.l+(width-pad.l-pad.r)*(v-minX)/Math.max(1,maxX-minX);
   const y = (v) => pad.t+(height-pad.t-pad.b)*(1-v/maxY);
   let marks = "";
@@ -35,12 +35,8 @@ function renderLifecycle() {
     marks += `<line x1="${pad.l}" x2="${width-pad.r}" y1="${y(tick)}" y2="${y(tick)}" stroke="#e4ddd2"/><text x="${pad.l-9}" y="${y(tick)+4}" text-anchor="end" font-size="12" fill="#5c564c">${tick.toFixed(maxY<10?1:0)}${lifecycleState.metric === "count" ? "" : "%"}</text>`;
   }
   const step = Math.max(1, Math.ceil((maxX-minX)/9));
-  const ticks=[];
-  for (let tick=minX; tick<=maxX; tick+=step) ticks.push(tick);
-  if (ticks[ticks.length-1] !== maxX) {
-    if (maxX-ticks[ticks.length-1] < step*.6) ticks.pop();
-    ticks.push(maxX);
-  }
+  const ticks = chartTickIndices(maxX - minX + 1, width - pad.l - pad.r, step)
+    .map((index) => minX + index);
   for (const tick of ticks) {
     const label = lifecycleState.axis === "age" ? tick : `${Math.floor(tick/12)}-${String(tick%12+1).padStart(2,"0")}`;
     marks += `<text x="${x(tick)}" y="${height-35}" text-anchor="middle" font-size="12" fill="#5c564c">${label}</text>`;
