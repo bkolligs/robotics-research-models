@@ -72,8 +72,9 @@ When those files exist, `scripts/build_analysis_site.py` copies them into the
 GitHub Pages artifact. The website adds an interactive multi-line trend chart.
 It is intentionally not stacked because classifications overlap, and readers
 can switch between all surveyed model papers and trend-positive papers
-as the monthly denominator. If no completed survey output is present, the site
-build succeeds and hides the chart.
+as the monthly denominator. Production builds require completed survey outputs
+whose monthly population and source catalog hash match the current corpus;
+missing or stale plots block publication.
 
 The summary records the database hash, question-set hash, returned Jev model,
 token usage, decision threshold, examples, and limitations. Threshold changes

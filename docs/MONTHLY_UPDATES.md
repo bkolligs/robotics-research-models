@@ -13,8 +13,11 @@ the source Modal Volume for each paper in `catalog_sources`; PDF/text paths
 are relative to that source Volume, not to the catalog storage Volume.
 The original historical `papers.sqlite` remains the bootstrap snapshot.
 
-The monthly workflow does not rerun the separate LLM-assisted architecture,
-LLM, or evaluation surveys. Those exports retain their existing coverage.
+Every production run refreshes the architecture survey, frontier-LLM mention/use
+survey, baseline evaluations, execution-provenance verification, and lifecycle
+curves before building the site. Publication fails if any plot's population
+coverage disagrees with the current catalog.
+
 arXiv's bulk snapshot can lag publication, so the latest month may be incomplete.
 Do not run another pipeline against the same Modal Volume concurrently.
 
@@ -45,6 +48,7 @@ AWS credentials afterward, preserving their lifetime for PDF processing.
 
 GitHub repository Actions secrets:
 
+- `TYPESAFE_API_KEY`: the existing Jev classifier key for survey refreshes.
 - `MODAL_TOKEN_ID` and `MODAL_TOKEN_SECRET`: credentials for the `benkolligs`
   workspace containing the `robotics-research-papers` Volume.
 
@@ -139,3 +143,20 @@ gh run list --workflow monthly.yml --limit 1
 References: [GitHub OIDC with AWS](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws),
 [AWS credentials action](https://github.com/aws-actions/configure-aws-credentials),
 [Modal GitHub Actions authentication](https://modal.com/docs/guide/useful-snippets).
+
+## Survey checkpoints
+
+`robotics-research-surveys` in `benkolligs` retains the published pre-October
+2026 summaries as an immutable baseline, with separate per-month evidence,
+raw classifier responses, verification responses, and aggregate outputs.
+Historical raw responses were not available locally, so historical decisions
+are preserved through their published aggregates and evaluation paper rows;
+they are not fabricated or reclassified. Each new month is classified once,
+then retries reuse matching evidence fingerprints. Combining snapshots rejects
+overlapping months or changed classification policies. Uncertain historical
+release checks and recorded source audits retain their existing dispositions.
+
+The TypeSafe key is injected into only the survey step and forwarded as an
+ephemeral Modal Secret. It is not stored in source or the survey Volume.
+All plot summaries share the cumulative catalog coverage, and lifecycle curves
+are regenerated from the combined evaluation decisions and release registry.

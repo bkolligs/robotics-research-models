@@ -56,11 +56,14 @@ def verify(paper, models, model, key):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--concurrency', type=int, default=12)
+    parser.add_argument('--candidates', type=Path, default=Path('data/evaluations/candidates.jsonl.gz'))
+    parser.add_argument('--raw', type=Path, default=Path('data/evaluations/jev.jsonl'))
+    parser.add_argument('--verification', type=Path, default=Path('data/evaluations/verification.jsonl'))
     args = parser.parse_args()
-    with gzip.open('data/evaluations/candidates.jsonl.gz', 'rt') as handle:
+    with gzip.open(args.candidates, 'rt') as handle:
         papers = [json.loads(line) for line in handle]
-    decisions = {r['paper_id']: r for r in map(json.loads, Path('data/evaluations/jev.jsonl').read_text().splitlines())}
-    raw = Path('data/evaluations/verification.jsonl')
+    decisions = {r['paper_id']: r for r in map(json.loads, args.raw.read_text().splitlines())}
+    raw = args.verification
     completed = {}
     if raw.exists():
         completed = {r['paper_id']: r for r in map(json.loads, raw.read_text().splitlines()) if r['policy_sha256'] == POLICY_SHA}

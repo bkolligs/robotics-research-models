@@ -117,7 +117,12 @@ jobs:
           if-no-files-found: error
       - name: Build production site
         if: inputs.test_month == ''
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
         run: |
+          uv run --no-sync modal run scripts/modal_surveys.py --month "$TARGET_MONTH"
           uv run --no-sync python scripts/build_analysis_site.py
       - name: Persist validated production catalog
         if: inputs.test_month == ''
