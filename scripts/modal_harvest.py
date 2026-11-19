@@ -6,8 +6,8 @@ import modal
 app = modal.App('robotics-research-metadata')
 volume = modal.Volume.from_name('robotics-research-metadata', create_if_missing=True)
 image = (modal.Image.debian_slim(python_version='3.12')
-         .add_local_python_source('mentions')
-         .env({'MENTIONS_DATA': '/metadata'}))
+         .env({'MENTIONS_DATA': '/metadata'})
+         .add_local_python_source('mentions'))
 
 
 @app.function(image=image, volumes={'/metadata': volume}, timeout=4 * 3600,
