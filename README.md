@@ -69,7 +69,10 @@ has added since it started.
 For the monthly GitHub Actions refresh and its one-time AWS OIDC setup, see
 [Monthly updates](docs/MONTHLY_UPDATES.md).
 
-Complete the local metadata harvest with `uv run mentions-harvest`. The Modal
+`uv run mentions-harvest` maintains an incremental OAI-PMH cache in
+`data/oai.sqlite` and exports study metadata. The monthly workflow keeps this
+cache on a separate Modal Volume via `scripts/modal_harvest.py`. The PDF pipeline
+Modal
 launcher uploads that metadata and stores the study's cs.RO PDFs, extracted
 text, corpus, and summary in the persistent Volume selected by `MENTIONS_MODAL_VOLUME` (default: `papers`).
 It transfers only this study's PDFs using S3 byte ranges.

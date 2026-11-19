@@ -176,3 +176,12 @@ Ranges are pinned to an ETag and checked for exact length and Content-Range.
 Tar header checksums are validated. Selective downloads do not validate the
 whole-tar MD5, because that requires all payload bytes. The manifest size is the
 payload total and can differ from S3 Content-Length due to tar headers/padding.
+
+### Metadata synchronization
+
+Metadata is synchronized through arXiv OAI-PMH (`cs:cs:RO`, `arXivRaw`).
+The initial sync copies the subject set; later syncs use OAI modification
+datestamps. Study dates remain original v1 submission dates from version
+history, not OAI datestamps. Only cs.RO records submitted from 2023 onward
+are exported for scanning. Metadata deletion notices remove records from the
+cache. Bibliography inclusion and successfully scanned denominators are unchanged.

@@ -7,7 +7,6 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
 from mentions import build_site, export_corpus, scan
-from mentions.harvest import harvest_windows
 
 
 class PipelineTests(unittest.TestCase):
@@ -107,11 +106,6 @@ class PipelineTests(unittest.TestCase):
             pipeline.main()
         self.assertEqual(batches, [{'2301.00001'}, {'2301.00001', '2301.00002'}])
 
-    def test_harvest_windows_are_contiguous_calendar_months(self):
-        windows = harvest_windows()
-        self.assertEqual(windows[0], ('202301010000', '202301312359'))
-        self.assertIn(('202402010000', '202402292359'), windows)
-        self.assertTrue(all(start[:6] == end[:6] for start, end in windows))
 
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@
 
 `.github/workflows/monthly.yml` refreshes the full-text mention corpus on the
 first of each month at 12:30 UTC. It can also be started manually on `main`.
-It harvests current metadata, resumes the persistent Modal pipeline, downloads
+It synchronizes cached OAI-PMH metadata, resumes the persistent Modal pipeline, downloads
 the validated database, rebuilds the mention analysis, commits the yearly
 corpus and aggregate outputs, and dispatches the Pages workflow.
 
@@ -10,6 +10,29 @@ The monthly workflow does not rerun the separate LLM-assisted architecture,
 LLM, or evaluation surveys. Those exports retain their existing coverage.
 arXiv's bulk snapshot can lag publication, so the latest month may be incomplete.
 Do not run another pipeline against the same Modal Volume concurrently.
+
+## Metadata cache
+
+The recommended [arXiv OAI-PMH feed](https://info.arxiv.org/help/oa/index.html)
+at `https://oaipmh.arxiv.org/oai` replaces search-API pagination.
+`scripts/modal_harvest.py` keeps `oai.sqlite` in the separate
+`robotics-research-metadata` Modal Volume in `benkolligs`.
+The first run copies the complete `cs:cs:RO` set using `arXivRaw`; subsequent
+runs request changes since the previous completed harvest's server date.
+OAI datestamps are modification dates, so October selection uses the original
+v1 submission date from version history, after synchronization completes.
+
+Each page and continuation token are committed together in SQLite and persisted
+to the Volume. Expired tokens restart from the previous completed watermark;
+replayed records are idempotent. Failed or page-limited harvests do not export
+partial metadata or start PDF processing. Legacy `harvest_cursor.txt` files are
+ignored; existing search-API records do not establish an OAI synchronization
+watermark. A cold cache requires one complete subject harvest.
+
+For local use, `uv run mentions-harvest` maintains `data/oai.sqlite` and exports
+study records to `data/records.jsonl`. `--month YYYY-MM` filters the export only.
+The monthly Actions job downloads the completed export from Modal and obtains
+AWS credentials afterward, preserving their lifetime for PDF processing.
 
 ## Authentication
 

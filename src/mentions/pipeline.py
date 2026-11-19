@@ -30,7 +30,7 @@ def main() -> None:
         "--pages",
         type=int,
         default=None,
-        help="Stop the harvest after this many API pages. For a smoke test.",
+        help="Checkpoint after this many OAI pages; incomplete syncs stop before scanning.",
     )
     parser.add_argument(
         "--limit",

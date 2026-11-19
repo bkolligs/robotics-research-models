@@ -42,6 +42,12 @@ jobs:
         with:
           python-version: "3.12"
       - run: uv sync --locked --group bulk --group modal
+      - name: Synchronize cached OAI-PMH metadata on Modal
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          TEST_MONTH: ${{ inputs.test_month }}
+        run: uv run --no-sync modal run scripts/modal_harvest.py --month "$TEST_MONTH"
       - name: Obtain temporary AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -50,15 +56,6 @@ jobs:
           role-duration-seconds: 21600
           inline-session-policy: >-
             {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"s3:GetObject","Resource":"arn:aws:s3:::arxiv/pdf/*"}]}
-      - name: Refresh cs.RO metadata
-        env:
-          TEST_MONTH: ${{ inputs.test_month }}
-        run: |
-          if [ -n "$TEST_MONTH" ]; then
-            uv run --no-sync mentions-harvest --month "$TEST_MONTH"
-          else
-            uv run --no-sync mentions-harvest
-          fi
       - name: Update full-text corpus on Modal
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}

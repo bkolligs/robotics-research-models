@@ -25,13 +25,13 @@ back to title and abstract.
 ## Data
 
 `MENTIONS_DATA` defaults to `data/` and should point at a disk that can hold
-the bulk PDFs. It stores `records.jsonl`, `hits.jsonl`, `harvest_cursor.txt`,
+the bulk PDFs. It stores `records.jsonl`, `hits.jsonl`, `oai.sqlite`,
 `pdf/`, `text/`, `corpus/YYYY.jsonl`, and `papers.sqlite`. `MENTIONS_OUTPUT`
 defaults to `output/`.
 
 Commit `data/corpus/*.jsonl` and `output/summary.json`. Do not commit
 `data/pdf/`, `data/text/`, `data/html/`, `data/records.jsonl`, `data/hits.jsonl`,
-the harvest cursor, `data/papers.sqlite`, `site/data/`, or `.venv/`. A paper
+the OAI metadata cache, `data/papers.sqlite`, `site/data/`, or `.venv/`. A paper
 whose PDF did not extract is `failed` and is not part of the scanned
 denominator.
 

@@ -5,9 +5,9 @@ defaults to <project>/data and can point at a disk that holds the cache:
 
     MENTIONS_DATA=/var/lib/mentions uv run mentions-pipeline
 
-That directory keeps records.jsonl, hits.jsonl, the harvest cursor, the
+That directory keeps records.jsonl, hits.jsonl, the OAI metadata cache, the
 bulk PDFs, the extracted text, the year-split corpus, and the local
-SQLite file. Charts and the daily summary stay in MENTIONS_OUTPUT,
+SQLite file. Charts and the summary stay in MENTIONS_OUTPUT,
 default <project>/output. The static site stays in the checkout.
 """
 
