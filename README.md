@@ -49,7 +49,7 @@ and a committed database are both hard to review at this size: the update
 diff would be either an 80 MB rewrite or one opaque binary blob.
 
 `.github/workflows/monthly.yml` runs on the first of each month at 12:30 UTC.
-It refreshes metadata, resumes full-text processing on Modal, and commits the
+It catalogs the previous calendar month, merges it into the historical analysis, and commits the
 corpus and analysis before publishing Pages. See [Monthly updates](docs/MONTHLY_UPDATES.md).
 
 ## Site

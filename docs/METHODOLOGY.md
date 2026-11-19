@@ -185,3 +185,8 @@ datestamps. Study dates remain original v1 submission dates from version
 history, not OAI datestamps. Only cs.RO records submitted from 2023 onward
 are exported for scanning. Metadata deletion notices remove records from the
 cache. Bibliography inclusion and successfully scanned denominators are unchanged.
+
+Monthly production runs target the previous UTC calendar month and replace only
+that submission-month slice in the cumulative catalog. Other months retain
+their existing scans. The merge refuses a loss of previously scanned papers;
+failed or unavailable PDFs remain excluded from scanned denominators.

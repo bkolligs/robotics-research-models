@@ -1,10 +1,17 @@
 # Monthly mention trends
 
 `.github/workflows/monthly.yml` refreshes the full-text mention corpus on the
-first of each month at 12:30 UTC. It can also be started manually on `main`.
+first of each month at 12:30 UTC, targeting the previous UTC calendar month
+(e.g. December 1 catalogs November). It can also be started manually on `main`.
 It synchronizes cached OAI-PMH metadata, resumes the persistent Modal pipeline, downloads
 the validated database, rebuilds the mention analysis, commits the yearly
-corpus and aggregate outputs, and dispatches the Pages workflow.
+corpus and aggregate outputs, and dispatches the Pages workflow. Each monthly
+scan uses `robotics-research-month-YYYY-MM`; the cumulative analysis database
+is `catalog.sqlite` in `robotics-research-papers`. Month merges preserve other
+months and refuse to discard previously scanned papers. The catalog records
+the source Modal Volume for each paper in `catalog_sources`; PDF/text paths
+are relative to that source Volume, not to the catalog storage Volume.
+The original historical `papers.sqlite` remains the bootstrap snapshot.
 
 The monthly workflow does not rerun the separate LLM-assisted architecture,
 LLM, or evaluation surveys. Those exports retain their existing coverage.
@@ -59,6 +66,12 @@ For an isolated month test, dispatch with `-f test_month=2026-10`. The run
 creates a separate test Volume in the same `benkolligs` workspace and uploads
 analysis artifacts without committing the test corpus or publishing Pages.
 Test Volumes remain available for inspection after the run.
+
+To publish or retry a specific production month, dispatch with `-f month=2026-10`.
+This is useful when arXiv's approximately monthly bulk release is not yet
+available on the first. Do not set both `month` and `test_month`. October 2026
+was promoted from the validated test Volume `robotics-research-test-44467441721`;
+retain that Volume because the production catalog references its PDF/text files.
 
 ## One-time AWS setup
 

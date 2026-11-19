@@ -1,20 +1,20 @@
 {
-  "database_sha256": "d4aecce10e187fc1b29b2afb628c53ad6fe98ae722f629654d01f1f888335371",
-  "generated_at": "2026-10-27T07:09:28.295484+00:00",
-  "methodology_sha256": "deb6db28bb763d969670762f2a560b46fb93524dd492adc26a75fa7805c55de3",
+  "database_sha256": "14b1bb188f9e791f1c452640571c1c6ce23667d7c3fce9a992825fffdb2af5de",
+  "generated_at": "2026-11-19T06:12:14.931396+00:00",
+  "methodology_sha256": "8fb66e1e285c499c889438cde3902eeb71a7f9ef798496d9ac96a4690c95ed6e",
   "database_integrity": "ok",
   "sql_aggregation_checks": "passed",
-  "discovered": 39275,
-  "scanned": 37324,
-  "model_papers": 8405,
-  "unavailable": 1951,
+  "discovered": 39754,
+  "scanned": 39512,
+  "model_papers": 9352,
+  "unavailable": 242,
   "statuses": {
-    "complete": 37324,
-    "missing_from_snapshot": 1951
+    "complete": 39512,
+    "missing_from_snapshot": 242
   },
   "first_scanned": "2023-01-01T03:31:15Z",
-  "last_scanned": "2026-09-30T17:59:14Z",
-  "last_discovered": "2026-10-23T17:59:21Z",
+  "last_scanned": "2026-10-30T17:59:25Z",
+  "last_discovered": "2026-10-31T21:34:22Z",
   "limitations": [
     "Mentions include bibliography and do not establish use as a backbone.",
     "No release-date gate is applied.",

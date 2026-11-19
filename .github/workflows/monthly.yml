@@ -5,6 +5,10 @@ on:
     - cron: "30 12 1 * *"
   workflow_dispatch:
     inputs:
+      month:
+        description: "Production submission month YYYY-MM (defaults to previous UTC month)"
+        type: string
+        required: false
       test_month:
         description: "Optional YYYY-MM: isolated test, no corpus commit or Pages publication"
         type: string
@@ -25,7 +29,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 350
     env:
-      MENTIONS_MODAL_VOLUME: ${{ inputs.test_month && format('robotics-research-test-{0}', github.run_id) || 'robotics-research-papers' }}
       MENTIONS_MODAL_APP: robotics-research-monthly
     steps:
       - uses: actions/checkout@v4
@@ -42,12 +45,32 @@ jobs:
         with:
           python-version: "3.12"
       - run: uv sync --locked --group bulk --group modal
+      - name: Select submission month
+        env:
+          REQUESTED_MONTH: ${{ inputs.month }}
+          TEST_MONTH: ${{ inputs.test_month }}
+        run: |
+          uv run --no-sync python - <<'PYTHON'
+          import os, re
+          from datetime import datetime, timezone
+          from mentions.catalog import previous_month
+          requested, test = os.environ['REQUESTED_MONTH'], os.environ['TEST_MONTH']
+          if requested and test:
+              raise ValueError('Choose a production month or a test month, not both')
+          month = test or requested or previous_month(datetime.now(timezone.utc).date())
+          if not re.fullmatch(r'\d{4}-(0[1-9]|1[0-2])', month) or month < '2023-01':
+              raise ValueError('Invalid study month')
+          volume = ('robotics-research-test-' + os.environ['GITHUB_RUN_ID'] if test
+                    else 'robotics-research-month-' + month)
+          with open(os.environ['GITHUB_ENV'], 'a') as env:
+              env.write(f'TARGET_MONTH={month}\nMENTIONS_MODAL_VOLUME={volume}\n')
+          print(f'Cataloging {month} using {volume}')
+          PYTHON
       - name: Synchronize cached OAI-PMH metadata on Modal
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
-          TEST_MONTH: ${{ inputs.test_month }}
-        run: uv run --no-sync modal run scripts/modal_harvest.py --month "$TEST_MONTH"
+        run: uv run --no-sync modal run scripts/modal_harvest.py --month "$TARGET_MONTH"
       - name: Obtain temporary AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -65,7 +88,18 @@ jobs:
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
-        run: uv run --no-sync modal volume get "$MENTIONS_MODAL_VOLUME" papers.sqlite data/analysis-papers.sqlite
+        run: uv run --no-sync modal volume get "$MENTIONS_MODAL_VOLUME" papers.sqlite data/month-papers.sqlite
+      - name: Merge production month into catalog
+        if: inputs.test_month == ''
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: |
+          uv run --no-sync modal volume get robotics-research-papers catalog.sqlite data/catalog-base.sqlite
+          uv run --no-sync python -m mentions.catalog --base data/catalog-base.sqlite --incoming data/month-papers.sqlite --output data/analysis-papers.sqlite --month "$TARGET_MONTH" --source-volume "$MENTIONS_MODAL_VOLUME"
+      - name: Select isolated test database
+        if: inputs.test_month != ''
+        run: cp data/month-papers.sqlite data/analysis-papers.sqlite
       - name: Rebuild mention trends and site
         run: |
           uv run --no-sync python -m mentions.analysis --data data
@@ -74,7 +108,7 @@ jobs:
         if: inputs.test_month != ''
         uses: actions/upload-artifact@v4
         with:
-          name: october-test-${{ github.run_id }}
+          name: month-test-${{ github.run_id }}
           path: |
             data/corpus/
             output/*.json
@@ -85,6 +119,12 @@ jobs:
         if: inputs.test_month == ''
         run: |
           uv run --no-sync python scripts/build_analysis_site.py
+      - name: Persist validated production catalog
+        if: inputs.test_month == ''
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: uv run --no-sync modal volume put --force robotics-research-papers data/analysis-papers.sqlite catalog.sqlite
       - name: Commit corpus and analysis
         if: inputs.test_month == ''
         run: |

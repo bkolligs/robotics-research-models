@@ -1,11 +1,11 @@
 {
-  "papers_discovered": 39275,
+  "papers_discovered": 39754,
   "papers_pending": 0,
-  "papers_scanned": 37324,
-  "papers_failed": 1951,
+  "papers_scanned": 39512,
+  "papers_failed": 242,
   "content_source": "arxiv_bulk_pdf",
   "includes_bibliography": true,
-  "papers_mentioning_any_tracked_variant": 8405,
+  "papers_mentioning_any_tracked_variant": 9352,
   "variants": [
     {
       "variant_id": "diffusion_policy",
@@ -14,9 +14,9 @@
       "country": "usa",
       "company": "Columbia / Toyota Research Institute",
       "access": "open_weight",
-      "papers": 4037,
-      "share_of_scanned": 0.1082,
-      "share_of_model_papers": 0.4803
+      "papers": 4510,
+      "share_of_scanned": 0.1141,
+      "share_of_model_papers": 0.4822
     },
     {
       "variant_id": "pi0",
@@ -25,9 +25,9 @@
       "country": "usa",
       "company": "Physical Intelligence",
       "access": "open_weight",
-      "papers": 3228,
-      "share_of_scanned": 0.0865,
-      "share_of_model_papers": 0.3841
+      "papers": 3708,
+      "share_of_scanned": 0.0938,
+      "share_of_model_papers": 0.3965
     },
     {
       "variant_id": "rt2",
@@ -36,9 +36,9 @@
       "country": "usa",
       "company": "Google DeepMind",
       "access": "closed",
-      "papers": 3089,
-      "share_of_scanned": 0.0828,
-      "share_of_model_papers": 0.3675
+      "papers": 3416,
+      "share_of_scanned": 0.0865,
+      "share_of_model_papers": 0.3653
     },
     {
       "variant_id": "openvla",
@@ -47,31 +47,9 @@
       "country": "usa",
       "company": "Stanford / RAIL",
       "access": "open_weight",
-      "papers": 2949,
-      "share_of_scanned": 0.079,
-      "share_of_model_papers": 0.3509
-    },
-    {
-      "variant_id": "rt1",
-      "label": "RT-1",
-      "family": "RT",
-      "country": "usa",
-      "company": "Google DeepMind",
-      "access": "open_weight",
-      "papers": 2244,
-      "share_of_scanned": 0.0601,
-      "share_of_model_papers": 0.267
-    },
-    {
-      "variant_id": "rt2_x",
-      "label": "RT-2-X",
-      "family": "RT",
-      "country": "usa",
-      "company": "Google DeepMind",
-      "access": "closed",
-      "papers": 2160,
-      "share_of_scanned": 0.0579,
-      "share_of_model_papers": 0.257
+      "papers": 3389,
+      "share_of_scanned": 0.0858,
+      "share_of_model_papers": 0.3624
     },
     {
       "variant_id": "pi05",
@@ -80,9 +58,31 @@
       "country": "usa",
       "company": "Physical Intelligence",
       "access": "open_weight",
-      "papers": 1980,
-      "share_of_scanned": 0.053,
-      "share_of_model_papers": 0.2356
+      "papers": 2479,
+      "share_of_scanned": 0.0627,
+      "share_of_model_papers": 0.2651
+    },
+    {
+      "variant_id": "rt1",
+      "label": "RT-1",
+      "family": "RT",
+      "country": "usa",
+      "company": "Google DeepMind",
+      "access": "open_weight",
+      "papers": 2411,
+      "share_of_scanned": 0.061,
+      "share_of_model_papers": 0.2578
+    },
+    {
+      "variant_id": "rt2_x",
+      "label": "RT-2-X",
+      "family": "RT",
+      "country": "usa",
+      "company": "Google DeepMind",
+      "access": "closed",
+      "papers": 2363,
+      "share_of_scanned": 0.0598,
+      "share_of_model_papers": 0.2527
     },
     {
       "variant_id": "gr00t_n1",
@@ -91,9 +91,9 @@
       "country": "usa",
       "company": "NVIDIA",
       "access": "open_weight",
-      "papers": 1288,
-      "share_of_scanned": 0.0345,
-      "share_of_model_papers": 0.1532
+      "papers": 1543,
+      "share_of_scanned": 0.0391,
+      "share_of_model_papers": 0.165
     },
     {
       "variant_id": "palm_e",
@@ -102,9 +102,9 @@
       "country": "usa",
       "company": "Google",
       "access": "closed",
-      "papers": 1235,
-      "share_of_scanned": 0.0331,
-      "share_of_model_papers": 0.1469
+      "papers": 1322,
+      "share_of_scanned": 0.0335,
+      "share_of_model_papers": 0.1414
     },
     {
       "variant_id": "octo",
@@ -113,9 +113,9 @@
       "country": "usa",
       "company": "UC Berkeley",
       "access": "open_weight",
-      "papers": 1106,
-      "share_of_scanned": 0.0296,
-      "share_of_model_papers": 0.1316
+      "papers": 1214,
+      "share_of_scanned": 0.0307,
+      "share_of_model_papers": 0.1298
     },
     {
       "variant_id": "rdt_1b",
@@ -124,9 +124,9 @@
       "country": "china",
       "company": "Tsinghua",
       "access": "open_weight",
-      "papers": 814,
-      "share_of_scanned": 0.0218,
-      "share_of_model_papers": 0.0968
+      "papers": 900,
+      "share_of_scanned": 0.0228,
+      "share_of_model_papers": 0.0962
     },
     {
       "variant_id": "dp3",
@@ -135,9 +135,9 @@
       "country": "china",
       "company": "Shanghai Jiao Tong University",
       "access": "open_weight",
-      "papers": 777,
-      "share_of_scanned": 0.0208,
-      "share_of_model_papers": 0.0924
+      "papers": 837,
+      "share_of_scanned": 0.0212,
+      "share_of_model_papers": 0.0895
     },
     {
       "variant_id": "r3m",
@@ -146,20 +146,9 @@
       "country": "usa",
       "company": "Meta",
       "access": "open_weight",
-      "papers": 755,
+      "papers": 799,
       "share_of_scanned": 0.0202,
-      "share_of_model_papers": 0.0898
-    },
-    {
-      "variant_id": "peract",
-      "label": "PerAct",
-      "family": "PerAct",
-      "country": "uk",
-      "company": "Imperial College London",
-      "access": "open_weight",
-      "papers": 646,
-      "share_of_scanned": 0.0173,
-      "share_of_model_papers": 0.0769
+      "share_of_model_papers": 0.0854
     },
     {
       "variant_id": "openvla_oft",
@@ -168,9 +157,9 @@
       "country": "usa",
       "company": "Stanford / RAIL",
       "access": "open_weight",
-      "papers": 624,
-      "share_of_scanned": 0.0167,
-      "share_of_model_papers": 0.0742
+      "papers": 756,
+      "share_of_scanned": 0.0191,
+      "share_of_model_papers": 0.0808
     },
     {
       "variant_id": "saycan",
@@ -179,20 +168,20 @@
       "country": "usa",
       "company": "Google",
       "access": "closed",
-      "papers": 622,
-      "share_of_scanned": 0.0167,
-      "share_of_model_papers": 0.074
+      "papers": 688,
+      "share_of_scanned": 0.0174,
+      "share_of_model_papers": 0.0736
     },
     {
-      "variant_id": "cliport",
-      "label": "CLIPort",
-      "family": "CLIPort",
-      "country": "usa",
-      "company": "University of Washington",
+      "variant_id": "peract",
+      "label": "PerAct",
+      "family": "PerAct",
+      "country": "uk",
+      "company": "Imperial College London",
       "access": "open_weight",
-      "papers": 589,
-      "share_of_scanned": 0.0158,
-      "share_of_model_papers": 0.0701
+      "papers": 678,
+      "share_of_scanned": 0.0172,
+      "share_of_model_papers": 0.0725
     },
     {
       "variant_id": "smolvla",
@@ -201,9 +190,9 @@
       "country": "france",
       "company": "Hugging Face",
       "access": "open_weight",
-      "papers": 546,
-      "share_of_scanned": 0.0146,
-      "share_of_model_papers": 0.065
+      "papers": 644,
+      "share_of_scanned": 0.0163,
+      "share_of_model_papers": 0.0689
     },
     {
       "variant_id": "gemini_robotics",
@@ -212,20 +201,9 @@
       "country": "usa",
       "company": "Google DeepMind",
       "access": "closed",
-      "papers": 545,
-      "share_of_scanned": 0.0146,
-      "share_of_model_papers": 0.0648
-    },
-    {
-      "variant_id": "spatialvla",
-      "label": "SpatialVLA",
-      "family": "SpatialVLA",
-      "country": "china",
-      "company": "Shanghai AI Lab",
-      "access": "open_weight",
-      "papers": 532,
-      "share_of_scanned": 0.0143,
-      "share_of_model_papers": 0.0633
+      "papers": 622,
+      "share_of_scanned": 0.0157,
+      "share_of_model_papers": 0.0665
     },
     {
       "variant_id": "gr00t_unspecified",
@@ -234,9 +212,31 @@
       "country": "usa",
       "company": "NVIDIA",
       "access": "open_weight",
-      "papers": 505,
-      "share_of_scanned": 0.0135,
-      "share_of_model_papers": 0.0601
+      "papers": 609,
+      "share_of_scanned": 0.0154,
+      "share_of_model_papers": 0.0651
+    },
+    {
+      "variant_id": "cliport",
+      "label": "CLIPort",
+      "family": "CLIPort",
+      "country": "usa",
+      "company": "University of Washington",
+      "access": "open_weight",
+      "papers": 604,
+      "share_of_scanned": 0.0153,
+      "share_of_model_papers": 0.0646
+    },
+    {
+      "variant_id": "spatialvla",
+      "label": "SpatialVLA",
+      "family": "SpatialVLA",
+      "country": "china",
+      "company": "Shanghai AI Lab",
+      "access": "open_weight",
+      "papers": 588,
+      "share_of_scanned": 0.0149,
+      "share_of_model_papers": 0.0629
     },
     {
       "variant_id": "ecot",
@@ -245,9 +245,9 @@
       "country": "usa",
       "company": "UC Berkeley",
       "access": "open_weight",
-      "papers": 468,
-      "share_of_scanned": 0.0125,
-      "share_of_model_papers": 0.0557
+      "papers": 506,
+      "share_of_scanned": 0.0128,
+      "share_of_model_papers": 0.0541
     },
     {
       "variant_id": "cogact",
@@ -256,42 +256,9 @@
       "country": "china",
       "company": "Microsoft Research Asia",
       "access": "open_weight",
-      "papers": 422,
+      "papers": 448,
       "share_of_scanned": 0.0113,
-      "share_of_model_papers": 0.0502
-    },
-    {
-      "variant_id": "tinyvla",
-      "label": "TinyVLA",
-      "family": "TinyVLA",
-      "country": "china",
-      "company": "Midea",
-      "access": "open_weight",
-      "papers": 368,
-      "share_of_scanned": 0.0099,
-      "share_of_model_papers": 0.0438
-    },
-    {
-      "variant_id": "act",
-      "label": "ACT",
-      "family": "ACT",
-      "country": "usa",
-      "company": "Stanford",
-      "access": "open_weight",
-      "papers": 315,
-      "share_of_scanned": 0.0084,
-      "share_of_model_papers": 0.0375
-    },
-    {
-      "variant_id": "lapa",
-      "label": "LAPA",
-      "family": "LAPA",
-      "country": "usa",
-      "company": "KAIST / Microsoft",
-      "access": "open_weight",
-      "papers": 306,
-      "share_of_scanned": 0.0082,
-      "share_of_model_papers": 0.0364
+      "share_of_model_papers": 0.0479
     },
     {
       "variant_id": "xvla",
@@ -300,20 +267,20 @@
       "country": "china",
       "company": "Shanghai AI Lab",
       "access": "open_weight",
-      "papers": 305,
-      "share_of_scanned": 0.0082,
-      "share_of_model_papers": 0.0363
+      "papers": 407,
+      "share_of_scanned": 0.0103,
+      "share_of_model_papers": 0.0435
     },
     {
-      "variant_id": "tracevla",
-      "label": "TraceVLA",
-      "family": "TraceVLA",
-      "country": "usa",
-      "company": "Stanford",
+      "variant_id": "tinyvla",
+      "label": "TinyVLA",
+      "family": "TinyVLA",
+      "country": "china",
+      "company": "Midea",
       "access": "open_weight",
-      "papers": 305,
-      "share_of_scanned": 0.0082,
-      "share_of_model_papers": 0.0363
+      "papers": 386,
+      "share_of_scanned": 0.0098,
+      "share_of_model_papers": 0.0413
     },
     {
       "variant_id": "pi06",
@@ -322,9 +289,42 @@
       "country": "usa",
       "company": "Physical Intelligence",
       "access": "closed",
-      "papers": 304,
-      "share_of_scanned": 0.0081,
-      "share_of_model_papers": 0.0362
+      "papers": 370,
+      "share_of_scanned": 0.0094,
+      "share_of_model_papers": 0.0396
+    },
+    {
+      "variant_id": "lapa",
+      "label": "LAPA",
+      "family": "LAPA",
+      "country": "usa",
+      "company": "KAIST / Microsoft",
+      "access": "open_weight",
+      "papers": 354,
+      "share_of_scanned": 0.009,
+      "share_of_model_papers": 0.0379
+    },
+    {
+      "variant_id": "act",
+      "label": "ACT",
+      "family": "ACT",
+      "country": "usa",
+      "company": "Stanford",
+      "access": "open_weight",
+      "papers": 346,
+      "share_of_scanned": 0.0088,
+      "share_of_model_papers": 0.037
+    },
+    {
+      "variant_id": "tracevla",
+      "label": "TraceVLA",
+      "family": "TraceVLA",
+      "country": "usa",
+      "company": "Stanford",
+      "access": "open_weight",
+      "papers": 325,
+      "share_of_scanned": 0.0082,
+      "share_of_model_papers": 0.0348
     },
     {
       "variant_id": "vla_3d",
@@ -333,42 +333,9 @@
       "country": "usa",
       "company": "UMass / MIT-IBM",
       "access": "open_weight",
-      "papers": 271,
-      "share_of_scanned": 0.0073,
-      "share_of_model_papers": 0.0322
-    },
-    {
-      "variant_id": "rt_h",
-      "label": "RT-H",
-      "family": "RT",
-      "country": "usa",
-      "company": "Google DeepMind",
-      "access": "closed",
-      "papers": 233,
-      "share_of_scanned": 0.0062,
-      "share_of_model_papers": 0.0277
-    },
-    {
-      "variant_id": "robobrain",
-      "label": "RoboBrain",
-      "family": "RoboBrain",
-      "country": "china",
-      "company": "Beijing Academy of AI",
-      "access": "open_weight",
-      "papers": 218,
-      "share_of_scanned": 0.0058,
-      "share_of_model_papers": 0.0259
-    },
-    {
-      "variant_id": "molmoact",
-      "label": "MolmoAct",
-      "family": "MolmoAct",
-      "country": "usa",
-      "company": "Allen Institute for AI",
-      "access": "open_weight",
-      "papers": 214,
-      "share_of_scanned": 0.0057,
-      "share_of_model_papers": 0.0255
+      "papers": 292,
+      "share_of_scanned": 0.0074,
+      "share_of_model_papers": 0.0312
     },
     {
       "variant_id": "internvla",
@@ -377,9 +344,20 @@
       "country": "china",
       "company": "Shanghai AI Lab",
       "access": "open_weight",
-      "papers": 213,
-      "share_of_scanned": 0.0057,
-      "share_of_model_papers": 0.0253
+      "papers": 274,
+      "share_of_scanned": 0.0069,
+      "share_of_model_papers": 0.0293
+    },
+    {
+      "variant_id": "rt_h",
+      "label": "RT-H",
+      "family": "RT",
+      "country": "usa",
+      "company": "Google DeepMind",
+      "access": "closed",
+      "papers": 259,
+      "share_of_scanned": 0.0066,
+      "share_of_model_papers": 0.0277
     },
     {
       "variant_id": "gr00t_n1_5",
@@ -388,31 +366,31 @@
       "country": "usa",
       "company": "NVIDIA",
       "access": "open_weight",
-      "papers": 213,
-      "share_of_scanned": 0.0057,
-      "share_of_model_papers": 0.0253
+      "papers": 257,
+      "share_of_scanned": 0.0065,
+      "share_of_model_papers": 0.0275
     },
     {
-      "variant_id": "roboflamingo",
-      "label": "RoboFlamingo",
-      "family": "RoboFlamingo",
-      "country": "china",
-      "company": "ByteDance Research",
-      "access": "open_weight",
-      "papers": 167,
-      "share_of_scanned": 0.0045,
-      "share_of_model_papers": 0.0199
-    },
-    {
-      "variant_id": "gr00t_n1_6",
-      "label": "GR00T N1.6",
-      "family": "GR00T",
+      "variant_id": "molmoact",
+      "label": "MolmoAct",
+      "family": "MolmoAct",
       "country": "usa",
-      "company": "NVIDIA",
+      "company": "Allen Institute for AI",
       "access": "open_weight",
-      "papers": 152,
-      "share_of_scanned": 0.0041,
-      "share_of_model_papers": 0.0181
+      "papers": 255,
+      "share_of_scanned": 0.0065,
+      "share_of_model_papers": 0.0273
+    },
+    {
+      "variant_id": "robobrain",
+      "label": "RoboBrain",
+      "family": "RoboBrain",
+      "country": "china",
+      "company": "Beijing Academy of AI",
+      "access": "open_weight",
+      "papers": 233,
+      "share_of_scanned": 0.0059,
+      "share_of_model_papers": 0.0249
     },
     {
       "variant_id": "pi07",
@@ -421,31 +399,20 @@
       "country": "usa",
       "company": "Physical Intelligence",
       "access": "closed",
-      "papers": 151,
-      "share_of_scanned": 0.004,
-      "share_of_model_papers": 0.018
+      "papers": 197,
+      "share_of_scanned": 0.005,
+      "share_of_model_papers": 0.0211
     },
     {
-      "variant_id": "rt1_x",
-      "label": "RT-1-X",
-      "family": "RT",
+      "variant_id": "gr00t_n1_6",
+      "label": "GR00T N1.6",
+      "family": "GR00T",
       "country": "usa",
-      "company": "Google DeepMind",
+      "company": "NVIDIA",
       "access": "open_weight",
-      "papers": 138,
-      "share_of_scanned": 0.0037,
-      "share_of_model_papers": 0.0164
-    },
-    {
-      "variant_id": "gr3",
-      "label": "GR-3",
-      "family": "GR-3",
-      "country": "china",
-      "company": "ByteDance",
-      "access": "open_weight",
-      "papers": 132,
-      "share_of_scanned": 0.0035,
-      "share_of_model_papers": 0.0157
+      "papers": 195,
+      "share_of_scanned": 0.0049,
+      "share_of_model_papers": 0.0209
     },
     {
       "variant_id": "gr00t_n1_7",
@@ -454,9 +421,42 @@
       "country": "usa",
       "company": "NVIDIA",
       "access": "open_weight",
-      "papers": 117,
-      "share_of_scanned": 0.0031,
-      "share_of_model_papers": 0.0139
+      "papers": 184,
+      "share_of_scanned": 0.0047,
+      "share_of_model_papers": 0.0197
+    },
+    {
+      "variant_id": "roboflamingo",
+      "label": "RoboFlamingo",
+      "family": "RoboFlamingo",
+      "country": "china",
+      "company": "ByteDance Research",
+      "access": "open_weight",
+      "papers": 174,
+      "share_of_scanned": 0.0044,
+      "share_of_model_papers": 0.0186
+    },
+    {
+      "variant_id": "rt1_x",
+      "label": "RT-1-X",
+      "family": "RT",
+      "country": "usa",
+      "company": "Google DeepMind",
+      "access": "open_weight",
+      "papers": 144,
+      "share_of_scanned": 0.0036,
+      "share_of_model_papers": 0.0154
+    },
+    {
+      "variant_id": "gr3",
+      "label": "GR-3",
+      "family": "GR-3",
+      "country": "china",
+      "company": "ByteDance",
+      "access": "open_weight",
+      "papers": 134,
+      "share_of_scanned": 0.0034,
+      "share_of_model_papers": 0.0143
     },
     {
       "variant_id": "gemini_robotics_15",
@@ -465,9 +465,9 @@
       "country": "usa",
       "company": "Google DeepMind",
       "access": "closed",
-      "papers": 111,
-      "share_of_scanned": 0.003,
-      "share_of_model_papers": 0.0132
+      "papers": 132,
+      "share_of_scanned": 0.0033,
+      "share_of_model_papers": 0.0141
     },
     {
       "variant_id": "hpt",
@@ -476,31 +476,9 @@
       "country": "usa",
       "company": "MIT",
       "access": "open_weight",
-      "papers": 107,
-      "share_of_scanned": 0.0029,
-      "share_of_model_papers": 0.0127
-    },
-    {
-      "variant_id": "vc1",
-      "label": "VC-1",
-      "family": "VC-1",
-      "country": "usa",
-      "company": "Meta",
-      "access": "open_weight",
-      "papers": 101,
-      "share_of_scanned": 0.0027,
-      "share_of_model_papers": 0.012
-    },
-    {
-      "variant_id": "lingbot_vla",
-      "label": "LingBot-VLA",
-      "family": "LingBot",
-      "country": "china",
-      "company": "Ant Group",
-      "access": "open_weight",
-      "papers": 71,
-      "share_of_scanned": 0.0019,
-      "share_of_model_papers": 0.0084
+      "papers": 118,
+      "share_of_scanned": 0.003,
+      "share_of_model_papers": 0.0126
     },
     {
       "variant_id": "xiaomi_robotics",
@@ -509,9 +487,20 @@
       "country": "china",
       "company": "Xiaomi",
       "access": "open_weight",
-      "papers": 70,
-      "share_of_scanned": 0.0019,
-      "share_of_model_papers": 0.0083
+      "papers": 117,
+      "share_of_scanned": 0.003,
+      "share_of_model_papers": 0.0125
+    },
+    {
+      "variant_id": "vc1",
+      "label": "VC-1",
+      "family": "VC-1",
+      "country": "usa",
+      "company": "Meta",
+      "access": "open_weight",
+      "papers": 104,
+      "share_of_scanned": 0.0026,
+      "share_of_model_papers": 0.0111
     },
     {
       "variant_id": "molmoact2",
@@ -520,20 +509,20 @@
       "country": "usa",
       "company": "Allen Institute for AI",
       "access": "open_weight",
-      "papers": 59,
-      "share_of_scanned": 0.0016,
-      "share_of_model_papers": 0.007
+      "papers": 103,
+      "share_of_scanned": 0.0026,
+      "share_of_model_papers": 0.011
     },
     {
-      "variant_id": "rdt2",
-      "label": "RDT2",
-      "family": "RDT",
+      "variant_id": "lingbot_vla",
+      "label": "LingBot-VLA",
+      "family": "LingBot",
       "country": "china",
-      "company": "Tsinghua",
+      "company": "Ant Group",
       "access": "open_weight",
-      "papers": 58,
-      "share_of_scanned": 0.0016,
-      "share_of_model_papers": 0.0069
+      "papers": 96,
+      "share_of_scanned": 0.0024,
+      "share_of_model_papers": 0.0103
     },
     {
       "variant_id": "qwen_vla",
@@ -542,9 +531,20 @@
       "country": "china",
       "company": "Alibaba",
       "access": "open_weight",
-      "papers": 54,
-      "share_of_scanned": 0.0014,
-      "share_of_model_papers": 0.0064
+      "papers": 73,
+      "share_of_scanned": 0.0018,
+      "share_of_model_papers": 0.0078
+    },
+    {
+      "variant_id": "rdt2",
+      "label": "RDT2",
+      "family": "RDT",
+      "country": "china",
+      "company": "Tsinghua",
+      "access": "open_weight",
+      "papers": 68,
+      "share_of_scanned": 0.0017,
+      "share_of_model_papers": 0.0073
     },
     {
       "variant_id": "pi0_fast",
@@ -553,20 +553,9 @@
       "country": "usa",
       "company": "Physical Intelligence",
       "access": "open_weight",
-      "papers": 44,
-      "share_of_scanned": 0.0012,
-      "share_of_model_papers": 0.0052
-    },
-    {
-      "variant_id": "fast_tokenizer",
-      "label": "FAST",
-      "family": "FAST",
-      "country": "usa",
-      "company": "Physical Intelligence",
-      "access": "open_weight",
-      "papers": 31,
-      "share_of_scanned": 0.0008,
-      "share_of_model_papers": 0.0037
+      "papers": 59,
+      "share_of_scanned": 0.0015,
+      "share_of_model_papers": 0.0063
     },
     {
       "variant_id": "pi06_star",
@@ -575,7 +564,18 @@
       "country": "usa",
       "company": "Physical Intelligence",
       "access": "closed",
-      "papers": 29,
+      "papers": 34,
+      "share_of_scanned": 0.0009,
+      "share_of_model_papers": 0.0036
+    },
+    {
+      "variant_id": "fast_tokenizer",
+      "label": "FAST",
+      "family": "FAST",
+      "country": "usa",
+      "company": "Physical Intelligence",
+      "access": "open_weight",
+      "papers": 33,
       "share_of_scanned": 0.0008,
       "share_of_model_papers": 0.0035
     },
@@ -586,9 +586,9 @@
       "country": "china",
       "company": "Ant Group",
       "access": "open_weight",
-      "papers": 10,
-      "share_of_scanned": 0.0003,
-      "share_of_model_papers": 0.0012
+      "papers": 19,
+      "share_of_scanned": 0.0005,
+      "share_of_model_papers": 0.002
     },
     {
       "variant_id": "helix",
@@ -605,139 +605,139 @@
   "family_paper_hits": [
     [
       "rt",
-      4318
+      4764
     ],
     [
       "diffusion_policy",
-      4102
+      4581
     ],
     [
       "pi",
-      3718
+      4359
     ],
     [
       "openvla",
-      2986
+      3440
     ],
     [
       "gr00t",
-      1383
+      1659
     ],
     [
       "palm_e",
-      1235
+      1322
     ],
     [
       "octo",
-      1106
+      1214
     ],
     [
       "rdt",
-      835
+      929
     ],
     [
       "r3m",
-      755
-    ],
-    [
-      "peract",
-      646
+      799
     ],
     [
       "saycan",
-      622
+      688
     ],
     [
-      "cliport",
-      589
+      "peract",
+      678
     ],
     [
       "gemini_robotics",
-      564
+      644
     ],
     [
       "smolvla",
-      546
+      644
+    ],
+    [
+      "cliport",
+      604
     ],
     [
       "spatialvla",
-      532
+      588
     ],
     [
       "ecot",
-      468
+      506
     ],
     [
       "cogact",
-      422
-    ],
-    [
-      "tinyvla",
-      368
-    ],
-    [
-      "act",
-      315
-    ],
-    [
-      "lapa",
-      306
+      448
     ],
     [
       "xvla",
-      305
+      407
+    ],
+    [
+      "tinyvla",
+      386
+    ],
+    [
+      "lapa",
+      354
+    ],
+    [
+      "act",
+      346
     ],
     [
       "tracevla",
-      305
-    ],
-    [
-      "vla_3d",
-      271
+      325
     ],
     [
       "molmoact",
-      252
+      324
     ],
     [
-      "robobrain",
-      218
+      "vla_3d",
+      292
     ],
     [
       "internvla",
-      213
+      274
+    ],
+    [
+      "robobrain",
+      233
     ],
     [
       "roboflamingo",
-      167
+      174
     ],
     [
       "gr3",
-      132
+      134
     ],
     [
       "hpt",
-      107
-    ],
-    [
-      "vc1",
-      101
-    ],
-    [
-      "lingbot",
-      78
+      118
     ],
     [
       "xiaomi_robotics",
-      70
+      117
+    ],
+    [
+      "lingbot",
+      108
+    ],
+    [
+      "vc1",
+      104
     ],
     [
       "qwen_vla",
-      54
+      73
     ],
     [
       "fast",
-      31
+      33
     ],
     [
       "helix",
@@ -747,160 +747,160 @@
   "by_country": [
     {
       "country": "usa",
-      "papers": 8269,
-      "share_of_model_papers": 0.9838
+      "papers": 9200,
+      "share_of_model_papers": 0.9837
     },
     {
       "country": "china",
-      "papers": 2328,
-      "share_of_model_papers": 0.277
+      "papers": 2644,
+      "share_of_model_papers": 0.2827
     },
     {
       "country": "uk",
-      "papers": 646,
-      "share_of_model_papers": 0.0769
+      "papers": 678,
+      "share_of_model_papers": 0.0725
     },
     {
       "country": "france",
-      "papers": 546,
-      "share_of_model_papers": 0.065
+      "papers": 644,
+      "share_of_model_papers": 0.0689
     }
   ],
   "by_company": [
     {
       "company": "Google DeepMind",
-      "papers": 4482,
-      "share_of_model_papers": 0.5333
+      "papers": 4950,
+      "share_of_model_papers": 0.5293
     },
     {
       "company": "Columbia / Toyota Research Institute",
-      "papers": 4037,
-      "share_of_model_papers": 0.4803
+      "papers": 4510,
+      "share_of_model_papers": 0.4822
     },
     {
       "company": "Physical Intelligence",
-      "papers": 3719,
-      "share_of_model_papers": 0.4425
+      "papers": 4360,
+      "share_of_model_papers": 0.4662
     },
     {
       "company": "Stanford / RAIL",
-      "papers": 2986,
-      "share_of_model_papers": 0.3553
+      "papers": 3440,
+      "share_of_model_papers": 0.3678
     },
     {
       "company": "Google",
-      "papers": 1610,
-      "share_of_model_papers": 0.1916
-    },
-    {
-      "company": "UC Berkeley",
-      "papers": 1424,
-      "share_of_model_papers": 0.1694
+      "papers": 1743,
+      "share_of_model_papers": 0.1864
     },
     {
       "company": "NVIDIA",
-      "papers": 1383,
-      "share_of_model_papers": 0.1645
+      "papers": 1659,
+      "share_of_model_papers": 0.1774
+    },
+    {
+      "company": "UC Berkeley",
+      "papers": 1565,
+      "share_of_model_papers": 0.1673
     },
     {
       "company": "Shanghai AI Lab",
-      "papers": 859,
-      "share_of_model_papers": 0.1022
+      "papers": 1032,
+      "share_of_model_papers": 0.1104
     },
     {
       "company": "Tsinghua",
-      "papers": 835,
+      "papers": 929,
       "share_of_model_papers": 0.0993
     },
     {
       "company": "Shanghai Jiao Tong University",
-      "papers": 777,
-      "share_of_model_papers": 0.0924
+      "papers": 837,
+      "share_of_model_papers": 0.0895
     },
     {
       "company": "Meta",
-      "papers": 776,
-      "share_of_model_papers": 0.0923
+      "papers": 822,
+      "share_of_model_papers": 0.0879
     },
     {
       "company": "Imperial College London",
-      "papers": 646,
-      "share_of_model_papers": 0.0769
+      "papers": 678,
+      "share_of_model_papers": 0.0725
     },
     {
       "company": "Stanford",
-      "papers": 615,
-      "share_of_model_papers": 0.0732
-    },
-    {
-      "company": "University of Washington",
-      "papers": 589,
-      "share_of_model_papers": 0.0701
+      "papers": 666,
+      "share_of_model_papers": 0.0712
     },
     {
       "company": "Hugging Face",
-      "papers": 546,
-      "share_of_model_papers": 0.065
+      "papers": 644,
+      "share_of_model_papers": 0.0689
+    },
+    {
+      "company": "University of Washington",
+      "papers": 604,
+      "share_of_model_papers": 0.0646
     },
     {
       "company": "Microsoft Research Asia",
-      "papers": 422,
-      "share_of_model_papers": 0.0502
+      "papers": 448,
+      "share_of_model_papers": 0.0479
     },
     {
       "company": "Midea",
-      "papers": 368,
-      "share_of_model_papers": 0.0438
+      "papers": 386,
+      "share_of_model_papers": 0.0413
     },
     {
       "company": "KAIST / Microsoft",
-      "papers": 306,
-      "share_of_model_papers": 0.0364
-    },
-    {
-      "company": "UMass / MIT-IBM",
-      "papers": 271,
-      "share_of_model_papers": 0.0322
+      "papers": 354,
+      "share_of_model_papers": 0.0379
     },
     {
       "company": "Allen Institute for AI",
-      "papers": 252,
-      "share_of_model_papers": 0.03
+      "papers": 324,
+      "share_of_model_papers": 0.0346
+    },
+    {
+      "company": "UMass / MIT-IBM",
+      "papers": 292,
+      "share_of_model_papers": 0.0312
     },
     {
       "company": "Beijing Academy of AI",
-      "papers": 218,
-      "share_of_model_papers": 0.0259
+      "papers": 233,
+      "share_of_model_papers": 0.0249
     },
     {
       "company": "ByteDance Research",
-      "papers": 167,
-      "share_of_model_papers": 0.0199
+      "papers": 174,
+      "share_of_model_papers": 0.0186
     },
     {
       "company": "ByteDance",
-      "papers": 132,
-      "share_of_model_papers": 0.0157
+      "papers": 134,
+      "share_of_model_papers": 0.0143
     },
     {
       "company": "MIT",
-      "papers": 107,
-      "share_of_model_papers": 0.0127
-    },
-    {
-      "company": "Ant Group",
-      "papers": 78,
-      "share_of_model_papers": 0.0093
+      "papers": 118,
+      "share_of_model_papers": 0.0126
     },
     {
       "company": "Xiaomi",
-      "papers": 70,
-      "share_of_model_papers": 0.0083
+      "papers": 117,
+      "share_of_model_papers": 0.0125
+    },
+    {
+      "company": "Ant Group",
+      "papers": 108,
+      "share_of_model_papers": 0.0115
     },
     {
       "company": "Alibaba",
-      "papers": 54,
-      "share_of_model_papers": 0.0064
+      "papers": 73,
+      "share_of_model_papers": 0.0078
     },
     {
       "company": "Figure",
@@ -953,7 +953,8 @@
     "2026-06",
     "2026-07",
     "2026-08",
-    "2026-09"
+    "2026-09",
+    "2026-10"
   ],
   "monthly": {
     "2023-01": {
@@ -978,9 +979,9 @@
       "companies": {
         "Shanghai AI Lab": 1,
         "Physical Intelligence": 9,
-        "Google": 2,
         "University of Washington": 1,
         "Imperial College London": 2,
+        "Google": 2,
         "Google DeepMind": 3,
         "Meta": 1
       },
@@ -1046,18 +1047,18 @@
         "Physical Intelligence": 13,
         "University of Washington": 13,
         "Beijing Academy of AI": 1,
-        "Meta": 6,
         "Imperial College London": 6,
+        "Meta": 6,
         "Google DeepMind": 7,
         "Google": 5,
         "Columbia / Toyota Research Institute": 2
       },
       "families": {
         "\u03c0": 13,
-        "CLIPort": 13,
         "RoboBrain": 1,
-        "PerAct": 6,
+        "CLIPort": 13,
         "R3M": 6,
+        "PerAct": 6,
         "RT": 7,
         "SayCan": 5,
         "PaLM-E": 1,
@@ -1113,20 +1114,20 @@
       "companies": {
         "Google": 12,
         "Physical Intelligence": 14,
-        "Google DeepMind": 12,
         "University of Washington": 13,
-        "Meta": 8,
+        "Google DeepMind": 12,
         "Imperial College London": 5,
+        "Meta": 8,
         "Columbia / Toyota Research Institute": 2
       },
       "families": {
         "PaLM-E": 5,
         "\u03c0": 14,
-        "RT": 12,
         "CLIPort": 13,
+        "RT": 12,
         "SayCan": 10,
-        "PerAct": 5,
         "R3M": 8,
+        "PerAct": 5,
         "Diffusion Policy": 2,
         "VC-1": 1,
         "3D-VLA": 0,
@@ -1189,9 +1190,9 @@
       "families": {
         "\u03c0": 8,
         "SayCan": 6,
+        "PerAct": 8,
         "RT": 10,
         "Diffusion Policy": 3,
-        "PerAct": 8,
         "CLIPort": 11,
         "PaLM-E": 5,
         "R3M": 5,
@@ -1252,8 +1253,8 @@
         "Meta": 9,
         "University of Washington": 7,
         "Google": 13,
-        "Columbia / Toyota Research Institute": 3,
         "Google DeepMind": 10,
+        "Columbia / Toyota Research Institute": 3,
         "UC Berkeley": 1,
         "ByteDance Research": 1
       },
@@ -1263,8 +1264,8 @@
         "R3M": 9,
         "CLIPort": 7,
         "PaLM-E": 10,
-        "Diffusion Policy": 3,
         "RT": 10,
+        "Diffusion Policy": 3,
         "VC-1": 1,
         "SayCan": 5,
         "ECoT": 1,
@@ -1321,9 +1322,9 @@
       "companies": {
         "Google": 23,
         "Meta": 14,
-        "Google DeepMind": 25,
         "University of Washington": 18,
         "Imperial College London": 17,
+        "Google DeepMind": 25,
         "Physical Intelligence": 7,
         "Columbia / Toyota Research Institute": 8,
         "UC Berkeley": 1,
@@ -1332,8 +1333,8 @@
       "families": {
         "PaLM-E": 13,
         "R3M": 13,
-        "RT": 25,
         "CLIPort": 18,
+        "RT": 25,
         "PerAct": 17,
         "SayCan": 11,
         "\u03c0": 7,
@@ -1391,10 +1392,10 @@
       },
       "companies": {
         "Physical Intelligence": 7,
-        "Google": 14,
-        "Google DeepMind": 21,
         "University of Washington": 16,
         "Imperial College London": 9,
+        "Google DeepMind": 21,
+        "Google": 14,
         "Meta": 16,
         "Columbia / Toyota Research Institute": 9,
         "Stanford": 1,
@@ -1402,9 +1403,9 @@
       },
       "families": {
         "\u03c0": 7,
-        "RT": 21,
-        "CLIPort": 16,
         "PaLM-E": 11,
+        "CLIPort": 16,
+        "RT": 21,
         "SayCan": 5,
         "PerAct": 9,
         "R3M": 16,
@@ -1473,8 +1474,8 @@
         "R3M": 5,
         "RT": 17,
         "\u03c0": 5,
-        "Diffusion Policy": 2,
         "ACT": 1,
+        "Diffusion Policy": 2,
         "PaLM-E": 2,
         "3D-VLA": 0,
         "CogACT": 0,
@@ -1528,19 +1529,19 @@
         "uk": 13
       },
       "companies": {
-        "Google": 34,
         "University of Washington": 21,
+        "Google": 34,
         "Columbia / Toyota Research Institute": 9,
         "Stanford": 2,
-        "Google DeepMind": 38,
         "Meta": 12,
+        "Google DeepMind": 38,
         "Physical Intelligence": 12,
         "UC Berkeley": 2,
         "Imperial College London": 13
       },
       "families": {
-        "CLIPort": 21,
         "PaLM-E": 22,
+        "CLIPort": 21,
         "Diffusion Policy": 9,
         "R3M": 12,
         "RT": 38,
@@ -1602,10 +1603,10 @@
         "china": 2
       },
       "companies": {
-        "Google": 34,
+        "University of Washington": 14,
         "Google DeepMind": 50,
         "Meta": 23,
-        "University of Washington": 14,
+        "Google": 34,
         "Imperial College London": 9,
         "Physical Intelligence": 13,
         "UC Berkeley": 5,
@@ -1614,12 +1615,12 @@
         "Stanford": 1
       },
       "families": {
-        "RT": 50,
-        "CLIPort": 14,
-        "R3M": 23,
         "PaLM-E": 28,
-        "VC-1": 5,
+        "CLIPort": 14,
+        "RT": 50,
         "SayCan": 14,
+        "R3M": 23,
+        "VC-1": 5,
         "PerAct": 9,
         "\u03c0": 13,
         "ECoT": 5,
@@ -1677,8 +1678,8 @@
       },
       "companies": {
         "University of Washington": 15,
-        "Google": 23,
         "Google DeepMind": 25,
+        "Google": 23,
         "Imperial College London": 9,
         "Columbia / Toyota Research Institute": 10,
         "Meta": 13,
@@ -1688,13 +1689,13 @@
       },
       "families": {
         "CLIPort": 15,
-        "RT": 25,
         "PaLM-E": 19,
+        "RT": 25,
         "SayCan": 10,
         "PerAct": 9,
         "Diffusion Policy": 10,
-        "RoboFlamingo": 1,
         "R3M": 13,
+        "RoboFlamingo": 1,
         "\u03c0": 5,
         "RoboBrain": 1,
         "VC-1": 4,
@@ -1765,8 +1766,8 @@
         "china": 1
       },
       "companies": {
-        "Google DeepMind": 40,
         "Meta": 17,
+        "Google DeepMind": 40,
         "University of Washington": 16,
         "Columbia / Toyota Research Institute": 13,
         "Imperial College London": 7,
@@ -1774,19 +1775,19 @@
         "Physical Intelligence": 10,
         "UC Berkeley": 3,
         "Stanford / RAIL": 2,
-        "Stanford": 1,
+        "Midea": 1,
         "Tsinghua": 1,
+        "ByteDance Research": 1,
+        "Shanghai AI Lab": 1,
         "MIT": 1,
         "UMass / MIT-IBM": 1,
-        "ByteDance": 1,
-        "Shanghai AI Lab": 1,
-        "ByteDance Research": 1,
         "Shanghai Jiao Tong University": 1,
-        "Midea": 1
+        "ByteDance": 1,
+        "Stanford": 1
       },
       "families": {
-        "RT": 40,
         "R3M": 17,
+        "RT": 40,
         "CLIPort": 16,
         "Diffusion Policy": 13,
         "PerAct": 7,
@@ -1796,17 +1797,17 @@
         "ECoT": 3,
         "OpenVLA": 2,
         "VC-1": 2,
-        "GR-3": 1,
-        "Gemini Robotics": 1,
         "FAST": 1,
         "RDT": 1,
-        "Octo": 1,
-        "RoboFlamingo": 1,
-        "SpatialVLA": 1,
-        "HPT": 1,
         "ACT": 1,
-        "TinyVLA": 1,
+        "SpatialVLA": 1,
+        "RoboFlamingo": 1,
         "3D-VLA": 1,
+        "TinyVLA": 1,
+        "GR-3": 1,
+        "HPT": 1,
+        "Octo": 1,
+        "Gemini Robotics": 1,
         "CogACT": 0,
         "GR00T": 0,
         "Helix": 0,
@@ -1849,20 +1850,20 @@
         "Google DeepMind": 30,
         "UC Berkeley": 7,
         "University of Washington": 9,
+        "Meta": 8,
         "Imperial College London": 8,
         "Columbia / Toyota Research Institute": 10,
-        "Meta": 8,
         "Google": 21,
         "Physical Intelligence": 4,
         "Stanford": 1
       },
       "families": {
-        "RT": 30,
         "Octo": 3,
-        "Diffusion Policy": 10,
+        "RT": 30,
         "CLIPort": 9,
-        "R3M": 8,
+        "Diffusion Policy": 10,
         "PerAct": 8,
+        "R3M": 8,
         "PaLM-E": 18,
         "ECoT": 4,
         "SayCan": 7,
@@ -1929,40 +1930,40 @@
       },
       "companies": {
         "Google DeepMind": 48,
-        "Google": 29,
         "University of Washington": 18,
+        "Google": 29,
         "Columbia / Toyota Research Institute": 22,
         "Physical Intelligence": 14,
-        "Stanford": 2,
-        "Imperial College London": 13,
         "Meta": 18,
         "Shanghai Jiao Tong University": 3,
+        "Imperial College London": 13,
+        "Stanford": 2,
         "UC Berkeley": 16,
-        "Tsinghua": 1,
-        "NVIDIA": 1,
         "Microsoft Research Asia": 1,
-        "Shanghai AI Lab": 1,
         "Stanford / RAIL": 3,
+        "NVIDIA": 1,
+        "Tsinghua": 1,
+        "Shanghai AI Lab": 1,
         "ByteDance Research": 2
       },
       "families": {
         "RT": 48,
-        "CLIPort": 18,
         "PaLM-E": 25,
+        "CLIPort": 18,
         "SayCan": 9,
         "Diffusion Policy": 22,
         "\u03c0": 14,
-        "R3M": 18,
-        "ACT": 2,
-        "VC-1": 5,
         "PerAct": 13,
+        "R3M": 18,
+        "VC-1": 5,
+        "ACT": 2,
         "Octo": 11,
-        "Gemini Robotics": 1,
         "OpenVLA": 3,
-        "GR00T": 1,
         "CogACT": 1,
-        "SpatialVLA": 1,
         "RDT": 1,
+        "SpatialVLA": 1,
+        "GR00T": 1,
+        "Gemini Robotics": 1,
         "ECoT": 5,
         "RoboFlamingo": 2,
         "3D-VLA": 0,
@@ -2014,10 +2015,10 @@
       },
       "companies": {
         "University of Washington": 19,
-        "Imperial College London": 16,
-        "UC Berkeley": 13,
-        "Google DeepMind": 64,
         "Google": 32,
+        "Imperial College London": 16,
+        "Google DeepMind": 64,
+        "UC Berkeley": 13,
         "Physical Intelligence": 17,
         "Columbia / Toyota Research Institute": 32,
         "Meta": 14,
@@ -2028,15 +2029,15 @@
         "Beijing Academy of AI": 1
       },
       "families": {
-        "RT": 64,
-        "CLIPort": 19,
         "PaLM-E": 24,
-        "Octo": 10,
+        "CLIPort": 19,
+        "RT": 64,
         "PerAct": 16,
+        "Octo": 10,
         "\u03c0": 17,
         "Diffusion Policy": 34,
-        "R3M": 14,
         "SayCan": 12,
+        "R3M": 14,
         "VC-1": 2,
         "ECoT": 4,
         "3D-VLA": 2,
@@ -2107,19 +2108,19 @@
         "Google DeepMind": 34,
         "Physical Intelligence": 14,
         "Imperial College London": 10,
-        "UC Berkeley": 7,
         "Meta": 11,
+        "UC Berkeley": 7,
         "University of Washington": 5,
         "NVIDIA": 2,
         "Shanghai Jiao Tong University": 3,
         "Stanford / RAIL": 3,
         "Stanford": 2,
+        "Midea": 1,
         "Tsinghua": 1,
-        "MIT": 1,
-        "UMass / MIT-IBM": 2,
         "ByteDance Research": 1,
+        "MIT": 1,
         "KAIST / Microsoft": 2,
-        "Midea": 1
+        "UMass / MIT-IBM": 2
       },
       "families": {
         "PaLM-E": 16,
@@ -2128,18 +2129,18 @@
         "SayCan": 8,
         "\u03c0": 14,
         "PerAct": 10,
-        "R3M": 11,
         "Octo": 4,
+        "R3M": 11,
         "CLIPort": 5,
         "GR00T": 2,
         "ECoT": 3,
         "OpenVLA": 3,
         "ACT": 2,
-        "HPT": 1,
-        "LAPA": 2,
-        "RoboFlamingo": 1,
-        "TinyVLA": 1,
         "RDT": 1,
+        "LAPA": 2,
+        "TinyVLA": 1,
+        "RoboFlamingo": 1,
+        "HPT": 1,
         "3D-VLA": 2,
         "CogACT": 0,
         "FAST": 0,
@@ -2210,8 +2211,8 @@
       "companies": {
         "Physical Intelligence": 13,
         "Columbia / Toyota Research Institute": 27,
-        "Google DeepMind": 48,
         "Stanford / RAIL": 4,
+        "Google DeepMind": 48,
         "Meta": 21,
         "Google": 30,
         "Imperial College London": 13,
@@ -2222,19 +2223,19 @@
         "Shanghai Jiao Tong University": 2,
         "UMass / MIT-IBM": 2,
         "Midea": 2,
-        "Hugging Face": 1,
         "Microsoft Research Asia": 1,
-        "KAIST / Microsoft": 1,
+        "NVIDIA": 1,
         "Tsinghua": 1,
         "Shanghai AI Lab": 1,
-        "NVIDIA": 1,
+        "Hugging Face": 1,
+        "KAIST / Microsoft": 1,
         "Beijing Academy of AI": 1
       },
       "families": {
         "\u03c0": 13,
         "Diffusion Policy": 27,
-        "RT": 48,
         "OpenVLA": 4,
+        "RT": 48,
         "R3M": 19,
         "SayCan": 11,
         "PerAct": 13,
@@ -2247,16 +2248,16 @@
         "Octo": 6,
         "3D-VLA": 2,
         "TinyVLA": 2,
-        "X-VLA": 1,
-        "SmolVLA": 1,
-        "Gemini Robotics": 1,
-        "GR00T": 1,
-        "LAPA": 1,
-        "CogACT": 1,
         "RDT": 1,
+        "LAPA": 1,
+        "GR00T": 1,
+        "SmolVLA": 1,
         "SpatialVLA": 1,
+        "X-VLA": 1,
+        "CogACT": 1,
         "InternVLA": 1,
         "TraceVLA": 1,
+        "Gemini Robotics": 1,
         "RoboBrain": 1,
         "FAST": 0,
         "GR-3": 0,
@@ -2302,26 +2303,26 @@
         "uk": 19
       },
       "companies": {
-        "Google": 34,
-        "Google DeepMind": 60,
         "Meta": 18,
+        "Google DeepMind": 60,
+        "Google": 34,
         "ByteDance Research": 4,
         "Columbia / Toyota Research Institute": 37,
-        "Shanghai Jiao Tong University": 6,
         "University of Washington": 17,
+        "Shanghai Jiao Tong University": 6,
         "Physical Intelligence": 7,
         "Imperial College London": 19,
         "Stanford": 5,
         "UC Berkeley": 10,
-        "UMass / MIT-IBM": 4,
         "Stanford / RAIL": 5,
+        "UMass / MIT-IBM": 4,
         "MIT": 1
       },
       "families": {
         "RT": 60,
         "PaLM-E": 29,
-        "RoboFlamingo": 4,
         "R3M": 18,
+        "RoboFlamingo": 4,
         "Diffusion Policy": 37,
         "CLIPort": 17,
         "\u03c0": 7,
@@ -2386,14 +2387,14 @@
       },
       "companies": {
         "Columbia / Toyota Research Institute": 39,
-        "Google": 27,
         "Google DeepMind": 59,
-        "Shanghai Jiao Tong University": 13,
+        "Google": 27,
         "Stanford / RAIL": 6,
-        "Stanford": 6,
+        "Shanghai Jiao Tong University": 13,
         "Imperial College London": 17,
-        "UC Berkeley": 13,
+        "Stanford": 6,
         "Meta": 17,
+        "UC Berkeley": 13,
         "University of Washington": 16,
         "ByteDance Research": 3,
         "Physical Intelligence": 7,
@@ -2401,13 +2402,13 @@
       },
       "families": {
         "Diffusion Policy": 40,
-        "RT": 59,
         "PaLM-E": 22,
+        "RT": 59,
         "OpenVLA": 6,
         "PerAct": 17,
         "ACT": 6,
-        "R3M": 17,
         "Octo": 10,
+        "R3M": 17,
         "CLIPort": 16,
         "RoboFlamingo": 3,
         "ECoT": 6,
@@ -2467,12 +2468,12 @@
         "uk": 3
       },
       "companies": {
-        "ByteDance Research": 3,
-        "Google DeepMind": 38,
-        "Meta": 7,
         "Stanford / RAIL": 6,
         "Google": 18,
+        "Meta": 7,
         "Physical Intelligence": 5,
+        "ByteDance Research": 3,
+        "Google DeepMind": 38,
         "Columbia / Toyota Research Institute": 30,
         "Imperial College London": 3,
         "University of Washington": 7,
@@ -2483,12 +2484,12 @@
       },
       "families": {
         "OpenVLA": 6,
-        "RT": 38,
-        "R3M": 7,
-        "RoboFlamingo": 3,
         "PaLM-E": 16,
-        "\u03c0": 5,
+        "RT": 38,
         "SayCan": 6,
+        "R3M": 7,
+        "\u03c0": 5,
+        "RoboFlamingo": 3,
         "Diffusion Policy": 30,
         "PerAct": 3,
         "CLIPort": 7,
@@ -2557,8 +2558,8 @@
         "Columbia / Toyota Research Institute": 70,
         "Physical Intelligence": 22,
         "Google DeepMind": 85,
-        "Meta": 22,
         "University of Washington": 23,
+        "Meta": 22,
         "UMass / MIT-IBM": 6,
         "Imperial College London": 20,
         "Stanford": 9,
@@ -2573,8 +2574,8 @@
         "Diffusion Policy": 71,
         "\u03c0": 22,
         "RT": 85,
-        "CLIPort": 23,
         "R3M": 22,
+        "CLIPort": 23,
         "3D-VLA": 6,
         "PerAct": 20,
         "ACT": 9,
@@ -2582,8 +2583,8 @@
         "OpenVLA": 15,
         "SayCan": 10,
         "PaLM-E": 32,
-        "RoboFlamingo": 1,
         "VC-1": 3,
+        "RoboFlamingo": 1,
         "ECoT": 6,
         "TinyVLA": 3,
         "HPT": 1,
@@ -2644,16 +2645,16 @@
         "china": 29
       },
       "companies": {
-        "Google": 44,
         "Google DeepMind": 96,
-        "Stanford": 7,
+        "Google": 44,
         "Tsinghua": 2,
-        "UC Berkeley": 42,
-        "Imperial College London": 20,
-        "Columbia / Toyota Research Institute": 105,
         "Shanghai Jiao Tong University": 22,
-        "Meta": 29,
+        "Imperial College London": 20,
+        "Stanford": 7,
+        "UC Berkeley": 42,
+        "Columbia / Toyota Research Institute": 105,
         "University of Washington": 12,
+        "Meta": 29,
         "Stanford / RAIL": 39,
         "Physical Intelligence": 23,
         "ByteDance Research": 5,
@@ -2664,13 +2665,13 @@
         "Midea": 2
       },
       "families": {
-        "RT": 96,
         "PaLM-E": 32,
+        "RT": 96,
         "Diffusion Policy": 106,
-        "ACT": 7,
         "RDT": 2,
-        "Octo": 35,
         "PerAct": 20,
+        "Octo": 35,
+        "ACT": 7,
         "CLIPort": 12,
         "R3M": 28,
         "OpenVLA": 39,
@@ -2740,15 +2741,15 @@
       },
       "companies": {
         "University of Washington": 11,
-        "UC Berkeley": 21,
-        "Columbia / Toyota Research Institute": 62,
-        "Google DeepMind": 53,
         "Stanford / RAIL": 25,
         "Google": 26,
         "Physical Intelligence": 13,
+        "Google DeepMind": 53,
+        "UC Berkeley": 21,
+        "Columbia / Toyota Research Institute": 62,
+        "Meta": 13,
         "Imperial College London": 9,
         "Shanghai Jiao Tong University": 16,
-        "Meta": 13,
         "Stanford": 10,
         "ByteDance Research": 4,
         "UMass / MIT-IBM": 1,
@@ -2760,16 +2761,16 @@
         "Microsoft Research Asia": 1
       },
       "families": {
-        "Diffusion Policy": 64,
         "OpenVLA": 25,
-        "RT": 53,
-        "CLIPort": 11,
         "PaLM-E": 21,
-        "\u03c0": 13,
+        "CLIPort": 11,
+        "RT": 53,
+        "Diffusion Policy": 64,
         "Octo": 20,
+        "\u03c0": 13,
         "ECoT": 4,
-        "PerAct": 9,
         "R3M": 13,
+        "PerAct": 9,
         "ACT": 10,
         "SayCan": 12,
         "RoboFlamingo": 4,
@@ -2841,13 +2842,13 @@
         "Stanford / RAIL": 34,
         "Physical Intelligence": 19,
         "Columbia / Toyota Research Institute": 56,
-        "ByteDance Research": 7,
         "Google": 20,
+        "ByteDance Research": 7,
         "UC Berkeley": 25,
         "University of Washington": 7,
         "Shanghai Jiao Tong University": 13,
-        "Tsinghua": 6,
         "Microsoft Research Asia": 6,
+        "Tsinghua": 6,
         "Meta": 16,
         "UMass / MIT-IBM": 3,
         "Beijing Academy of AI": 1,
@@ -2858,12 +2859,12 @@
       },
       "families": {
         "RT": 65,
-        "TinyVLA": 7,
         "OpenVLA": 34,
+        "TinyVLA": 7,
         "\u03c0": 19,
         "Diffusion Policy": 59,
-        "RoboFlamingo": 7,
         "PaLM-E": 17,
+        "RoboFlamingo": 7,
         "Octo": 23,
         "CLIPort": 7,
         "CogACT": 6,
@@ -2935,17 +2936,17 @@
       },
       "companies": {
         "Columbia / Toyota Research Institute": 28,
-        "MIT": 1,
+        "Stanford / RAIL": 25,
         "ByteDance Research": 2,
-        "UC Berkeley": 12,
+        "MIT": 1,
         "Google DeepMind": 34,
         "KAIST / Microsoft": 1,
-        "Stanford / RAIL": 25,
-        "Stanford": 4,
-        "Tsinghua": 9,
+        "UC Berkeley": 12,
         "NVIDIA": 1,
         "Google": 19,
         "Physical Intelligence": 16,
+        "Tsinghua": 9,
+        "Stanford": 4,
         "Meta": 7,
         "Imperial College London": 9,
         "UMass / MIT-IBM": 5,
@@ -2960,15 +2961,15 @@
         "OpenVLA": 25,
         "RT": 34,
         "LAPA": 1,
-        "HPT": 1,
-        "RoboFlamingo": 2,
         "Octo": 10,
-        "Gemini Robotics": 1,
-        "GR00T": 1,
-        "ACT": 2,
-        "\u03c0": 16,
-        "RDT": 9,
+        "RoboFlamingo": 2,
+        "HPT": 1,
         "SayCan": 5,
+        "RDT": 9,
+        "\u03c0": 16,
+        "GR00T": 1,
+        "Gemini Robotics": 1,
+        "ACT": 2,
         "PaLM-E": 15,
         "R3M": 7,
         "PerAct": 9,
@@ -3044,11 +3045,11 @@
         "UC Berkeley": 35,
         "Stanford / RAIL": 42,
         "Google": 17,
-        "Shanghai AI Lab": 2,
         "University of Washington": 9,
         "Meta": 17,
-        "KAIST / Microsoft": 5,
         "Physical Intelligence": 36,
+        "Shanghai AI Lab": 2,
+        "KAIST / Microsoft": 5,
         "Tsinghua": 12,
         "Imperial College London": 11,
         "Microsoft Research Asia": 4,
@@ -3056,15 +3057,15 @@
         "Shanghai Jiao Tong University": 19,
         "Stanford": 6,
         "MIT": 2,
-        "UMass / MIT-IBM": 6,
         "NVIDIA": 4,
+        "UMass / MIT-IBM": 6,
         "ByteDance Research": 6,
         "Beijing Academy of AI": 2
       },
       "families": {
         "Diffusion Policy": 84,
-        "RT": 78,
         "Octo": 29,
+        "RT": 78,
         "OpenVLA": 42,
         "PaLM-E": 14,
         "CLIPort": 9,
@@ -3081,9 +3082,9 @@
         "TraceVLA": 4,
         "HPT": 2,
         "Gemini Robotics": 4,
-        "GR00T": 4,
-        "3D-VLA": 6,
         "SayCan": 6,
+        "3D-VLA": 6,
+        "GR00T": 4,
         "RoboFlamingo": 6,
         "ACT": 2,
         "RoboBrain": 2,
@@ -3149,16 +3150,16 @@
         "Google DeepMind": 120,
         "Physical Intelligence": 65,
         "UC Berkeley": 44,
-        "Meta": 22,
         "Stanford / RAIL": 71,
+        "Meta": 22,
         "Google": 39,
         "MIT": 3,
         "Stanford": 12,
         "Imperial College London": 16,
         "University of Washington": 13,
+        "Midea": 10,
         "Shanghai AI Lab": 5,
         "Allen Institute for AI": 2,
-        "Midea": 10,
         "KAIST / Microsoft": 6,
         "UMass / MIT-IBM": 9,
         "NVIDIA": 5,
@@ -3175,16 +3176,16 @@
         "OpenVLA": 71,
         "R3M": 21,
         "SayCan": 13,
-        "Gemini Robotics": 7,
         "HPT": 3,
+        "Gemini Robotics": 7,
         "ECoT": 16,
         "ACT": 10,
         "PaLM-E": 29,
         "PerAct": 16,
         "CLIPort": 13,
         "MolmoAct": 2,
-        "SpatialVLA": 5,
         "TinyVLA": 10,
+        "SpatialVLA": 5,
         "LAPA": 6,
         "TraceVLA": 2,
         "3D-VLA": 9,
@@ -3250,21 +3251,21 @@
         "Shanghai AI Lab": 3,
         "Columbia / Toyota Research Institute": 63,
         "Stanford": 10,
-        "Google": 24,
         "Google DeepMind": 48,
+        "Google": 24,
         "Physical Intelligence": 21,
-        "Meta": 13,
         "University of Washington": 7,
         "Stanford / RAIL": 27,
+        "Meta": 13,
         "ByteDance Research": 1,
         "Shanghai Jiao Tong University": 11,
-        "UMass / MIT-IBM": 4,
         "Imperial College London": 9,
-        "UC Berkeley": 18,
-        "KAIST / Microsoft": 3,
+        "UMass / MIT-IBM": 4,
         "Midea": 5,
-        "Tsinghua": 10,
+        "KAIST / Microsoft": 3,
+        "UC Berkeley": 18,
         "Microsoft Research Asia": 4,
+        "Tsinghua": 10,
         "NVIDIA": 4,
         "MIT": 1
       },
@@ -3275,13 +3276,13 @@
         "RT": 48,
         "SayCan": 9,
         "\u03c0": 21,
+        "OpenVLA": 27,
         "R3M": 12,
         "CLIPort": 7,
-        "OpenVLA": 27,
         "RoboFlamingo": 1,
         "PaLM-E": 18,
-        "3D-VLA": 4,
         "PerAct": 9,
+        "3D-VLA": 4,
         "LAPA": 3,
         "TinyVLA": 5,
         "Octo": 16,
@@ -3356,54 +3357,54 @@
         "uk": 28
       },
       "companies": {
+        "Stanford / RAIL": 112,
         "Google DeepMind": 154,
         "Physical Intelligence": 121,
-        "Stanford / RAIL": 112,
         "Columbia / Toyota Research Institute": 148,
-        "Stanford": 20,
-        "Tsinghua": 36,
         "NVIDIA": 37,
-        "Meta": 22,
         "Google": 45,
+        "Meta": 22,
+        "Tsinghua": 36,
         "Shanghai Jiao Tong University": 41,
-        "Imperial College London": 28,
+        "Stanford": 20,
         "University of Washington": 16,
-        "UMass / MIT-IBM": 16,
+        "Imperial College London": 28,
         "UC Berkeley": 65,
+        "UMass / MIT-IBM": 16,
         "ByteDance Research": 8,
         "Midea": 18,
         "Microsoft Research Asia": 19,
         "KAIST / Microsoft": 11,
-        "MIT": 3,
         "Shanghai AI Lab": 19,
+        "MIT": 3,
         "Beijing Academy of AI": 8,
         "ByteDance": 1,
         "Allen Institute for AI": 2
       },
       "families": {
+        "OpenVLA": 112,
         "RT": 150,
         "\u03c0": 121,
         "Diffusion Policy": 153,
-        "OpenVLA": 112,
-        "CLIPort": 16,
         "PerAct": 28,
+        "CLIPort": 16,
         "PaLM-E": 40,
-        "3D-VLA": 16,
         "Octo": 49,
+        "3D-VLA": 16,
         "ECoT": 27,
         "R3M": 21,
         "RoboFlamingo": 8,
+        "RDT": 36,
         "GR00T": 37,
         "ACT": 8,
-        "RDT": 36,
         "SayCan": 14,
         "Gemini Robotics": 25,
         "TinyVLA": 18,
-        "LAPA": 11,
         "CogACT": 19,
-        "HPT": 3,
-        "SpatialVLA": 18,
+        "LAPA": 11,
         "TraceVLA": 13,
+        "SpatialVLA": 18,
+        "HPT": 3,
         "RoboBrain": 8,
         "MolmoAct": 2,
         "GR-3": 1,
@@ -3469,19 +3470,19 @@
       },
       "companies": {
         "Physical Intelligence": 93,
-        "Imperial College London": 22,
-        "Columbia / Toyota Research Institute": 118,
-        "Google DeepMind": 129,
         "Stanford / RAIL": 87,
         "NVIDIA": 33,
+        "Imperial College London": 22,
+        "Google DeepMind": 129,
+        "Columbia / Toyota Research Institute": 118,
         "University of Washington": 16,
-        "Meta": 24,
         "Google": 52,
+        "Meta": 24,
         "Hugging Face": 7,
         "Shanghai Jiao Tong University": 30,
+        "Midea": 20,
         "Tsinghua": 30,
         "UC Berkeley": 49,
-        "Midea": 20,
         "Stanford": 23,
         "Microsoft Research Asia": 17,
         "Shanghai AI Lab": 17,
@@ -3494,19 +3495,19 @@
       },
       "families": {
         "\u03c0": 93,
-        "Gemini Robotics": 19,
-        "Diffusion Policy": 123,
         "OpenVLA": 87,
-        "GR00T": 33,
         "RT": 126,
+        "Diffusion Policy": 123,
         "PerAct": 22,
+        "GR00T": 33,
+        "Gemini Robotics": 19,
+        "PaLM-E": 39,
         "CLIPort": 16,
         "FAST": 3,
         "R3M": 22,
-        "PaLM-E": 39,
         "SmolVLA": 7,
-        "TinyVLA": 20,
         "RDT": 30,
+        "TinyVLA": 20,
         "Octo": 39,
         "ACT": 15,
         "CogACT": 17,
@@ -3583,24 +3584,24 @@
         "france": 4
       },
       "companies": {
-        "Tsinghua": 31,
-        "UMass / MIT-IBM": 8,
+        "Stanford / RAIL": 52,
         "NVIDIA": 30,
+        "Physical Intelligence": 56,
+        "Tsinghua": 31,
         "Shanghai AI Lab": 11,
         "Google DeepMind": 78,
-        "Stanford / RAIL": 52,
-        "Physical Intelligence": 56,
+        "UMass / MIT-IBM": 8,
         "Columbia / Toyota Research Institute": 79,
-        "Beijing Academy of AI": 5,
-        "KAIST / Microsoft": 10,
         "Shanghai Jiao Tong University": 21,
-        "Imperial College London": 10,
-        "Google": 38,
+        "KAIST / Microsoft": 10,
+        "Beijing Academy of AI": 5,
         "Midea": 10,
+        "Google": 38,
+        "Imperial College London": 10,
         "UC Berkeley": 23,
         "Stanford": 15,
-        "Microsoft Research Asia": 12,
         "University of Washington": 10,
+        "Microsoft Research Asia": 12,
         "ByteDance Research": 4,
         "Hugging Face": 4,
         "MIT": 7,
@@ -3610,27 +3611,27 @@
       },
       "families": {
         "OpenVLA": 52,
-        "GR00T": 30,
         "RT": 74,
+        "RDT": 31,
         "SpatialVLA": 10,
         "\u03c0": 55,
-        "RDT": 31,
+        "GR00T": 30,
         "3D-VLA": 8,
-        "Diffusion Policy": 80,
         "X-VLA": 1,
+        "Diffusion Policy": 80,
         "LAPA": 10,
         "RoboBrain": 5,
-        "TinyVLA": 10,
         "PaLM-E": 28,
+        "TinyVLA": 10,
         "PerAct": 10,
         "Octo": 18,
         "ECoT": 10,
         "ACT": 8,
-        "Gemini Robotics": 15,
         "CLIPort": 10,
         "SayCan": 18,
         "CogACT": 12,
         "RoboFlamingo": 4,
+        "Gemini Robotics": 15,
         "TraceVLA": 7,
         "SmolVLA": 4,
         "HPT": 7,
@@ -3703,11 +3704,11 @@
         "Tsinghua": 24,
         "Google DeepMind": 96,
         "Physical Intelligence": 65,
-        "ByteDance Research": 10,
-        "UC Berkeley": 34,
         "Stanford / RAIL": 62,
-        "Shanghai Jiao Tong University": 21,
+        "ByteDance Research": 10,
         "Hugging Face": 8,
+        "Shanghai Jiao Tong University": 21,
+        "UC Berkeley": 34,
         "NVIDIA": 23,
         "Meta": 16,
         "Beijing Academy of AI": 6,
@@ -3730,11 +3731,11 @@
         "RT": 91,
         "\u03c0": 65,
         "OpenVLA": 62,
-        "SmolVLA": 8,
-        "RoboFlamingo": 10,
         "Octo": 22,
-        "GR00T": 23,
+        "RoboFlamingo": 10,
+        "SmolVLA": 8,
         "R3M": 15,
+        "GR00T": 23,
         "Gemini Robotics": 20,
         "RoboBrain": 6,
         "ACT": 4,
@@ -3745,8 +3746,8 @@
         "SpatialVLA": 21,
         "CLIPort": 20,
         "PaLM-E": 21,
-        "LAPA": 8,
         "CogACT": 14,
+        "LAPA": 8,
         "3D-VLA": 11,
         "TinyVLA": 12,
         "MolmoAct": 3,
@@ -3816,56 +3817,56 @@
       },
       "companies": {
         "Meta": 27,
-        "Beijing Academy of AI": 11,
-        "ByteDance": 12,
-        "UC Berkeley": 53,
-        "Google DeepMind": 169,
         "Google": 56,
+        "ByteDance": 12,
+        "Google DeepMind": 169,
+        "Beijing Academy of AI": 11,
+        "UC Berkeley": 53,
         "Columbia / Toyota Research Institute": 178,
-        "Tsinghua": 30,
         "Stanford / RAIL": 127,
-        "ByteDance Research": 6,
-        "Imperial College London": 23,
+        "Tsinghua": 30,
         "Physical Intelligence": 160,
+        "ByteDance Research": 6,
         "Shanghai Jiao Tong University": 33,
-        "KAIST / Microsoft": 8,
+        "Imperial College London": 23,
+        "Midea": 22,
         "NVIDIA": 42,
         "Hugging Face": 22,
-        "Midea": 22,
+        "KAIST / Microsoft": 8,
         "UMass / MIT-IBM": 13,
         "University of Washington": 19,
-        "Stanford": 24,
         "Microsoft Research Asia": 21,
         "Shanghai AI Lab": 16,
+        "Stanford": 24,
         "Allen Institute for AI": 5,
         "Alibaba": 1,
         "MIT": 7
       },
       "families": {
         "R3M": 25,
-        "Gemini Robotics": 24,
-        "GR-3": 12,
-        "RT": 161,
         "PaLM-E": 46,
-        "ECoT": 24,
+        "RT": 161,
+        "GR-3": 12,
         "RoboBrain": 11,
+        "Gemini Robotics": 24,
+        "ECoT": 24,
         "Diffusion Policy": 180,
-        "RDT": 30,
         "OpenVLA": 127,
-        "\u03c0": 160,
-        "PerAct": 23,
+        "RDT": 30,
         "RoboFlamingo": 6,
-        "GR00T": 42,
+        "PerAct": 23,
+        "\u03c0": 160,
         "LAPA": 8,
-        "SmolVLA": 22,
         "TinyVLA": 22,
         "Octo": 36,
+        "GR00T": 42,
+        "SmolVLA": 22,
         "3D-VLA": 13,
         "SayCan": 20,
         "CLIPort": 19,
         "CogACT": 21,
-        "SpatialVLA": 16,
         "TraceVLA": 10,
+        "SpatialVLA": 16,
         "ACT": 14,
         "MolmoAct": 5,
         "Qwen-VLA": 1,
@@ -3936,19 +3937,19 @@
         "france": 22
       },
       "companies": {
-        "Stanford": 31,
-        "Shanghai AI Lab": 38,
-        "Columbia / Toyota Research Institute": 158,
-        "Google DeepMind": 162,
         "Stanford / RAIL": 124,
-        "NVIDIA": 76,
         "Google": 44,
+        "NVIDIA": 76,
         "Physical Intelligence": 151,
-        "UC Berkeley": 77,
+        "Shanghai AI Lab": 38,
+        "Stanford": 31,
+        "Google DeepMind": 162,
+        "Columbia / Toyota Research Institute": 158,
         "Meta": 26,
+        "UC Berkeley": 77,
         "Shanghai Jiao Tong University": 33,
-        "Allen Institute for AI": 12,
         "Midea": 24,
+        "Allen Institute for AI": 12,
         "Microsoft Research Asia": 24,
         "Tsinghua": 39,
         "MIT": 8,
@@ -3956,34 +3957,34 @@
         "ByteDance": 19,
         "KAIST / Microsoft": 13,
         "Imperial College London": 18,
-        "Beijing Academy of AI": 23,
         "ByteDance Research": 7,
+        "Beijing Academy of AI": 23,
         "Hugging Face": 22,
         "University of Washington": 12,
         "Figure": 1
       },
       "families": {
-        "Diffusion Policy": 162,
         "OpenVLA": 124,
-        "GR00T": 76,
-        "RT": 151,
-        "SpatialVLA": 36,
         "PaLM-E": 35,
-        "\u03c0": 151,
+        "RT": 151,
+        "Diffusion Policy": 162,
         "TraceVLA": 17,
-        "R3M": 25,
+        "SpatialVLA": 36,
+        "\u03c0": 151,
+        "GR00T": 76,
         "Octo": 57,
+        "R3M": 25,
         "MolmoAct": 12,
         "TinyVLA": 24,
         "ECoT": 31,
         "CogACT": 24,
         "ACT": 15,
-        "Gemini Robotics": 29,
+        "3D-VLA": 11,
+        "RDT": 39,
+        "LAPA": 13,
         "GR-3": 19,
         "HPT": 8,
-        "LAPA": 13,
-        "RDT": 39,
-        "3D-VLA": 11,
+        "Gemini Robotics": 29,
         "PerAct": 18,
         "RoboFlamingo": 7,
         "RoboBrain": 23,
@@ -4056,20 +4057,20 @@
         "uk": 16
       },
       "companies": {
-        "ByteDance": 7,
-        "Shanghai AI Lab": 32,
-        "Columbia / Toyota Research Institute": 123,
-        "UC Berkeley": 51,
-        "Google DeepMind": 135,
-        "KAIST / Microsoft": 9,
         "Stanford / RAIL": 107,
         "Physical Intelligence": 113,
+        "Shanghai AI Lab": 32,
+        "ByteDance": 7,
+        "Google DeepMind": 135,
+        "KAIST / Microsoft": 9,
+        "UC Berkeley": 51,
+        "Columbia / Toyota Research Institute": 123,
         "Stanford": 27,
         "Shanghai Jiao Tong University": 25,
-        "UMass / MIT-IBM": 5,
         "Hugging Face": 28,
-        "Imperial College London": 16,
+        "UMass / MIT-IBM": 5,
         "Midea": 21,
+        "Imperial College London": 16,
         "Google": 42,
         "University of Washington": 13,
         "MIT": 4,
@@ -4086,24 +4087,24 @@
         "ACT": 13,
         "OpenVLA": 107,
         "RT": 129,
-        "\u03c0": 113,
         "Octo": 43,
+        "\u03c0": 113,
+        "SmolVLA": 28,
         "SpatialVLA": 26,
         "3D-VLA": 5,
-        "SmolVLA": 28,
         "TinyVLA": 21,
-        "ECoT": 13,
         "PerAct": 16,
-        "GR-3": 7,
+        "ECoT": 13,
         "PaLM-E": 30,
+        "GR-3": 7,
         "CLIPort": 13,
         "SayCan": 17,
-        "Gemini Robotics": 16,
-        "HPT": 4,
         "TraceVLA": 14,
+        "HPT": 4,
+        "Gemini Robotics": 16,
         "MolmoAct": 15,
-        "GR00T": 47,
         "FAST": 1,
+        "GR00T": 47,
         "RoboFlamingo": 5,
         "RDT": 25,
         "LAPA": 9,
@@ -4177,21 +4178,21 @@
       },
       "companies": {
         "Physical Intelligence": 134,
-        "Imperial College London": 17,
-        "Columbia / Toyota Research Institute": 129,
-        "Google DeepMind": 133,
         "Stanford / RAIL": 114,
         "NVIDIA": 61,
+        "Imperial College London": 17,
+        "Google DeepMind": 133,
+        "Columbia / Toyota Research Institute": 129,
         "Meta": 15,
-        "ByteDance": 8,
-        "Shanghai AI Lab": 37,
-        "UC Berkeley": 57,
         "Google": 50,
+        "Shanghai AI Lab": 37,
+        "ByteDance": 8,
+        "UC Berkeley": 57,
         "Shanghai Jiao Tong University": 24,
-        "Tsinghua": 40,
-        "MIT": 7,
         "Microsoft Research Asia": 22,
+        "Tsinghua": 40,
         "Hugging Face": 16,
+        "MIT": 7,
         "Midea": 14,
         "Stanford": 25,
         "Beijing Academy of AI": 12,
@@ -4203,21 +4204,21 @@
       },
       "families": {
         "\u03c0": 134,
-        "Diffusion Policy": 130,
         "OpenVLA": 114,
-        "GR00T": 61,
         "RT": 122,
+        "Diffusion Policy": 130,
         "PerAct": 17,
+        "GR00T": 61,
         "R3M": 15,
-        "GR-3": 8,
-        "SpatialVLA": 28,
         "PaLM-E": 41,
         "Octo": 47,
+        "GR-3": 8,
+        "SpatialVLA": 28,
         "Gemini Robotics": 32,
-        "HPT": 7,
-        "SmolVLA": 16,
         "CogACT": 22,
         "RDT": 40,
+        "HPT": 7,
+        "SmolVLA": 16,
         "ECoT": 18,
         "TinyVLA": 14,
         "ACT": 7,
@@ -4296,18 +4297,18 @@
         "uk": 9
       },
       "companies": {
-        "Google DeepMind": 109,
         "Stanford / RAIL": 80,
+        "Google DeepMind": 109,
         "UC Berkeley": 37,
         "Columbia / Toyota Research Institute": 100,
         "Shanghai Jiao Tong University": 30,
         "Shanghai AI Lab": 24,
-        "Stanford": 22,
-        "Tsinghua": 29,
-        "Beijing Academy of AI": 9,
-        "Allen Institute for AI": 7,
         "NVIDIA": 34,
         "Physical Intelligence": 81,
+        "Tsinghua": 29,
+        "Stanford": 22,
+        "Allen Institute for AI": 7,
+        "Beijing Academy of AI": 9,
         "ByteDance Research": 2,
         "ByteDance": 5,
         "Hugging Face": 19,
@@ -4315,25 +4316,25 @@
         "Microsoft Research Asia": 14,
         "MIT": 3,
         "KAIST / Microsoft": 8,
-        "Imperial College London": 9,
         "Midea": 10,
-        "UMass / MIT-IBM": 5,
+        "Imperial College London": 9,
         "University of Washington": 6,
         "Meta": 7,
+        "UMass / MIT-IBM": 5,
         "Ant Group": 1
       },
       "families": {
-        "Gemini Robotics": 19,
-        "Diffusion Policy": 103,
         "OpenVLA": 80,
         "RT": 104,
+        "Diffusion Policy": 103,
         "Octo": 28,
+        "Gemini Robotics": 19,
         "SpatialVLA": 18,
         "MolmoAct": 7,
-        "GR00T": 34,
-        "\u03c0": 81,
         "RDT": 29,
         "TraceVLA": 12,
+        "\u03c0": 81,
+        "GR00T": 34,
         "RoboBrain": 9,
         "RoboFlamingo": 2,
         "X-VLA": 8,
@@ -4347,9 +4348,9 @@
         "HPT": 3,
         "TinyVLA": 10,
         "PerAct": 9,
-        "3D-VLA": 5,
         "CLIPort": 6,
         "R3M": 7,
+        "3D-VLA": 5,
         "SayCan": 16,
         "ACT": 10,
         "LingBot": 1,
@@ -4416,8 +4417,8 @@
       },
       "countries": {
         "usa": 321,
-        "france": 36,
         "china": 133,
+        "france": 36,
         "uk": 18
       },
       "companies": {
@@ -4425,14 +4426,14 @@
         "Physical Intelligence": 195,
         "Stanford": 31,
         "Google": 57,
-        "Tsinghua": 58,
-        "Allen Institute for AI": 24,
-        "UC Berkeley": 71,
         "Stanford / RAIL": 148,
-        "KAIST / Microsoft": 27,
-        "NVIDIA": 84,
-        "Hugging Face": 36,
         "Midea": 28,
+        "NVIDIA": 84,
+        "Tsinghua": 58,
+        "Hugging Face": 36,
+        "Allen Institute for AI": 24,
+        "KAIST / Microsoft": 27,
+        "UC Berkeley": 71,
         "Shanghai AI Lab": 53,
         "Shanghai Jiao Tong University": 42,
         "Columbia / Toyota Research Institute": 170,
@@ -4454,16 +4455,16 @@
         "\u03c0": 195,
         "SayCan": 20,
         "ACT": 10,
-        "Gemini Robotics": 37,
-        "MolmoAct": 24,
         "OpenVLA": 148,
-        "GR00T": 84,
-        "LAPA": 27,
-        "SmolVLA": 36,
-        "TinyVLA": 28,
         "PaLM-E": 46,
+        "MolmoAct": 24,
         "RDT": 58,
+        "LAPA": 27,
+        "TinyVLA": 28,
         "Octo": 59,
+        "GR00T": 84,
+        "SmolVLA": 36,
+        "Gemini Robotics": 37,
         "ECoT": 25,
         "Diffusion Policy": 175,
         "SpatialVLA": 40,
@@ -4548,18 +4549,18 @@
         "Google DeepMind": 262,
         "Allen Institute for AI": 20,
         "Columbia / Toyota Research Institute": 255,
-        "Tsinghua": 51,
         "Microsoft Research Asia": 31,
+        "Stanford / RAIL": 210,
+        "Midea": 25,
+        "Physical Intelligence": 251,
+        "Tsinghua": 51,
         "Shanghai AI Lab": 60,
         "UC Berkeley": 67,
-        "Stanford / RAIL": 210,
-        "Physical Intelligence": 251,
-        "Midea": 25,
         "Google": 85,
         "Meta": 26,
         "Shanghai Jiao Tong University": 49,
-        "Stanford": 45,
         "NVIDIA": 96,
+        "Stanford": 45,
         "Hugging Face": 42,
         "Beijing Academy of AI": 21,
         "ByteDance Research": 8,
@@ -4576,18 +4577,18 @@
         "OpenVLA": 210,
         "RT": 252,
         "CogACT": 31,
+        "RDT": 51,
+        "TinyVLA": 25,
+        "Octo": 44,
         "SpatialVLA": 40,
         "\u03c0": 251,
-        "TinyVLA": 25,
-        "RDT": 51,
-        "Octo": 44,
         "ECoT": 28,
         "SayCan": 29,
         "R3M": 26,
         "PaLM-E": 74,
         "X-VLA": 13,
-        "GR00T": 96,
         "TraceVLA": 24,
+        "GR00T": 96,
         "SmolVLA": 42,
         "RoboBrain": 21,
         "RoboFlamingo": 8,
@@ -4665,24 +4666,24 @@
       },
       "countries": {
         "usa": 291,
-        "france": 25,
         "china": 102,
+        "france": 25,
         "uk": 10
       },
       "companies": {
-        "Google": 56,
         "Google DeepMind": 181,
+        "Google": 56,
         "Columbia / Toyota Research Institute": 150,
         "Physical Intelligence": 159,
         "Stanford / RAIL": 124,
         "NVIDIA": 67,
-        "Stanford": 24,
-        "Tsinghua": 39,
         "Shanghai AI Lab": 51,
-        "Shanghai Jiao Tong University": 32,
+        "Tsinghua": 39,
         "Hugging Face": 25,
-        "ByteDance": 10,
+        "Shanghai Jiao Tong University": 32,
+        "Stanford": 24,
         "Xiaomi": 2,
+        "ByteDance": 10,
         "Microsoft Research Asia": 16,
         "UC Berkeley": 52,
         "KAIST / Microsoft": 19,
@@ -4690,8 +4691,8 @@
         "Imperial College London": 10,
         "Beijing Academy of AI": 11,
         "Midea": 12,
-        "Ant Group": 8,
         "Allen Institute for AI": 12,
+        "Ant Group": 8,
         "UMass / MIT-IBM": 17,
         "University of Washington": 4,
         "MIT": 5,
@@ -4702,18 +4703,18 @@
         "\u03c0": 159,
         "RT": 168,
         "SayCan": 27,
-        "PaLM-E": 40,
         "OpenVLA": 124,
+        "PaLM-E": 40,
         "GR00T": 67,
+        "SmolVLA": 25,
+        "RDT": 39,
         "X-VLA": 19,
         "InternVLA": 20,
-        "SmolVLA": 25,
         "ACT": 14,
-        "RDT": 39,
         "SpatialVLA": 28,
         "Gemini Robotics": 32,
-        "GR-3": 10,
         "Xiaomi-Robotics": 2,
+        "GR-3": 10,
         "CogACT": 16,
         "Octo": 41,
         "LAPA": 19,
@@ -4799,11 +4800,11 @@
       },
       "companies": {
         "Physical Intelligence": 270,
-        "Stanford": 45,
-        "UMass / MIT-IBM": 20,
-        "Google DeepMind": 242,
         "Stanford / RAIL": 196,
         "Google": 61,
+        "Stanford": 45,
+        "Google DeepMind": 242,
+        "UMass / MIT-IBM": 20,
         "UC Berkeley": 82,
         "Columbia / Toyota Research Institute": 255,
         "Shanghai AI Lab": 79,
@@ -4811,8 +4812,8 @@
         "Hugging Face": 48,
         "Imperial College London": 23,
         "Shanghai Jiao Tong University": 49,
-        "Tsinghua": 64,
         "Microsoft Research Asia": 36,
+        "Tsinghua": 64,
         "Beijing Academy of AI": 10,
         "Meta": 18,
         "NVIDIA": 114,
@@ -4828,11 +4829,11 @@
       },
       "families": {
         "\u03c0": 270,
-        "3D-VLA": 20,
         "OpenVLA": 196,
         "RT": 233,
-        "TraceVLA": 27,
         "SayCan": 16,
+        "TraceVLA": 27,
+        "3D-VLA": 20,
         "Octo": 67,
         "PaLM-E": 50,
         "Diffusion Policy": 258,
@@ -4840,8 +4841,8 @@
         "SpatialVLA": 45,
         "ECoT": 21,
         "SmolVLA": 48,
-        "ACT": 18,
         "PerAct": 23,
+        "ACT": 18,
         "Gemini Robotics": 36,
         "CogACT": 36,
         "RDT": 64,
@@ -4930,25 +4931,25 @@
       "companies": {
         "NVIDIA": 180,
         "Columbia / Toyota Research Institute": 375,
-        "Tsinghua": 94,
-        "ByteDance": 12,
         "Microsoft Research Asia": 45,
-        "Shanghai AI Lab": 105,
-        "Google DeepMind": 376,
         "Stanford / RAIL": 328,
         "Physical Intelligence": 417,
+        "Tsinghua": 94,
+        "Shanghai AI Lab": 105,
         "Shanghai Jiao Tong University": 62,
+        "ByteDance": 12,
+        "Google DeepMind": 376,
         "KAIST / Microsoft": 36,
         "Hugging Face": 65,
-        "UC Berkeley": 106,
         "Midea": 25,
+        "UC Berkeley": 106,
         "Stanford": 50,
         "UMass / MIT-IBM": 20,
         "Google": 102,
         "Meta": 40,
+        "University of Washington": 17,
         "Allen Institute for AI": 38,
         "Imperial College London": 26,
-        "University of Washington": 17,
         "ByteDance Research": 12,
         "MIT": 6,
         "Xiaomi": 7,
@@ -4959,30 +4960,30 @@
       "families": {
         "GR00T": 180,
         "Diffusion Policy": 380,
-        "GR-3": 12,
         "OpenVLA": 328,
         "RT": 361,
         "CogACT": 45,
+        "RDT": 94,
+        "GR-3": 12,
         "SpatialVLA": 57,
         "\u03c0": 417,
-        "RDT": 94,
         "LAPA": 36,
         "SmolVLA": 65,
         "TinyVLA": 25,
         "Octo": 81,
         "ECoT": 30,
-        "3D-VLA": 20,
-        "X-VLA": 42,
         "TraceVLA": 29,
+        "X-VLA": 42,
+        "3D-VLA": 20,
         "PaLM-E": 83,
-        "ACT": 21,
         "R3M": 39,
+        "ACT": 21,
         "MolmoAct": 38,
         "CLIPort": 17,
         "PerAct": 26,
-        "Gemini Robotics": 59,
-        "InternVLA": 30,
         "RoboFlamingo": 12,
+        "InternVLA": 30,
+        "Gemini Robotics": 59,
         "SayCan": 35,
         "HPT": 6,
         "Xiaomi-Robotics": 7,
@@ -5058,18 +5059,18 @@
         "uk": 30
       },
       "companies": {
-        "Google": 67,
         "Google DeepMind": 223,
-        "UMass / MIT-IBM": 16,
-        "NVIDIA": 115,
-        "UC Berkeley": 84,
+        "Google": 67,
         "Stanford / RAIL": 205,
+        "NVIDIA": 115,
         "Physical Intelligence": 257,
+        "UMass / MIT-IBM": 16,
+        "UC Berkeley": 84,
         "Meta": 26,
-        "Shanghai AI Lab": 66,
-        "Columbia / Toyota Research Institute": 219,
         "Alibaba": 18,
+        "Shanghai AI Lab": 66,
         "KAIST / Microsoft": 18,
+        "Columbia / Toyota Research Institute": 219,
         "Tsinghua": 41,
         "Hugging Face": 49,
         "Stanford": 26,
@@ -5077,9 +5078,9 @@
         "Midea": 19,
         "Ant Group": 12,
         "Imperial College London": 30,
-        "ByteDance": 12,
-        "Microsoft Research Asia": 20,
         "University of Washington": 20,
+        "Microsoft Research Asia": 20,
+        "ByteDance": 12,
         "Beijing Academy of AI": 21,
         "Allen Institute for AI": 25,
         "Xiaomi": 10,
@@ -5087,32 +5088,32 @@
         "MIT": 6
       },
       "families": {
-        "RT": 211,
         "PaLM-E": 49,
+        "RT": 211,
         "OpenVLA": 205,
-        "GR00T": 115,
-        "\u03c0": 257,
-        "3D-VLA": 16,
         "Octo": 66,
+        "\u03c0": 257,
+        "GR00T": 115,
+        "3D-VLA": 16,
         "R3M": 26,
         "Diffusion Policy": 222,
-        "X-VLA": 33,
         "LAPA": 18,
-        "InternVLA": 23,
-        "SpatialVLA": 28,
         "Qwen-VLA": 18,
+        "SpatialVLA": 28,
+        "X-VLA": 33,
+        "InternVLA": 23,
         "ACT": 10,
         "Gemini Robotics": 46,
-        "SmolVLA": 49,
         "TinyVLA": 19,
+        "SmolVLA": 49,
         "ECoT": 23,
         "LingBot": 12,
         "PerAct": 30,
         "SayCan": 29,
-        "GR-3": 12,
         "CLIPort": 20,
         "CogACT": 20,
         "RDT": 41,
+        "GR-3": 12,
         "TraceVLA": 16,
         "RoboBrain": 21,
         "MolmoAct": 25,
@@ -5189,28 +5190,28 @@
         "uk": 20
       },
       "companies": {
-        "NVIDIA": 118,
         "Microsoft Research Asia": 33,
-        "Google DeepMind": 232,
         "Stanford / RAIL": 211,
+        "NVIDIA": 118,
         "Physical Intelligence": 265,
+        "Google DeepMind": 232,
         "Columbia / Toyota Research Institute": 198,
         "Hugging Face": 55,
         "UC Berkeley": 77,
         "Tsinghua": 51,
         "Shanghai AI Lab": 80,
         "Allen Institute for AI": 23,
-        "Alibaba": 12,
         "Xiaomi": 17,
-        "Stanford": 40,
-        "Imperial College London": 20,
+        "Alibaba": 12,
         "Google": 67,
-        "ByteDance Research": 4,
+        "Imperial College London": 20,
+        "Stanford": 40,
         "Midea": 17,
+        "ByteDance Research": 4,
         "KAIST / Microsoft": 27,
         "Shanghai Jiao Tong University": 27,
-        "Meta": 29,
         "University of Washington": 11,
+        "Meta": 29,
         "UMass / MIT-IBM": 11,
         "Ant Group": 18,
         "ByteDance": 5,
@@ -5218,32 +5219,32 @@
         "Beijing Academy of AI": 18
       },
       "families": {
-        "Gemini Robotics": 32,
         "OpenVLA": 211,
-        "GR00T": 118,
         "CogACT": 33,
         "\u03c0": 265,
+        "GR00T": 118,
+        "Gemini Robotics": 32,
         "Diffusion Policy": 199,
         "RT": 223,
         "SmolVLA": 55,
         "Octo": 67,
-        "InternVLA": 22,
         "RDT": 51,
+        "InternVLA": 22,
         "Xiaomi-Robotics": 17,
         "Qwen-VLA": 12,
         "ECoT": 17,
-        "RoboFlamingo": 4,
-        "SpatialVLA": 37,
         "PaLM-E": 44,
         "TinyVLA": 17,
         "TraceVLA": 24,
+        "SpatialVLA": 37,
+        "RoboFlamingo": 4,
         "LAPA": 27,
         "SayCan": 34,
         "PerAct": 20,
-        "CLIPort": 11,
-        "R3M": 29,
-        "3D-VLA": 11,
         "VC-1": 1,
+        "3D-VLA": 11,
+        "R3M": 29,
+        "CLIPort": 11,
         "LingBot": 18,
         "X-VLA": 39,
         "GR-3": 5,
@@ -5315,25 +5316,25 @@
       },
       "countries": {
         "usa": 806,
-        "france": 99,
         "china": 247,
+        "france": 99,
         "uk": 33
       },
       "companies": {
         "Physical Intelligence": 523,
         "Columbia / Toyota Research Institute": 417,
         "Google DeepMind": 401,
+        "NVIDIA": 204,
         "Tsinghua": 81,
         "Shanghai AI Lab": 133,
-        "NVIDIA": 204,
         "Hugging Face": 99,
-        "Stanford": 57,
         "Stanford / RAIL": 392,
-        "Alibaba": 17,
+        "Stanford": 57,
         "Google": 92,
+        "Alibaba": 17,
         "Shanghai Jiao Tong University": 58,
-        "UC Berkeley": 121,
         "Imperial College London": 33,
+        "UC Berkeley": 121,
         "UMass / MIT-IBM": 8,
         "Microsoft Research Asia": 32,
         "KAIST / Microsoft": 33,
@@ -5352,23 +5353,23 @@
         "\u03c0": 523,
         "Diffusion Policy": 420,
         "RT": 373,
-        "Gemini Robotics": 61,
-        "X-VLA": 80,
-        "GR00T": 204,
-        "SmolVLA": 99,
         "RDT": 81,
+        "GR00T": 204,
+        "X-VLA": 80,
+        "SmolVLA": 99,
+        "Gemini Robotics": 61,
         "OpenVLA": 392,
         "ACT": 32,
         "PaLM-E": 61,
         "Qwen-VLA": 17,
-        "Octo": 100,
         "PerAct": 33,
+        "Octo": 100,
         "SpatialVLA": 52,
         "3D-VLA": 8,
-        "InternVLA": 41,
-        "LAPA": 33,
         "CogACT": 32,
+        "LAPA": 33,
         "TraceVLA": 25,
+        "InternVLA": 41,
         "ECoT": 26,
         "GR-3": 8,
         "RoboFlamingo": 6,
@@ -5385,9 +5386,140 @@
         "FAST": 2,
         "Helix": 0
       }
+    },
+    "2026-10": {
+      "papers_scanned": 2188,
+      "any_model_papers": 947,
+      "variants": {
+        "cliport": 15,
+        "openvla": 440,
+        "pi0": 480,
+        "rt1": 167,
+        "rt2": 327,
+        "diffusion_policy": 473,
+        "gr00t_n1": 255,
+        "gr00t_n1_6": 43,
+        "gr00t_unspecified": 104,
+        "xvla": 102,
+        "gemini_robotics": 77,
+        "molmoact": 41,
+        "pi05": 499,
+        "rdt_1b": 86,
+        "pi06": 66,
+        "robobrain": 15,
+        "rt2_x": 203,
+        "spatialvla": 56,
+        "octo": 108,
+        "saycan": 66,
+        "molmoact2": 44,
+        "act": 31,
+        "openvla_oft": 132,
+        "palm_e": 87,
+        "pi07": 46,
+        "r3m": 44,
+        "lapa": 48,
+        "vla_3d": 21,
+        "dp3": 60,
+        "smolvla": 98,
+        "lingbot_vla": 25,
+        "gr00t_n1_7": 67,
+        "xiaomi_robotics": 47,
+        "gemini_robotics_15": 21,
+        "rt_h": 26,
+        "internvla": 61,
+        "rdt2": 10,
+        "gr00t_n1_5": 44,
+        "ecot": 38,
+        "tracevla": 20,
+        "peract": 32,
+        "cogact": 26,
+        "hpt": 11,
+        "tinyvla": 18,
+        "pi0_fast": 15,
+        "roboflamingo": 7,
+        "gr3": 2,
+        "qwen_vla": 19,
+        "lingbot_vla2": 9,
+        "vc1": 3,
+        "rt1_x": 6,
+        "pi06_star": 5,
+        "fast_tokenizer": 2
+      },
+      "countries": {
+        "usa": 931,
+        "china": 316,
+        "france": 98,
+        "uk": 32
+      },
+      "companies": {
+        "University of Washington": 15,
+        "Stanford / RAIL": 454,
+        "Google DeepMind": 468,
+        "Physical Intelligence": 641,
+        "NVIDIA": 276,
+        "Shanghai AI Lab": 173,
+        "Columbia / Toyota Research Institute": 473,
+        "Tsinghua": 94,
+        "Allen Institute for AI": 72,
+        "Beijing Academy of AI": 15,
+        "Google": 133,
+        "UC Berkeley": 141,
+        "Stanford": 51,
+        "Meta": 46,
+        "KAIST / Microsoft": 48,
+        "UMass / MIT-IBM": 21,
+        "Shanghai Jiao Tong University": 60,
+        "Hugging Face": 98,
+        "Ant Group": 30,
+        "Xiaomi": 47,
+        "Imperial College London": 32,
+        "Microsoft Research Asia": 26,
+        "MIT": 11,
+        "Midea": 18,
+        "ByteDance Research": 7,
+        "ByteDance": 2,
+        "Alibaba": 19
+      },
+      "families": {
+        "OpenVLA": 454,
+        "RT": 446,
+        "CLIPort": 15,
+        "\u03c0": 641,
+        "Diffusion Policy": 479,
+        "GR00T": 276,
+        "X-VLA": 102,
+        "MolmoAct": 72,
+        "RDT": 94,
+        "Gemini Robotics": 80,
+        "SpatialVLA": 56,
+        "RoboBrain": 15,
+        "Octo": 108,
+        "ACT": 31,
+        "PaLM-E": 87,
+        "R3M": 44,
+        "3D-VLA": 21,
+        "LAPA": 48,
+        "SmolVLA": 98,
+        "SayCan": 66,
+        "LingBot": 30,
+        "Xiaomi-Robotics": 47,
+        "InternVLA": 61,
+        "TraceVLA": 20,
+        "ECoT": 38,
+        "PerAct": 32,
+        "CogACT": 26,
+        "HPT": 11,
+        "TinyVLA": 18,
+        "RoboFlamingo": 7,
+        "GR-3": 2,
+        "Qwen-VLA": 19,
+        "VC-1": 3,
+        "FAST": 2,
+        "Helix": 0
+      }
     }
   },
-  "papers_missing_from_snapshot": 1951,
+  "papers_missing_from_snapshot": 242,
   "coverage": [
     {
       "month": "2023-01",
@@ -5796,747 +5928,747 @@
     },
     {
       "month": "2026-10",
-      "discovered": 1766,
-      "scanned": 0,
-      "unavailable": 1766,
-      "model_papers": 0,
-      "coverage": 0.0,
-      "share_naming_any_model": null
+      "discovered": 2245,
+      "scanned": 2188,
+      "unavailable": 57,
+      "model_papers": 947,
+      "coverage": 0.9746102449888642,
+      "share_naming_any_model": 0.4328153564899452
     }
   ],
   "analysis_tables": {
     "variant": [
       {
         "key": "diffusion_policy",
-        "papers": 4037,
-        "share_of_scanned": 0.10816096881363198,
-        "share_of_model_papers": 0.48030933967876266
+        "papers": 4510,
+        "share_of_scanned": 0.11414253897550111,
+        "share_of_model_papers": 0.4822497861420017
       },
       {
         "key": "pi0",
-        "papers": 3228,
-        "share_of_scanned": 0.08648590719108348,
-        "share_of_model_papers": 0.3840571088637716
+        "papers": 3708,
+        "share_of_scanned": 0.09384490787608828,
+        "share_of_model_papers": 0.3964927288280582
       },
       {
         "key": "rt2",
-        "papers": 3089,
-        "share_of_scanned": 0.08276176186903869,
-        "share_of_model_papers": 0.3675193337299227
+        "papers": 3416,
+        "share_of_scanned": 0.08645474792468111,
+        "share_of_model_papers": 0.3652694610778443
       },
       {
         "key": "openvla",
-        "papers": 2949,
-        "share_of_scanned": 0.07901082413460508,
-        "share_of_model_papers": 0.35086258179654967
-      },
-      {
-        "key": "rt1",
-        "papers": 2244,
-        "share_of_scanned": 0.06012217340049298,
-        "share_of_model_papers": 0.2669839381320642
-      },
-      {
-        "key": "rt2_x",
-        "papers": 2160,
-        "share_of_scanned": 0.05787161075983282,
-        "share_of_model_papers": 0.25698988697204045
+        "papers": 3389,
+        "share_of_scanned": 0.08577141121684552,
+        "share_of_model_papers": 0.362382378100941
       },
       {
         "key": "pi05",
-        "papers": 1980,
-        "share_of_scanned": 0.05304897652984675,
-        "share_of_model_papers": 0.23557406305770376
+        "papers": 2479,
+        "share_of_scanned": 0.0627404332860903,
+        "share_of_model_papers": 0.2650769888793841
+      },
+      {
+        "key": "rt1",
+        "papers": 2411,
+        "share_of_scanned": 0.06101943713302288,
+        "share_of_model_papers": 0.25780581693755344
+      },
+      {
+        "key": "rt2_x",
+        "papers": 2363,
+        "share_of_scanned": 0.05980461631909293,
+        "share_of_model_papers": 0.2526732249786142
       },
       {
         "key": "gr00t_n1",
-        "papers": 1288,
-        "share_of_scanned": 0.0345086271567892,
-        "share_of_model_papers": 0.15324211778703153
+        "papers": 1543,
+        "share_of_scanned": 0.039051427414456365,
+        "share_of_model_papers": 0.16499144568006843
       },
       {
         "key": "palm_e",
-        "papers": 1235,
-        "share_of_scanned": 0.033088629300182186,
-        "share_of_model_papers": 0.14693634741225461
+        "papers": 1322,
+        "share_of_scanned": 0.03345818991698724,
+        "share_of_model_papers": 0.1413601368691189
       },
       {
         "key": "octo",
-        "papers": 1106,
-        "share_of_scanned": 0.029632408102025505,
-        "share_of_model_papers": 0.13158834027364663
+        "papers": 1214,
+        "share_of_scanned": 0.030724843085644868,
+        "share_of_model_papers": 0.12981180496150557
       },
       {
         "key": "rdt_1b",
-        "papers": 814,
-        "share_of_scanned": 0.021809023684492553,
-        "share_of_model_papers": 0.09684711481261155
+        "papers": 900,
+        "share_of_scanned": 0.022777890261186474,
+        "share_of_model_papers": 0.0962360992301112
       },
       {
         "key": "dp3",
-        "papers": 777,
-        "share_of_scanned": 0.020817704426106528,
-        "share_of_model_papers": 0.0924449732302201
+        "papers": 837,
+        "share_of_scanned": 0.02118343794290342,
+        "share_of_model_papers": 0.08949957228400342
       },
       {
         "key": "r3m",
-        "papers": 755,
-        "share_of_scanned": 0.020228271353552672,
-        "share_of_model_papers": 0.08982748364069007
-      },
-      {
-        "key": "peract",
-        "papers": 646,
-        "share_of_scanned": 0.01730789840317222,
-        "share_of_model_papers": 0.07685901249256395
+        "papers": 799,
+        "share_of_scanned": 0.020221704798542215,
+        "share_of_model_papers": 0.08543627031650984
       },
       {
         "key": "openvla_oft",
-        "papers": 624,
-        "share_of_scanned": 0.016718465330618368,
-        "share_of_model_papers": 0.0742415229030339
+        "papers": 756,
+        "share_of_scanned": 0.01913342781939664,
+        "share_of_model_papers": 0.08083832335329341
       },
       {
         "key": "saycan",
-        "papers": 622,
-        "share_of_scanned": 0.016664880505840744,
-        "share_of_model_papers": 0.07400356930398572
+        "papers": 688,
+        "share_of_scanned": 0.017412431666329217,
+        "share_of_model_papers": 0.07356715141146279
       },
       {
-        "key": "cliport",
-        "papers": 589,
-        "share_of_scanned": 0.015780730897009966,
-        "share_of_model_papers": 0.07007733491969066
+        "key": "peract",
+        "papers": 678,
+        "share_of_scanned": 0.017159343996760477,
+        "share_of_model_papers": 0.07249786142001712
       },
       {
         "key": "smolvla",
-        "papers": 546,
-        "share_of_scanned": 0.014628657164291074,
-        "share_of_model_papers": 0.06496133254015467
+        "papers": 644,
+        "share_of_scanned": 0.016298845920226766,
+        "share_of_model_papers": 0.0688622754491018
       },
       {
         "key": "gemini_robotics",
-        "papers": 545,
-        "share_of_scanned": 0.014601864751902262,
-        "share_of_model_papers": 0.06484235574063058
-      },
-      {
-        "key": "spatialvla",
-        "papers": 532,
-        "share_of_scanned": 0.014253563390847712,
-        "share_of_model_papers": 0.06329565734681737
+        "papers": 622,
+        "share_of_scanned": 0.01574205304717554,
+        "share_of_model_papers": 0.0665098374679213
       },
       {
         "key": "gr00t_unspecified",
-        "papers": 505,
-        "share_of_scanned": 0.013530168256349801,
-        "share_of_model_papers": 0.060083283759666865
+        "papers": 609,
+        "share_of_scanned": 0.015413039076736182,
+        "share_of_model_papers": 0.06511976047904192
+      },
+      {
+        "key": "cliport",
+        "papers": 604,
+        "share_of_scanned": 0.015286495241951812,
+        "share_of_model_papers": 0.06458511548331908
+      },
+      {
+        "key": "spatialvla",
+        "papers": 588,
+        "share_of_scanned": 0.01488155497064183,
+        "share_of_model_papers": 0.06287425149700598
       },
       {
         "key": "ecot",
-        "papers": 468,
-        "share_of_scanned": 0.012538848997963776,
-        "share_of_model_papers": 0.05568114217727543
+        "papers": 506,
+        "share_of_scanned": 0.012806236080178173,
+        "share_of_model_papers": 0.054106073567151414
       },
       {
         "key": "cogact",
-        "papers": 422,
-        "share_of_scanned": 0.011306398028078448,
-        "share_of_model_papers": 0.05020820939916716
-      },
-      {
-        "key": "tinyvla",
-        "papers": 368,
-        "share_of_scanned": 0.009859607759082628,
-        "share_of_model_papers": 0.04378346222486615
-      },
-      {
-        "key": "act",
-        "papers": 315,
-        "share_of_scanned": 0.00843960990247562,
-        "share_of_model_papers": 0.037477691850089236
-      },
-      {
-        "key": "lapa",
-        "papers": 306,
-        "share_of_scanned": 0.008198478190976315,
-        "share_of_model_papers": 0.036406900654372396
-      },
-      {
-        "key": "tracevla",
-        "papers": 305,
-        "share_of_scanned": 0.008171685778587503,
-        "share_of_model_papers": 0.0362879238548483
+        "papers": 448,
+        "share_of_scanned": 0.01133832759667949,
+        "share_of_model_papers": 0.04790419161676647
       },
       {
         "key": "xvla",
-        "papers": 305,
-        "share_of_scanned": 0.008171685778587503,
-        "share_of_model_papers": 0.0362879238548483
+        "papers": 407,
+        "share_of_scanned": 0.01030066815144766,
+        "share_of_model_papers": 0.04352010265183918
+      },
+      {
+        "key": "tinyvla",
+        "papers": 386,
+        "share_of_scanned": 0.00976918404535331,
+        "share_of_model_papers": 0.04127459366980325
       },
       {
         "key": "pi06",
-        "papers": 304,
-        "share_of_scanned": 0.008144893366198693,
-        "share_of_model_papers": 0.03616894705532421
+        "papers": 370,
+        "share_of_scanned": 0.009364243774043329,
+        "share_of_model_papers": 0.03956372968349016
+      },
+      {
+        "key": "lapa",
+        "papers": 354,
+        "share_of_scanned": 0.008959303502733346,
+        "share_of_model_papers": 0.03785286569717707
+      },
+      {
+        "key": "act",
+        "papers": 346,
+        "share_of_scanned": 0.008756833367078356,
+        "share_of_model_papers": 0.03699743370402053
+      },
+      {
+        "key": "tracevla",
+        "papers": 325,
+        "share_of_scanned": 0.008225349260984005,
+        "share_of_model_papers": 0.0347519247219846
       },
       {
         "key": "vla_3d",
-        "papers": 271,
-        "share_of_scanned": 0.007260743757367913,
-        "share_of_model_papers": 0.03224271267102915
-      },
-      {
-        "key": "rt_h",
-        "papers": 233,
-        "share_of_scanned": 0.006242632086593077,
-        "share_of_model_papers": 0.027721594289113624
-      },
-      {
-        "key": "robobrain",
-        "papers": 218,
-        "share_of_scanned": 0.005840745900760905,
-        "share_of_model_papers": 0.025936942296252232
-      },
-      {
-        "key": "molmoact",
-        "papers": 214,
-        "share_of_scanned": 0.0057335762512056585,
-        "share_of_model_papers": 0.02546103509815586
-      },
-      {
-        "key": "gr00t_n1_5",
-        "papers": 213,
-        "share_of_scanned": 0.005706783838816847,
-        "share_of_model_papers": 0.025342058298631766
+        "papers": 292,
+        "share_of_scanned": 0.007390159951407168,
+        "share_of_model_papers": 0.03122326775021386
       },
       {
         "key": "internvla",
-        "papers": 213,
-        "share_of_scanned": 0.005706783838816847,
-        "share_of_model_papers": 0.025342058298631766
+        "papers": 274,
+        "share_of_scanned": 0.0069346021461834375,
+        "share_of_model_papers": 0.029298545765611635
       },
       {
-        "key": "roboflamingo",
-        "papers": 167,
-        "share_of_scanned": 0.004474332868931519,
-        "share_of_model_papers": 0.019869125520523497
+        "key": "rt_h",
+        "papers": 259,
+        "share_of_scanned": 0.0065549706418303304,
+        "share_of_model_papers": 0.027694610778443114
       },
       {
-        "key": "gr00t_n1_6",
-        "papers": 152,
-        "share_of_scanned": 0.004072446683099347,
-        "share_of_model_papers": 0.018084473527662105
+        "key": "gr00t_n1_5",
+        "papers": 257,
+        "share_of_scanned": 0.006504353107916582,
+        "share_of_model_papers": 0.027480752780153977
+      },
+      {
+        "key": "molmoact",
+        "papers": 255,
+        "share_of_scanned": 0.006453735574002834,
+        "share_of_model_papers": 0.02726689478186484
+      },
+      {
+        "key": "robobrain",
+        "papers": 233,
+        "share_of_scanned": 0.00589694270095161,
+        "share_of_model_papers": 0.024914456800684347
       },
       {
         "key": "pi07",
-        "papers": 151,
-        "share_of_scanned": 0.004045654270710535,
-        "share_of_model_papers": 0.017965496728138013
+        "papers": 197,
+        "share_of_scanned": 0.004985827090504151,
+        "share_of_model_papers": 0.021065012831479896
       },
       {
-        "key": "rt1_x",
-        "papers": 138,
-        "share_of_scanned": 0.0036973529096559856,
-        "share_of_model_papers": 0.016418798334324806
-      },
-      {
-        "key": "gr3",
-        "papers": 132,
-        "share_of_scanned": 0.0035365984353231167,
-        "share_of_model_papers": 0.01570493753718025
+        "key": "gr00t_n1_6",
+        "papers": 195,
+        "share_of_scanned": 0.0049352095565904025,
+        "share_of_model_papers": 0.02085115483319076
       },
       {
         "key": "gr00t_n1_7",
-        "papers": 117,
-        "share_of_scanned": 0.003134712249490944,
-        "share_of_model_papers": 0.013920285544318858
+        "papers": 184,
+        "share_of_scanned": 0.004656813120064791,
+        "share_of_model_papers": 0.019674935842600515
+      },
+      {
+        "key": "roboflamingo",
+        "papers": 174,
+        "share_of_scanned": 0.004403725450496052,
+        "share_of_model_papers": 0.018605645851154835
+      },
+      {
+        "key": "rt1_x",
+        "papers": 144,
+        "share_of_scanned": 0.003644462441789836,
+        "share_of_model_papers": 0.015397775876817793
+      },
+      {
+        "key": "gr3",
+        "papers": 134,
+        "share_of_scanned": 0.0033913747722210973,
+        "share_of_model_papers": 0.014328485885372113
       },
       {
         "key": "gemini_robotics_15",
-        "papers": 111,
-        "share_of_scanned": 0.002973957775158075,
-        "share_of_model_papers": 0.013206424747174301
+        "papers": 132,
+        "share_of_scanned": 0.0033407572383073497,
+        "share_of_model_papers": 0.014114627887082978
       },
       {
         "key": "hpt",
-        "papers": 107,
-        "share_of_scanned": 0.0028667881256028292,
-        "share_of_model_papers": 0.01273051754907793
-      },
-      {
-        "key": "vc1",
-        "papers": 101,
-        "share_of_scanned": 0.0027060336512699603,
-        "share_of_model_papers": 0.012016656751933374
-      },
-      {
-        "key": "lingbot_vla",
-        "papers": 71,
-        "share_of_scanned": 0.0019022612796056157,
-        "share_of_model_papers": 0.00844735276621059
+        "papers": 118,
+        "share_of_scanned": 0.0029864345009111156,
+        "share_of_model_papers": 0.012617621899059024
       },
       {
         "key": "xiaomi_robotics",
-        "papers": 70,
-        "share_of_scanned": 0.0018754688672168042,
-        "share_of_model_papers": 0.008328375966686495
+        "papers": 117,
+        "share_of_scanned": 0.0029611257339542418,
+        "share_of_model_papers": 0.012510692899914458
+      },
+      {
+        "key": "vc1",
+        "papers": 104,
+        "share_of_scanned": 0.0026321117635148814,
+        "share_of_model_papers": 0.011120615911035072
       },
       {
         "key": "molmoact2",
-        "papers": 59,
-        "share_of_scanned": 0.0015807523309398779,
-        "share_of_model_papers": 0.0070196311719214755
+        "papers": 103,
+        "share_of_scanned": 0.0026068029965580076,
+        "share_of_model_papers": 0.011013686911890504
       },
       {
-        "key": "rdt2",
-        "papers": 58,
-        "share_of_scanned": 0.0015539599185510663,
-        "share_of_model_papers": 0.006900654372397383
+        "key": "lingbot_vla",
+        "papers": 96,
+        "share_of_scanned": 0.0024296416278598906,
+        "share_of_model_papers": 0.010265183917878529
       },
       {
         "key": "qwen_vla",
-        "papers": 54,
-        "share_of_scanned": 0.0014467902689958203,
-        "share_of_model_papers": 0.006424747174301011
+        "papers": 73,
+        "share_of_scanned": 0.001847539987851792,
+        "share_of_model_papers": 0.007805816937553465
+      },
+      {
+        "key": "rdt2",
+        "papers": 68,
+        "share_of_scanned": 0.0017209961530674225,
+        "share_of_model_papers": 0.007271171941830625
       },
       {
         "key": "pi0_fast",
-        "papers": 44,
-        "share_of_scanned": 0.0011788661451077056,
-        "share_of_model_papers": 0.0052349791790600834
-      },
-      {
-        "key": "fast_tokenizer",
-        "papers": 31,
-        "share_of_scanned": 0.0008305647840531562,
-        "share_of_model_papers": 0.003688280785246877
+        "papers": 59,
+        "share_of_scanned": 0.0014932172504555578,
+        "share_of_model_papers": 0.006308810949529512
       },
       {
         "key": "pi06_star",
-        "papers": 29,
-        "share_of_scanned": 0.0007769799592755332,
-        "share_of_model_papers": 0.0034503271861986914
+        "papers": 34,
+        "share_of_scanned": 0.0008604980765337112,
+        "share_of_model_papers": 0.0036355859709153123
+      },
+      {
+        "key": "fast_tokenizer",
+        "papers": 33,
+        "share_of_scanned": 0.0008351893095768374,
+        "share_of_model_papers": 0.0035286569717707444
       },
       {
         "key": "lingbot_vla2",
-        "papers": 10,
-        "share_of_scanned": 0.0002679241238881149,
-        "share_of_model_papers": 0.001189767995240928
+        "papers": 19,
+        "share_of_scanned": 0.00048086657218060334,
+        "share_of_model_papers": 0.0020316509837467922
       },
       {
         "key": "helix",
         "papers": 2,
-        "share_of_scanned": 5.3584824777622976e-05,
-        "share_of_model_papers": 0.0002379535990481856
+        "share_of_scanned": 5.061753391374772e-05,
+        "share_of_model_papers": 0.000213857998289136
       }
     ],
     "family": [
       {
         "key": "RT",
-        "papers": 4318,
-        "share_of_scanned": 0.115689636694888,
-        "share_of_model_papers": 0.5137418203450327
+        "papers": 4764,
+        "share_of_scanned": 0.12057096578254707,
+        "share_of_model_papers": 0.5094097519247219
       },
       {
         "key": "Diffusion Policy",
-        "papers": 4102,
-        "share_of_scanned": 0.10990247561890473,
-        "share_of_model_papers": 0.4880428316478287
+        "papers": 4581,
+        "share_of_scanned": 0.11593946142943916,
+        "share_of_model_papers": 0.48984174508126604
       },
       {
         "key": "\u03c0",
-        "papers": 3718,
-        "share_of_scanned": 0.09961418926160111,
-        "share_of_model_papers": 0.44235574063057703
+        "papers": 4359,
+        "share_of_scanned": 0.11032091516501316,
+        "share_of_model_papers": 0.46610350727117195
       },
       {
         "key": "OpenVLA",
-        "papers": 2986,
-        "share_of_scanned": 0.08000214339299111,
-        "share_of_model_papers": 0.3552647233789411
+        "papers": 3440,
+        "share_of_scanned": 0.08706215833164609,
+        "share_of_model_papers": 0.3678357570573139
       },
       {
         "key": "GR00T",
-        "papers": 1383,
-        "share_of_scanned": 0.03705390633372629,
-        "share_of_model_papers": 0.16454491374182034
+        "papers": 1659,
+        "share_of_scanned": 0.04198724438145374,
+        "share_of_model_papers": 0.17739520958083832
       },
       {
         "key": "PaLM-E",
-        "papers": 1235,
-        "share_of_scanned": 0.033088629300182186,
-        "share_of_model_papers": 0.14693634741225461
+        "papers": 1322,
+        "share_of_scanned": 0.03345818991698724,
+        "share_of_model_papers": 0.1413601368691189
       },
       {
         "key": "Octo",
-        "papers": 1106,
-        "share_of_scanned": 0.029632408102025505,
-        "share_of_model_papers": 0.13158834027364663
+        "papers": 1214,
+        "share_of_scanned": 0.030724843085644868,
+        "share_of_model_papers": 0.12981180496150557
       },
       {
         "key": "RDT",
-        "papers": 835,
-        "share_of_scanned": 0.022371664344657594,
-        "share_of_model_papers": 0.09934562760261749
+        "papers": 929,
+        "share_of_scanned": 0.02351184450293582,
+        "share_of_model_papers": 0.09933704020530368
       },
       {
         "key": "R3M",
-        "papers": 755,
-        "share_of_scanned": 0.020228271353552672,
-        "share_of_model_papers": 0.08982748364069007
-      },
-      {
-        "key": "PerAct",
-        "papers": 646,
-        "share_of_scanned": 0.01730789840317222,
-        "share_of_model_papers": 0.07685901249256395
+        "papers": 799,
+        "share_of_scanned": 0.020221704798542215,
+        "share_of_model_papers": 0.08543627031650984
       },
       {
         "key": "SayCan",
-        "papers": 622,
-        "share_of_scanned": 0.016664880505840744,
-        "share_of_model_papers": 0.07400356930398572
+        "papers": 688,
+        "share_of_scanned": 0.017412431666329217,
+        "share_of_model_papers": 0.07356715141146279
       },
       {
-        "key": "CLIPort",
-        "papers": 589,
-        "share_of_scanned": 0.015780730897009966,
-        "share_of_model_papers": 0.07007733491969066
+        "key": "PerAct",
+        "papers": 678,
+        "share_of_scanned": 0.017159343996760477,
+        "share_of_model_papers": 0.07249786142001712
       },
       {
         "key": "Gemini Robotics",
-        "papers": 564,
-        "share_of_scanned": 0.01511092058728968,
-        "share_of_model_papers": 0.06710291493158833
+        "papers": 644,
+        "share_of_scanned": 0.016298845920226766,
+        "share_of_model_papers": 0.0688622754491018
       },
       {
         "key": "SmolVLA",
-        "papers": 546,
-        "share_of_scanned": 0.014628657164291074,
-        "share_of_model_papers": 0.06496133254015467
+        "papers": 644,
+        "share_of_scanned": 0.016298845920226766,
+        "share_of_model_papers": 0.0688622754491018
+      },
+      {
+        "key": "CLIPort",
+        "papers": 604,
+        "share_of_scanned": 0.015286495241951812,
+        "share_of_model_papers": 0.06458511548331908
       },
       {
         "key": "SpatialVLA",
-        "papers": 532,
-        "share_of_scanned": 0.014253563390847712,
-        "share_of_model_papers": 0.06329565734681737
+        "papers": 588,
+        "share_of_scanned": 0.01488155497064183,
+        "share_of_model_papers": 0.06287425149700598
       },
       {
         "key": "ECoT",
-        "papers": 468,
-        "share_of_scanned": 0.012538848997963776,
-        "share_of_model_papers": 0.05568114217727543
+        "papers": 506,
+        "share_of_scanned": 0.012806236080178173,
+        "share_of_model_papers": 0.054106073567151414
       },
       {
         "key": "CogACT",
-        "papers": 422,
-        "share_of_scanned": 0.011306398028078448,
-        "share_of_model_papers": 0.05020820939916716
-      },
-      {
-        "key": "TinyVLA",
-        "papers": 368,
-        "share_of_scanned": 0.009859607759082628,
-        "share_of_model_papers": 0.04378346222486615
-      },
-      {
-        "key": "ACT",
-        "papers": 315,
-        "share_of_scanned": 0.00843960990247562,
-        "share_of_model_papers": 0.037477691850089236
-      },
-      {
-        "key": "LAPA",
-        "papers": 306,
-        "share_of_scanned": 0.008198478190976315,
-        "share_of_model_papers": 0.036406900654372396
-      },
-      {
-        "key": "TraceVLA",
-        "papers": 305,
-        "share_of_scanned": 0.008171685778587503,
-        "share_of_model_papers": 0.0362879238548483
+        "papers": 448,
+        "share_of_scanned": 0.01133832759667949,
+        "share_of_model_papers": 0.04790419161676647
       },
       {
         "key": "X-VLA",
-        "papers": 305,
-        "share_of_scanned": 0.008171685778587503,
-        "share_of_model_papers": 0.0362879238548483
+        "papers": 407,
+        "share_of_scanned": 0.01030066815144766,
+        "share_of_model_papers": 0.04352010265183918
       },
       {
-        "key": "3D-VLA",
-        "papers": 271,
-        "share_of_scanned": 0.007260743757367913,
-        "share_of_model_papers": 0.03224271267102915
+        "key": "TinyVLA",
+        "papers": 386,
+        "share_of_scanned": 0.00976918404535331,
+        "share_of_model_papers": 0.04127459366980325
+      },
+      {
+        "key": "LAPA",
+        "papers": 354,
+        "share_of_scanned": 0.008959303502733346,
+        "share_of_model_papers": 0.03785286569717707
+      },
+      {
+        "key": "ACT",
+        "papers": 346,
+        "share_of_scanned": 0.008756833367078356,
+        "share_of_model_papers": 0.03699743370402053
+      },
+      {
+        "key": "TraceVLA",
+        "papers": 325,
+        "share_of_scanned": 0.008225349260984005,
+        "share_of_model_papers": 0.0347519247219846
       },
       {
         "key": "MolmoAct",
-        "papers": 252,
-        "share_of_scanned": 0.006751687921980495,
-        "share_of_model_papers": 0.029982153480071386
+        "papers": 324,
+        "share_of_scanned": 0.00820004049402713,
+        "share_of_model_papers": 0.034644995722840036
       },
       {
-        "key": "RoboBrain",
-        "papers": 218,
-        "share_of_scanned": 0.005840745900760905,
-        "share_of_model_papers": 0.025936942296252232
+        "key": "3D-VLA",
+        "papers": 292,
+        "share_of_scanned": 0.007390159951407168,
+        "share_of_model_papers": 0.03122326775021386
       },
       {
         "key": "InternVLA",
-        "papers": 213,
-        "share_of_scanned": 0.005706783838816847,
-        "share_of_model_papers": 0.025342058298631766
+        "papers": 274,
+        "share_of_scanned": 0.0069346021461834375,
+        "share_of_model_papers": 0.029298545765611635
+      },
+      {
+        "key": "RoboBrain",
+        "papers": 233,
+        "share_of_scanned": 0.00589694270095161,
+        "share_of_model_papers": 0.024914456800684347
       },
       {
         "key": "RoboFlamingo",
-        "papers": 167,
-        "share_of_scanned": 0.004474332868931519,
-        "share_of_model_papers": 0.019869125520523497
+        "papers": 174,
+        "share_of_scanned": 0.004403725450496052,
+        "share_of_model_papers": 0.018605645851154835
       },
       {
         "key": "GR-3",
-        "papers": 132,
-        "share_of_scanned": 0.0035365984353231167,
-        "share_of_model_papers": 0.01570493753718025
+        "papers": 134,
+        "share_of_scanned": 0.0033913747722210973,
+        "share_of_model_papers": 0.014328485885372113
       },
       {
         "key": "HPT",
-        "papers": 107,
-        "share_of_scanned": 0.0028667881256028292,
-        "share_of_model_papers": 0.01273051754907793
-      },
-      {
-        "key": "VC-1",
-        "papers": 101,
-        "share_of_scanned": 0.0027060336512699603,
-        "share_of_model_papers": 0.012016656751933374
-      },
-      {
-        "key": "LingBot",
-        "papers": 78,
-        "share_of_scanned": 0.002089808166327296,
-        "share_of_model_papers": 0.009280190362879238
+        "papers": 118,
+        "share_of_scanned": 0.0029864345009111156,
+        "share_of_model_papers": 0.012617621899059024
       },
       {
         "key": "Xiaomi-Robotics",
-        "papers": 70,
-        "share_of_scanned": 0.0018754688672168042,
-        "share_of_model_papers": 0.008328375966686495
+        "papers": 117,
+        "share_of_scanned": 0.0029611257339542418,
+        "share_of_model_papers": 0.012510692899914458
+      },
+      {
+        "key": "LingBot",
+        "papers": 108,
+        "share_of_scanned": 0.002733346831342377,
+        "share_of_model_papers": 0.011548331907613344
+      },
+      {
+        "key": "VC-1",
+        "papers": 104,
+        "share_of_scanned": 0.0026321117635148814,
+        "share_of_model_papers": 0.011120615911035072
       },
       {
         "key": "Qwen-VLA",
-        "papers": 54,
-        "share_of_scanned": 0.0014467902689958203,
-        "share_of_model_papers": 0.006424747174301011
+        "papers": 73,
+        "share_of_scanned": 0.001847539987851792,
+        "share_of_model_papers": 0.007805816937553465
       },
       {
         "key": "FAST",
-        "papers": 31,
-        "share_of_scanned": 0.0008305647840531562,
-        "share_of_model_papers": 0.003688280785246877
+        "papers": 33,
+        "share_of_scanned": 0.0008351893095768374,
+        "share_of_model_papers": 0.0035286569717707444
       },
       {
         "key": "Helix",
         "papers": 2,
-        "share_of_scanned": 5.3584824777622976e-05,
-        "share_of_model_papers": 0.0002379535990481856
+        "share_of_scanned": 5.061753391374772e-05,
+        "share_of_model_papers": 0.000213857998289136
       }
     ],
     "country": [
       {
         "key": "usa",
-        "papers": 8269,
-        "share_of_scanned": 0.2215464580430822,
-        "share_of_model_papers": 0.9838191552647234
+        "papers": 9200,
+        "share_of_scanned": 0.23284065600323953,
+        "share_of_model_papers": 0.9837467921300257
       },
       {
         "key": "china",
-        "papers": 2328,
-        "share_of_scanned": 0.06237273604115315,
-        "share_of_model_papers": 0.27697798929208806
+        "papers": 2644,
+        "share_of_scanned": 0.06691637983397448,
+        "share_of_model_papers": 0.2827202737382378
       },
       {
         "key": "uk",
-        "papers": 646,
-        "share_of_scanned": 0.01730789840317222,
-        "share_of_model_papers": 0.07685901249256395
+        "papers": 678,
+        "share_of_scanned": 0.017159343996760477,
+        "share_of_model_papers": 0.07249786142001712
       },
       {
         "key": "france",
-        "papers": 546,
-        "share_of_scanned": 0.014628657164291074,
-        "share_of_model_papers": 0.06496133254015467
+        "papers": 644,
+        "share_of_scanned": 0.016298845920226766,
+        "share_of_model_papers": 0.0688622754491018
       }
     ],
     "company": [
       {
         "key": "Google DeepMind",
-        "papers": 4482,
-        "share_of_scanned": 0.1200835923266531,
-        "share_of_model_papers": 0.5332540154669839
+        "papers": 4950,
+        "share_of_scanned": 0.1252783964365256,
+        "share_of_model_papers": 0.5292985457656116
       },
       {
         "key": "Columbia / Toyota Research Institute",
-        "papers": 4037,
-        "share_of_scanned": 0.10816096881363198,
-        "share_of_model_papers": 0.48030933967876266
+        "papers": 4510,
+        "share_of_scanned": 0.11414253897550111,
+        "share_of_model_papers": 0.4822497861420017
       },
       {
         "key": "Physical Intelligence",
-        "papers": 3719,
-        "share_of_scanned": 0.09964098167398992,
-        "share_of_model_papers": 0.44247471743010114
+        "papers": 4360,
+        "share_of_scanned": 0.11034622393197004,
+        "share_of_model_papers": 0.4662104362703165
       },
       {
         "key": "Stanford / RAIL",
-        "papers": 2986,
-        "share_of_scanned": 0.08000214339299111,
-        "share_of_model_papers": 0.3552647233789411
+        "papers": 3440,
+        "share_of_scanned": 0.08706215833164609,
+        "share_of_model_papers": 0.3678357570573139
       },
       {
         "key": "Google",
-        "papers": 1610,
-        "share_of_scanned": 0.043135783945986494,
-        "share_of_model_papers": 0.19155264723378942
-      },
-      {
-        "key": "UC Berkeley",
-        "papers": 1424,
-        "share_of_scanned": 0.03815239524166756,
-        "share_of_model_papers": 0.16942296252230815
+        "papers": 1743,
+        "share_of_scanned": 0.04411318080583114,
+        "share_of_model_papers": 0.18637724550898205
       },
       {
         "key": "NVIDIA",
-        "papers": 1383,
-        "share_of_scanned": 0.03705390633372629,
-        "share_of_model_papers": 0.16454491374182034
+        "papers": 1659,
+        "share_of_scanned": 0.04198724438145374,
+        "share_of_model_papers": 0.17739520958083832
+      },
+      {
+        "key": "UC Berkeley",
+        "papers": 1565,
+        "share_of_scanned": 0.039608220287507594,
+        "share_of_model_papers": 0.16734388366124894
       },
       {
         "key": "Shanghai AI Lab",
-        "papers": 859,
-        "share_of_scanned": 0.02301468224198907,
-        "share_of_model_papers": 0.10220107079119571
+        "papers": 1032,
+        "share_of_scanned": 0.026118647499493823,
+        "share_of_model_papers": 0.11035072711719418
       },
       {
         "key": "Tsinghua",
-        "papers": 835,
-        "share_of_scanned": 0.022371664344657594,
-        "share_of_model_papers": 0.09934562760261749
+        "papers": 929,
+        "share_of_scanned": 0.02351184450293582,
+        "share_of_model_papers": 0.09933704020530368
       },
       {
         "key": "Shanghai Jiao Tong University",
-        "papers": 777,
-        "share_of_scanned": 0.020817704426106528,
-        "share_of_model_papers": 0.0924449732302201
+        "papers": 837,
+        "share_of_scanned": 0.02118343794290342,
+        "share_of_model_papers": 0.08949957228400342
       },
       {
         "key": "Meta",
-        "papers": 776,
-        "share_of_scanned": 0.020790912013717716,
-        "share_of_model_papers": 0.09232599643069601
+        "papers": 822,
+        "share_of_scanned": 0.020803806438550315,
+        "share_of_model_papers": 0.0878956372968349
       },
       {
         "key": "Imperial College London",
-        "papers": 646,
-        "share_of_scanned": 0.01730789840317222,
-        "share_of_model_papers": 0.07685901249256395
+        "papers": 678,
+        "share_of_scanned": 0.017159343996760477,
+        "share_of_model_papers": 0.07249786142001712
       },
       {
         "key": "Stanford",
-        "papers": 615,
-        "share_of_scanned": 0.016477333619119065,
-        "share_of_model_papers": 0.07317073170731707
-      },
-      {
-        "key": "University of Washington",
-        "papers": 589,
-        "share_of_scanned": 0.015780730897009966,
-        "share_of_model_papers": 0.07007733491969066
+        "papers": 666,
+        "share_of_scanned": 0.01685563879327799,
+        "share_of_model_papers": 0.0712147134302823
       },
       {
         "key": "Hugging Face",
-        "papers": 546,
-        "share_of_scanned": 0.014628657164291074,
-        "share_of_model_papers": 0.06496133254015467
+        "papers": 644,
+        "share_of_scanned": 0.016298845920226766,
+        "share_of_model_papers": 0.0688622754491018
+      },
+      {
+        "key": "University of Washington",
+        "papers": 604,
+        "share_of_scanned": 0.015286495241951812,
+        "share_of_model_papers": 0.06458511548331908
       },
       {
         "key": "Microsoft Research Asia",
-        "papers": 422,
-        "share_of_scanned": 0.011306398028078448,
-        "share_of_model_papers": 0.05020820939916716
+        "papers": 448,
+        "share_of_scanned": 0.01133832759667949,
+        "share_of_model_papers": 0.04790419161676647
       },
       {
         "key": "Midea",
-        "papers": 368,
-        "share_of_scanned": 0.009859607759082628,
-        "share_of_model_papers": 0.04378346222486615
+        "papers": 386,
+        "share_of_scanned": 0.00976918404535331,
+        "share_of_model_papers": 0.04127459366980325
       },
       {
         "key": "KAIST / Microsoft",
-        "papers": 306,
-        "share_of_scanned": 0.008198478190976315,
-        "share_of_model_papers": 0.036406900654372396
-      },
-      {
-        "key": "UMass / MIT-IBM",
-        "papers": 271,
-        "share_of_scanned": 0.007260743757367913,
-        "share_of_model_papers": 0.03224271267102915
+        "papers": 354,
+        "share_of_scanned": 0.008959303502733346,
+        "share_of_model_papers": 0.03785286569717707
       },
       {
         "key": "Allen Institute for AI",
-        "papers": 252,
-        "share_of_scanned": 0.006751687921980495,
-        "share_of_model_papers": 0.029982153480071386
+        "papers": 324,
+        "share_of_scanned": 0.00820004049402713,
+        "share_of_model_papers": 0.034644995722840036
+      },
+      {
+        "key": "UMass / MIT-IBM",
+        "papers": 292,
+        "share_of_scanned": 0.007390159951407168,
+        "share_of_model_papers": 0.03122326775021386
       },
       {
         "key": "Beijing Academy of AI",
-        "papers": 218,
-        "share_of_scanned": 0.005840745900760905,
-        "share_of_model_papers": 0.025936942296252232
+        "papers": 233,
+        "share_of_scanned": 0.00589694270095161,
+        "share_of_model_papers": 0.024914456800684347
       },
       {
         "key": "ByteDance Research",
-        "papers": 167,
-        "share_of_scanned": 0.004474332868931519,
-        "share_of_model_papers": 0.019869125520523497
+        "papers": 174,
+        "share_of_scanned": 0.004403725450496052,
+        "share_of_model_papers": 0.018605645851154835
       },
       {
         "key": "ByteDance",
-        "papers": 132,
-        "share_of_scanned": 0.0035365984353231167,
-        "share_of_model_papers": 0.01570493753718025
+        "papers": 134,
+        "share_of_scanned": 0.0033913747722210973,
+        "share_of_model_papers": 0.014328485885372113
       },
       {
         "key": "MIT",
-        "papers": 107,
-        "share_of_scanned": 0.0028667881256028292,
-        "share_of_model_papers": 0.01273051754907793
-      },
-      {
-        "key": "Ant Group",
-        "papers": 78,
-        "share_of_scanned": 0.002089808166327296,
-        "share_of_model_papers": 0.009280190362879238
+        "papers": 118,
+        "share_of_scanned": 0.0029864345009111156,
+        "share_of_model_papers": 0.012617621899059024
       },
       {
         "key": "Xiaomi",
-        "papers": 70,
-        "share_of_scanned": 0.0018754688672168042,
-        "share_of_model_papers": 0.008328375966686495
+        "papers": 117,
+        "share_of_scanned": 0.0029611257339542418,
+        "share_of_model_papers": 0.012510692899914458
+      },
+      {
+        "key": "Ant Group",
+        "papers": 108,
+        "share_of_scanned": 0.002733346831342377,
+        "share_of_model_papers": 0.011548331907613344
       },
       {
         "key": "Alibaba",
-        "papers": 54,
-        "share_of_scanned": 0.0014467902689958203,
-        "share_of_model_papers": 0.006424747174301011
+        "papers": 73,
+        "share_of_scanned": 0.001847539987851792,
+        "share_of_model_papers": 0.007805816937553465
       },
       {
         "key": "Figure",
         "papers": 2,
-        "share_of_scanned": 5.3584824777622976e-05,
-        "share_of_model_papers": 0.0002379535990481856
+        "share_of_scanned": 5.061753391374772e-05,
+        "share_of_model_papers": 0.000213857998289136
       }
     ]
   },
