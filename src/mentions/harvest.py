@@ -204,40 +204,6 @@ def harvest(max_pages: int | None = None, month: str | None = None) -> None:
     print(f"wrote {len(seen)} records", flush=True)
 
 
-def harvest_since(start_date: str, end_date: str) -> list[dict]:
-    """One date window, for the daily job. start/end are YYYYMMDDHHMM."""
-    query = f"cat:cs.RO AND submittedDate:[{start_date} TO {end_date}]"
-    start = 0
-    page = 100
-    found: list[dict] = []
-    total = None
-    while True:
-        url = "https://export.arxiv.org/api/query?" + urllib.parse.urlencode({
-            "search_query": query,
-            "start": start,
-            "max_results": page,
-            "sortBy": "submittedDate",
-            "sortOrder": "ascending",
-        })
-        root = ET.fromstring(fetch(url))
-        if total is None:
-            total_node = root.find("opensearch:totalResults", NS)
-            total = int(total_node.text) if total_node is not None else 0
-            print(f"daily window total {total}", flush=True)
-        entries = root.findall("a:entry", NS)
-        if not entries:
-            break
-        for entry in entries:
-            row = parse_entry(entry)
-            if "cs.RO" in row["categories"]:
-                found.append(row)
-        start += len(entries)
-        if start >= (total or 0):
-            break
-        time.sleep(3.0)
-    return found
-
-
 def main() -> None:
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)

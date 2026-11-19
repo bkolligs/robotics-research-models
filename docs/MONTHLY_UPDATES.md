@@ -6,7 +6,6 @@ It harvests current metadata, resumes the persistent Modal pipeline, downloads
 the validated database, rebuilds the mention analysis, commits the yearly
 corpus and aggregate outputs, and dispatches the Pages workflow.
 
-The daily workflow is manual only; its 14-day guard remains unchanged.
 The monthly workflow does not rerun the separate LLM-assisted architecture,
 LLM, or evaluation surveys. Those exports retain their existing coverage.
 arXiv's bulk snapshot can lag publication, so the latest month may be incomplete.

@@ -18,9 +18,9 @@ uv run mentions-serve
 
 `mentions-pipeline` is the historical backfill. It scans the arXiv bulk PDF,
 bibliography included. `pdftotext` must be on `PATH`, and AWS credentials
-must be able to read `s3://arxiv` as the requester. `mentions-daily` only
-appends papers newer than the latest corpus row. Do not point the daily job
-at the full harvest, and do not fall back to title and abstract.
+must be able to read `s3://arxiv` as the requester. Scheduled updates use
+`.github/workflows/monthly.yml` and the persistent Modal pipeline. Do not fall
+back to title and abstract.
 
 ## Data
 
@@ -35,9 +35,8 @@ the harvest cursor, `data/papers.sqlite`, `site/data/`, or `.venv/`. A paper
 whose PDF did not extract is `failed` and is not part of the scanned
 denominator.
 
-The daily job refuses to backfill a gap longer than 14 days. Leave that
-guard in place. It does not rescan history. A taxonomy or alias change needs
-a local pipeline rerun before old counts change.
+A taxonomy or alias change needs a local pipeline rerun to validate revised
+counts before publication. The monthly pipeline reuses unchanged cached scans.
 
 ## Matching
 
@@ -59,5 +58,5 @@ Verify a site change by requesting the local server, not by a screenshot.
 
 Use Conventional Commits: `feat:`, `fix:`, `docs:`, `build:`, `ci:`, `chore:`,
 `test:`, `refactor:`. The remote is SSH. Do not force-push `main` unless the
-user asks to rewrite history. The daily workflow commits as
+user asks to rewrite history. The monthly workflow commits as
 `chore: update cs.RO mention corpus`.

@@ -3,7 +3,7 @@
 Locally this reads the in-progress scan (data/hits.jsonl joined to
 data/records.jsonl) so the server shows the latest papers. In GitHub
 Actions, SITE_SOURCE=corpus reads data/corpus/*.jsonl, which is the
-committed record the daily job appends.
+committed corpus.
 
 The HTML is static. It fetches site/data/summary.json and
 site/data/papers.json with relative paths, so the same build works on

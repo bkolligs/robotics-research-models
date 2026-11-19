@@ -16,7 +16,7 @@ permissions:
   actions: write
 
 concurrency:
-  group: daily-corpus
+  group: monthly-corpus
   cancel-in-progress: false
 
 jobs:
@@ -25,14 +25,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 350
     env:
-      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
-      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
       MENTIONS_MODAL_VOLUME: ${{ inputs.test_month && format('robotics-research-test-{0}', github.run_id) || 'robotics-research-papers' }}
       MENTIONS_MODAL_APP: robotics-research-monthly
     steps:
       - uses: actions/checkout@v4
       - name: Check authentication configuration
         env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
           AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
         run: |
           test -n "$MODAL_TOKEN_ID" || { echo "Missing MODAL_TOKEN_ID secret"; exit 1; }
@@ -60,8 +60,14 @@ jobs:
             uv run --no-sync mentions-harvest
           fi
       - name: Update full-text corpus on Modal
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
         run: uv run --no-sync modal run scripts/modal_pipeline.py --workers 10
       - name: Download validated database
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
         run: uv run --no-sync modal volume get "$MENTIONS_MODAL_VOLUME" papers.sqlite data/analysis-papers.sqlite
       - name: Rebuild mention trends and site
         run: |

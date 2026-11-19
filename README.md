@@ -43,18 +43,14 @@ summary somewhere else. Stop the command and run it again to resume. A
 paper with no readable PDF is recorded as failed and stays out of the
 scanned rate.
 
-The daily job is separate. It appends new papers and does not rebuild
-this cache.
-
 The committed paper record is JSONL, one paper per line, split by year.
 SQLite is generated for queries and is not committed. A single YAML file
-and a committed database are both hard to review at this size: the daily
+and a committed database are both hard to review at this size: the update
 diff would be either an 80 MB rewrite or one opaque binary blob.
 
-`.github/workflows/daily.yml` runs at 12:30 UTC. It appends `cs.RO` papers
-submitted since the latest corpus row, with a 3-day overlap so a missed run
-is recovered, and commits `data/corpus/` plus `output/summary.json`. It does
-not rescan history. A taxonomy change applies to papers added after it.
+`.github/workflows/monthly.yml` runs on the first of each month at 12:30 UTC.
+It refreshes metadata, resumes full-text processing on Modal, and commits the
+corpus and analysis before publishing Pages. See [Monthly updates](docs/MONTHLY_UPDATES.md).
 
 ## Site
 
@@ -127,11 +123,10 @@ The downloader reads tar headers with S3 byte-range requests, then transfers onl
 the cs.RO PDF payloads. Full archives are not downloaded. Parsing and export
 checkpoint during the run. Failed papers stay out of the corpus and all scanned rates.
 Changed matching rules invalidate successful scan results on a historical rerun.
-The daily job's 14-day backfill guard remains unchanged.
 
 ## Selective downloads and reruns
 
-Both the historical pipeline and daily job now use selective S3 ranges. The
+Both the local and Modal pipelines use selective S3 ranges. The
 standalone local script is:
 
 ```bash

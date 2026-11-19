@@ -99,8 +99,8 @@ stays in the extracted text, so a citation counts.
 A paper with no PDF in the current bulk snapshot, or whose extract is
 shorter than a paper body, is `failed`. It stays in the discovered total
 and is dropped from the scanned denominator. Title and abstract are not
-used as a fallback. The daily job leaves such a paper unwritten so the
-next run can retry it once the bulk snapshot includes it. The caller pays
+used as a fallback. The pipeline retries failed papers on later runs once
+the bulk snapshot includes them. The caller pays
 the S3 transfer. AWS credentials are the standard chain.
 
 ## What this reimplementation cannot copy exactly
@@ -123,13 +123,11 @@ a change to one paper is one changed line.
 `data/papers.sqlite` is generated from those files by `uv run mentions-export`
 for local queries. It is gitignored. Rebuild it rather than committing it.
 
-The daily job (`uv run mentions-daily`, scheduled in `.github/workflows/daily.yml`)
-appends papers whose first submission is newer than the latest corpus row.
-It looks back three days so a missed run is recovered on the next one.
-Papers already in the corpus are not rewritten. That keeps the git history
-a log of new papers, and it means a later alias fix does not silently
-change old counts. Re-run the full pipeline locally when the taxonomy
-itself changes:
+The monthly workflow (`.github/workflows/monthly.yml`) refreshes metadata and
+resumes the Modal full-text pipeline using persistent PDF and extraction caches.
+It rebuilds the corpus and analysis from the consolidated database. Changed
+matching rules invalidate cached matches on a pipeline rerun. Validate taxonomy
+changes with a local pipeline rerun before publishing revised counts:
 
 ```bash
 MENTIONS_DATA=/var/lib/mentions uv run mentions-pipeline

@@ -12,7 +12,6 @@ charts = ["matplotlib>=3"]
 [project.scripts]
 mentions-harvest = "mentions.harvest:main"
 mentions-scan = "mentions.scan:main"
-mentions-daily = "mentions.daily:main"
 mentions-export = "mentions.export_corpus:main"
 mentions-site = "mentions.build_site:main"
 mentions-serve = "mentions.serve:main"

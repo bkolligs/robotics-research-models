@@ -7,8 +7,7 @@ requester-pays bulk bucket, extracts the full text including the
 bibliography, matches model names, and writes the year-split corpus.
 A second run skips PDFs and hits already on disk.
 
-This is the historical backfill. The daily job only appends new papers
-and does not rebuild this cache. AWS credentials must be able to read
+This is the local historical backfill. AWS credentials must be able to read
 s3://arxiv with RequestPayer=requester. The caller pays the transfer.
 """
 
